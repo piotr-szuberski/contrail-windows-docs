@@ -16,7 +16,7 @@ trigger mechanism - code that depends on Zuul or other Jenkins trigger plugins
 * `ZUUL_BRANCH=master`
 * `ZUUL_REF=None`
 * `ZUUL_URL=http://10.84.12.75/merge-warrior`
-* `ZUUL_UUID=$someRandomUUID`
+* `ZUUL_UUID= (some random UUID - it will determine path on the logserver)`
 * `ZUUL_CHANGE= (can be left empty)`
 * `ZUUL_PATCHSET= (can be left empty)`
 4. Verify that it passes
