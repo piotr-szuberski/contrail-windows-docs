@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Container creation lifecycle - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Container creation lifecycle";
+    var mkdocs_page_input_path = "windows_compute/Container_creation_lifecycle.md";
+    var mkdocs_page_url = "/windows_compute/Container_creation_lifecycle/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../continuous_deployment/Merge_development_to_production/" class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Continuous deployment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../style_guides/C/">C</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Communication_Agent_Extension/">Communication Agent Extension</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Container creation lifecycle</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Docker_on_Windows/">Docker on Windows</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Linux_Overview/">Linux Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../continuous_deployment/Merge_development_to_production/">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../continuous_deployment/Merge_development_to_production/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Windows compute &raquo;</li>
+        
+      
+    
+    <li>Container creation lifecycle</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <ol>
+<li>Docker client tells docker daemon to run a container and attach it to a Docker network (that corresponds to a chunk of a Contrail subnet).</li>
+<li>Docker deamon delegates the network configuration of the container that is being created to the remote docker driver.</li>
+<li>Docker driver queries docker daemon about metadata associated with docker's network resource and receives Contrail tenant name and subnet CIDR.</li>
+<li>Docker driver performs a series of queries against Contrail Controller that create various Contrail resources, most notably: virtual-machine, virtual-machine-interface, instance-ip.</li>
+<li>Docker driver receives Instance IP, MAC and default gateway to configure the newly created container's interface with. It also receives UUID of virtual-machine-interface resource</li>
+<li>Docker driver knows all the information necessary to recreate HNS Network's name. It uses this name to identify which HNS network to attach the container to. Docker driver sends requests to HNS to configure endpoint with newly received IP, MAC and Default gateway.</li>
+<li>In the background, HNS creates the network compartment for the container and configures its interface.</li>
+<li>The moment the interface is created, the Forwarding Extension receives an event about new adapter being connected. </li>
+<li>Forwarding Extension doesn't know what to do with it yet, so it stores it in a hash map, where the key is adapters FriendlyName. Then it waits, dropping all packets except the ones sent from native Hyper-V driver.</li>
+<li>Meanwhile, if container creation was successful, HNS returns ID of the endpoint to docker driver.</li>
+<li>Docker driver sends "add port" request to vRouter Agent, with all the necessary information to identify the port both in Contrail terms (UUID of virtual-machine-interface) as well as in Windows terms (using Endpoint ID, which is a part of FriendlyName).</li>
+<li>vRouter Agent communicates with Contrail Controller to let it know about newly added port.</li>
+<li>vRouter Agent inserts basic rules and flows into the Forwarding Extension. </li>
+<li>Forwarding Extension uses the FriendlyName to determine which port seen in userspace corresponds to port waiting in Forwarding Extension's hash map.</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Docker_on_Windows/" class="btn btn-neutral float-right" title="Docker on Windows">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Communication_Agent_Extension/" class="btn btn-neutral" title="Communication Agent Extension"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Communication_Agent_Extension/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Docker_on_Windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

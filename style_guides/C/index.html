@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>C - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "C";
+    var mkdocs_page_input_path = "style_guides/C.md";
+    var mkdocs_page_url = "/style_guides/C/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../continuous_deployment/Merge_development_to_production/" class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Continuous deployment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">C</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#general">General</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#styling">Styling</a></li>
+        
+            <li><a class="toctree-l4" href="#files">Files</a></li>
+        
+            <li><a class="toctree-l4" href="#naming">Naming</a></li>
+        
+            <li><a class="toctree-l4" href="#types">Types</a></li>
+        
+            <li><a class="toctree-l4" href="#other-points">Other points</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../continuous_deployment/Merge_development_to_production/">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../continuous_deployment/Merge_development_to_production/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Style guides &raquo;</li>
+        
+      
+    
+    <li>C</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>We try to maintain the same coding style as the rest of vRouter wherever we can, but still use conventions used by Windows Driver Kit wherever applicable (regarding variable names, P convention instead of * for specifying pointers to native Windows structures).</p>
+<p>Below every rule, there is an example illustrating it with a code sample.</p>
+<h1 id="general">General</h1>
+<h2 id="styling">Styling</h2>
+<ul>
+<li>Use spaces, not tabs.</li>
+<li>One indentation level is 4 spaces</li>
+<li>Every line should end with a newline character ('\n')</li>
+<li>Newlines commited into the remote repository should be Unix-like (newline character), avoid Windows-like newlines (carriage return; newline)</li>
+<li>Avoid magic numbers, unless there is a very good reason.</li>
+<li>Use define directives instead.</li>
+<li>Statements with blocks (if, while, for, do...) should have the opening bracket in the same line</li>
+<li>Statements with only one line instead of a whole block can skip brackets if it improves readability</li>
+<li>Statements if/else should not skip brackets unless it can be done for both if, else and all eventual else ifs</li>
+</ul>
+<pre><code>if (condition)
+    do_something();
+else
+    do_nothing();
+
+
+if (condition) {
+    do_something();
+} else {
+    i+= 1;
+    do_nothing();
+}
+
+
+do {
+    ASSERT(FALSE);
+    nobody_uses_this_feature();
+} while(condition);
+</code></pre>
+
+<ul>
+<li>If, for, while and similar statements should not be too long. This means, for example creating variables for parts of statement being checked</li>
+</ul>
+<pre><code>BOOLEAN usable = (value &gt;= MIN_VALUE &amp;&amp; value &lt;= MAX_VALUE);
+BOOLEAN safe = (state == STABLE);
+if (usable &amp;&amp; safe)
+    do_something();
+</code></pre>
+
+<h2 id="files">Files</h2>
+<ul>
+<li>Files in 'windows' directory are free to modify and do not have to be platform portable (they have to be Windows-compatible)</li>
+<li>Other files need to be platform independant. This may be done in #ifdef manner, but more elegant solutions are preferable</li>
+<li>For example callbacks</li>
+<li>Function names should be:
+vr_filename.c or vr_filename.h
+** Please note vrouter_mod.c is an exception to this</li>
+<li>Files should be in directory:
+<strong> windows for Windows source files (.c extension)
+</strong> include for header files (.h extension)
+*<em> dp-core for multiplatform source files (we don't forsee creating any)
+</em>For header files, use guards to make sure there is no problem if they are included two or more times.</li>
+</ul>
+<pre><code>#ifndef __VR_DEFS_H__
+#define __VR_DEFS_H__
+// Some code
+#endif
+</code></pre>
+
+<ul>
+<li>Use #ifdef, not #pragma once for guards</li>
+</ul>
+<h2 id="naming">Naming</h2>
+<h3 id="functions">Functions</h3>
+<ul>
+<li>Name functions in snake case, names starting with vr_ or win_. Please note functions in vrouter_mod.c ATM don't follow this rule because of SxLibrary requirements. This will be changed when we get rid of it.
+vr_reinject_packet</li>
+<li>vr_ variant should be used for multiplatform functions</li>
+<li>win_ variant should be used for Windows-specific functions.</li>
+<li>When defining function, place the type in one line and the rest of it in another line.</li>
+</ul>
+<pre><code>unsigned int
+vr_reinject_packet(struct vr_packet *pkt, struct vr_forwarding_md *fmd)
+</code></pre>
+
+<ul>
+<li>When declaring functions, use the extern keyword and write everything in one line.</li>
+</ul>
+<pre><code>extern unsigned int vr_some_function();
+</code></pre>
+
+<ul>
+<li>It is preferential but not required to declare which parameters of a function are constant.</li>
+</ul>
+<pre><code>int
+vr_function(const char* address)
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+<ul>
+<li>We avoid constant literal variables. Instead, one should avoid magic numbers using #define directive. Const structs are OK.</li>
+</ul>
+<pre><code>#define MAX_SIZE 32
+</code></pre>
+
+<ul>
+<li>Global variables can be used whenever necessary, especially when the function being implemented will be called by some pre-existing dp-core code without supplying required arguments. However, it is preferential to avoid them. Static variables are lesser evil. Please check if a global variable can be replaced with a static one</li>
+<li>Variables should be named using snake case.</li>
+</ul>
+<pre><code>LARGE_INTEGER current_gmt_time;
+</code></pre>
+
+<ul>
+<li>It is preferential but not required to declare constant variables as such</li>
+</ul>
+<pre><code>const unsigned int num_of_tries = input + 5;
+</code></pre>
+
+<ul>
+<li>If a value is known to be always positive, one should use unsigned variable. Same for bitfields.</li>
+</ul>
+<pre><code>unsigned int i = 5;
+</code></pre>
+
+<ul>
+<li>Variables should be initialized before reading them.</li>
+</ul>
+<h2 id="types">Types</h2>
+<ul>
+<li>Existing types should be used as-is</li>
+</ul>
+<pre><code>PNET_BUFFER_LIST nbl;
+</code></pre>
+
+<ul>
+<li>New types and types declared by us should use snake case and begin with vr_.</li>
+</ul>
+<pre><code>struct vr_struct {};
+</code></pre>
+
+<ul>
+<li>Do not typedef function, use struct as a part of the name</li>
+</ul>
+<pre><code>struct vr_router* router = vrouter_get(0);
+</code></pre>
+
+<h3 id="comments">Comments</h3>
+<ul>
+<li>Both block and line comments are allowed</li>
+</ul>
+<pre><code>int i = pointer-&gt;field; // Pointer cannot be null
+
+/* TODO: Fix this */
+</code></pre>
+
+<ul>
+<li>Non-obvious logic should be commented</li>
+<li>Do not leave commented out code unless there is a very good reason.</li>
+<li>Platform-specific code</li>
+<li>Use #ifdefs to specify code that should be compiled on only selected platforms</li>
+</ul>
+<pre><code>#ifdef __KERNEL__
+</code></pre>
+
+<ul>
+<li>Prefer #ifdef to #if defined unless more specific statement checking if required.</li>
+</ul>
+<pre><code>#if defined(_WINDOWS) || defined(__FreeBSD__)
+</code></pre>
+
+<ul>
+<li>Do not use compiler or linker specific features in code if they would break compatibility with other tools. For example, most #pragma statements.</li>
+</ul>
+<pre><code>#ifdef _WINDOWS
+#pragma warning(disable : 4018) // Disable warning about signed/unsigned mismatch
+#endif
+</code></pre>
+
+<ul>
+<li>Try not to modify existing dp-core code if possible, otherwise modify it:</li>
+<li>Preferential: Creating additional callbacks (can be NULL or empty functions on Linux/FreeBSD)</li>
+</ul>
+<h3 id="using-ifdefs">Using #ifdefs</h3>
+<ul>
+<li>Try not to use os, compiler or linker specific features if possible</li>
+<li>If there is already some code implemented using them, consider reimplementing a native Linux function using Windows libraries. This function should only be compiled on Windows as Linux-like systems will provide their own implementation. Either of these two options will work</li>
+<li>Write it in a file that will only be included on Windows</li>
+</ul>
+<pre><code>#ifdef the implementation
+If the body of a function will be completely different on Linux and Windows, write one function header and footer and #ifdef the rest of the body
+void print(const char* a)
+{
+#ifdef _WINDOWS
+DbgPrint(a);
+#else
+printf(a);
+#endif
+}
+</code></pre>
+
+<ul>
+<li>Windows-specific code should be properely ASSERTed. Use this function or ASSERTMSG to check your assumptions</li>
+</ul>
+<h2 id="other-points">Other points</h2>
+<ul>
+<li>If a possible data-race condition arises, find the smallest critical section and wrap it into a mutex, semaphore or a RW lock.</li>
+<li>Functions should return:
+<strong> In Windows-specific code: NDIS_STATUS and all effects via pointers unless the function cannot fail
+</strong> In multiplatform code: regular return value if functions succeeds and -errno if the function fails</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Cpp/" class="btn btn-neutral float-right" title="Cpp">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/" class="btn btn-neutral" title="Run gerrit pipeline on github PR"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Cpp/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

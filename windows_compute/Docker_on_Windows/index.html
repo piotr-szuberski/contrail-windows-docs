@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Docker - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Docker";
+    var mkdocs_page_input_path = "windows_compute/Docker_on_Windows.md";
+    var mkdocs_page_url = "/windows_compute/Docker_on_Windows/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../continuous_deployment/Merge_development_to_production/" class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Continuous deployment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../style_guides/C/">C</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Communication_Agent_Extension/">Communication Agent Extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Container_creation_lifecycle/">Container creation lifecycle</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Docker</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#docker">Docker</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#docker-client">Docker client</a></li>
+        
+            <li><a class="toctree-l4" href="#docker-daemon">Docker daemon</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#host-compute-service-hcs-host-network-service-hns">Host compute service (HCS) &amp; host network service (HNS)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#host-compute-service">Host compute service</a></li>
+        
+            <li><a class="toctree-l4" href="#host-network-service">Host network service</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#windows-containers">Windows Containers</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Linux_Overview/">Linux Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../continuous_deployment/Merge_development_to_production/">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../continuous_deployment/Merge_development_to_production/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Windows compute &raquo;</li>
+        
+      
+    
+    <li>Docker</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="docker">Docker</h1>
+<p>Docker is a popular tools for managing containers on Linux.</p>
+<p>Since Windows Server 2016, docker is the main tool used for managing Windows Containers.</p>
+<h2 id="docker-client">Docker client</h2>
+<p>Docker command line tool, which communicates with Docker Daemon over a named pipe.</p>
+<h2 id="docker-daemon">Docker daemon</h2>
+<p>A program that runs as a service. It exposes an API over a named pipe. It's responsible for managing containers, from parsing Dockerfiles and pulling layers to basic networking.</p>
+<p>Docker is cross-platform and is integrated into many different network orchestration systems. This is achieved thanks to its plugin architecture. One can implement all kinds of plugins for docker, for example for volume or network management. These plugins can either be integrated into docker's code directly, or can be implemented as Remote drivers. The advantage of Remote drivers is that one doesn't have to build the whole Docker if she wants to implement a driver. Remote drivers on Windows can use tcp sockets or named pipes for communication. In either case, docker daemon will look for a "spec file" in a specific path: $Env:ProgramData\docker\plugins. The name of the spec file must be the same as driver's name. The file itself contains a protocol and address on which docker daemon will try to initiate communication.</p>
+<p>Since docker is written in Go, Microsoft engineers had to expose an API for managing Windows Containers written in this language. </p>
+<h1 id="host-compute-service-hcs-host-network-service-hns">Host compute service (HCS) &amp; host network service (HNS)</h1>
+<p>Golang wrapper for HCS and HNS is implemented in a public hcsshim repository: www.github.com/Microsoft/hcsshim. HCS and HNS are Windows Services responsible for light container virtualization as well as setting up virtual networking for them. They are implemented in some system dynamic libraries, which interact with the kernel directly. How it works isn't documented.</p>
+<h2 id="host-compute-service">Host compute service</h2>
+<p>Deals with volumes, filesystem layers etc. It's related to HNS, but it's not inside scope of the project directly.</p>
+<h2 id="host-network-service">Host network service</h2>
+<p>HNS is a wrapper for syscalling functions in vmcompute.dll. Only one file in the whole hcsshim repository is used by HNS - 'hnsfuncs.go'.</p>
+<h1 id="windows-containers">Windows Containers</h1>
+<p>Windows Containers are a feature shipped with Windows Server 2016, Windows 10 and Windows Nano Server. These act similarly to lxc containers. On Windows, they are implemented using various namespaces, as well as network namespace equivalent (called network compartment).</p>
+<p>Network compartments are not documented, but vmcompute.dll contains some functions related to how they work.
+Unlike on Linux, Windows supports two types/levels of isolation for its containers:
+<em> Windows Server containers, which work just like normal Linux containers - they all share the kernel
+</em> Hyper-V containers. These are essentialy small VMs (running Nano Server), that run Windows Containers which then run the container we wanted. This additional level of virtualization is useful mostly for security reasons. It provides some pros and cons of both containers and VMs. To run a container in this mode, one needs to add "--isolation-level=hyperv" to "docker run" command.</p>
+<p>There are no differences on how networking is implemented for both of these types of containers.</p>
+<p>There are two base images for docker container creation:</p>
+<ul>
+<li>microsoft/windowsservercore which is headless version of normal Windows Server Core</li>
+<li>microsoft/nanoserver which is very lightweight, stripped of most functionality version of Windows Server Core</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Forwarding_extension/" class="btn btn-neutral float-right" title="Forwarding extension">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Container_creation_lifecycle/" class="btn btn-neutral" title="Container creation lifecycle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Container_creation_lifecycle/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Forwarding_extension/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

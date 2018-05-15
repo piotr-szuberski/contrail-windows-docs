@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+        
+    <url>
+     <loc>/continuous_deployment/Merge_development_to_production/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/continuous_deployment/Run_gerrit_pipeline_on_github_PR/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/style_guides/C/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/style_guides/Cpp/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/style_guides/Go/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/windows_compute/Communication_Agent_Extension/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/Container_creation_lifecycle/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/Docker_on_Windows/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/Forwarding_extension/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/HyperV_extensible_switch/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/Linux_Overview/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/Network_creation_lifecycle/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/Root_HNS_network/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/Utility_tools/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/_Blueprint/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/windows_compute/vRouter_Linux_implementation/</loc>
+     <lastmod>2018-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>

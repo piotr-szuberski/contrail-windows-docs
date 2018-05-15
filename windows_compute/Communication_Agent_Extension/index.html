@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Communication Agent Extension - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Communication Agent Extension";
+    var mkdocs_page_input_path = "windows_compute/Communication_Agent_Extension.md";
+    var mkdocs_page_url = "/windows_compute/Communication_Agent_Extension/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../continuous_deployment/Merge_development_to_production/" class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Continuous deployment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../style_guides/C/">C</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Communication Agent Extension</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ksync">Ksync</a></li>
+    
+
+    <li class="toctree-l3"><a href="#flow">Flow</a></li>
+    
+
+    <li class="toctree-l3"><a href="#pkt0">pkt0</a></li>
+    
+
+    <li class="toctree-l3"><a href="#sandesh">Sandesh</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Container_creation_lifecycle/">Container creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Docker_on_Windows/">Docker on Windows</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Linux_Overview/">Linux Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../continuous_deployment/Merge_development_to_production/">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../continuous_deployment/Merge_development_to_production/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Windows compute &raquo;</li>
+        
+      
+    
+    <li>Communication Agent Extension</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>There are three ways in which vRouter Agent exchanges information with the Forwarding Extension, which mimics their Linux behaviour.</p>
+<h3 id="ksync">Ksync</h3>
+<p>This communication channel is used for inserting forwarding rules into the Forwarding Extension, like routes and next hops.</p>
+<p>On Linux, Netlink sockets are used for this. Equivalent Windows mechanism is a Named Pipe.</p>
+<p>Only vRouter Agent and other userspace programs can initialize the communiation. Howerver, different programs (for example, Agent and utils) may talk via ksync at the same time, so process separation (session layer) is required.</p>
+<p>This communication is performed over a binary protocol called Sandesh (the same one which is used by Contrail Analytics Nodes).</p>
+<h2 id="flow">Flow</h2>
+<p>All flows are inserted into the Forwarding Extension using shared memory mechanism. Shared memory is allocated inside Forwarding Extension, and is written to by Agent. Only Agent may allocate flows inside the shared memory. Forwarding Extension may modify the shared memory contents, but it never directly communicates with vRouter Agent using it or creates new flows - it mostly updates flow statistics.</p>
+<p>Only Agent and "flow" util need access to shared memory from userspace.</p>
+<p>Since kernel memory is mapped into userspace, so the team ensured that the implementation is secure.</p>
+<h2 id="pkt0">pkt0</h2>
+<p>This channel is asynchronous - both vRouter Agent and Forwarding Extension can send packets through it at arbitrary times.</p>
+<p>When a "new" packet arrives at Forwarding Extension (for example, ARP or DHCP request), it will transfer it using pkt0 to vRouter Agent. vRouter Agent will then analyze the packet (possibly sending it to Contrail Controller for even more analysis), and insert ksync rules or flows into the Forwarding Extension. Then, it re-injects the packet into the Forwarding Extension. </p>
+<p>Pkt0 is implemented on Linux using a traditional networking interface, of AF_PACKET family. On Windows, this is done using a named pipe. The reason for this is that Windows implementation of Berkeley sockets does not allow any manipulation of any layer below IP.</p>
+<p>Named pipe server is created by the Forwarding Extension.</p>
+<h1 id="sandesh">Sandesh</h1>
+<p>Sandesh is a binary protocol based on Apache Thrift. It's a set of header files to be included in projects that use it, but also a code generation tool. Sandesh uses own Interface Definition Language to generate code in many different languages, like Java, C, Python and Golang. Generated code consists of definitions of data structures and getter/setter functions.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Container_creation_lifecycle/" class="btn btn-neutral float-right" title="Container creation lifecycle">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../style_guides/Go/" class="btn btn-neutral" title="Go"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../style_guides/Go/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Container_creation_lifecycle/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

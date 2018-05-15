@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Contrail Controller - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Contrail Controller";
+    var mkdocs_page_input_path = "windows_compute/Linux_Overview.md";
+    var mkdocs_page_url = "/windows_compute/Linux_Overview/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../continuous_deployment/Merge_development_to_production/" class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Continuous deployment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../style_guides/C/">C</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Communication_Agent_Extension/">Communication Agent Extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Container_creation_lifecycle/">Container creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Docker_on_Windows/">Docker</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Contrail Controller</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#contrail-controller">Contrail Controller</a></li>
+    
+
+    <li class="toctree-l3"><a href="#compute-node">Compute Node</a></li>
+    
+
+    <li class="toctree-l3"><a href="#vrouter-agent">vRouter Agent</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../continuous_deployment/Merge_development_to_production/">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../continuous_deployment/Merge_development_to_production/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Windows compute &raquo;</li>
+        
+      
+    
+    <li>Contrail Controller</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="contrail-controller">Contrail Controller</h1>
+<p>Contrail Controller is a logical component. In fact, it's a distributed system consisting of many nodes, most importantly:</p>
+<ul>
+<li>Config nodes. These nodes expose a REST API used by various applications to configure Contrail resources. Contrail's web client communicates with it, and so does Docker Network Driver. Config information is eventually propagated to Control nodes.</li>
+<li>Control nodes, responsible for interacting with vRouter Agent via XMPP protocol. These interactions include inserting forwarding rules and flows and sending packets for further analysis.</li>
+<li>Analytics nodes, which collect high volume information using Sandesh binary protocol.</li>
+</ul>
+<p>vRouter Agent mainly interacts with Control and Analytics nodes, while Docker network driver interacts with Config nodes. </p>
+<h1 id="compute-node">Compute Node</h1>
+<p>Compute Node is a Contrail component. It's a hypervisor that is able to spawn VMs or containers. Every compute node must have an instance of vRouter Agent running.</p>
+<p>Windows Server 2016 and Nano Server are new versions of Microsoft's OS, that can act both as Hyper-V hypervisor as well as Windows Containers host.</p>
+<p>Nano Server running as Compute Node is currently not supported, due to lacking the capability of installing Hyper-V networking extensions.</p>
+<h1 id="vrouter-agent">vRouter Agent</h1>
+<p>Note: The team sometimes refers to vRouter Agent simply as "vRouter", "Agent" or "vRA".</p>
+<p>vRouter Agent is a Contrail agent that runs in userspace on a compute node. It has many functions. Most importantly:</p>
+<ul>
+<li>it communicates with Contrail Controller via XMPP protocol. Controller will inject rules and flows into the agent so that it enacts it's routing policies and implements network virtualization,
+exposes an API for the hypervisor, that is used for registering newly created virtual machines or containers. This * is most notably used in Contrail-OpenStack integration, where Nova-Agent informs vRouter Agent whenever a new VM is spawned. On Windows, the API is exposed over a named pipe.</li>
+<li>communicates with the Forwarding Extension (three communication channels in total). Since vRouter Agent is a control plane component, it must inject all low level information like next hops, virtual interface information, routes and flows into the datapath component (the Forwarding Extension).</li>
+<li>sometimes forwards packets from Forwarding Extension to Contrail Controller</li>
+<li>sometimes injects packets sent from Contrail Controller into the Forwarding Extension</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Network_creation_lifecycle/" class="btn btn-neutral float-right" title="Network creation lifecycle">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../HyperV_extensible_switch/" class="btn btn-neutral" title="HyperV extensible switch"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../HyperV_extensible_switch/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Network_creation_lifecycle/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
