@@ -1,6 +1,11 @@
 {
     "docs": [
         {
+            "location": "/",
+            "text": "Tungsten Fabric for Windows documentation",
+            "title": "Home"
+        },
+        {
             "location": "/continuous_deployment/Merge_development_to_production/",
             "text": "Merge development to production\n\n\nThis document describes the steps required to perform a merge from \ndevelopment\n to \nproduction\n in Contrail Windows CI.\n\n\nPre-merge check\n\n\nRun production pipeline on \ndevelopment\n branch\n\n\n\n\nPreferably freeze \n$commitId\n of \ndevelopment\n branch\n\n\nClone \nwinci-server2016-prod\n to \nwinci-prod-test\n\n\nChange \nwinci-prod-test\n configuration\n\n\nProperties content: \nBRANCH_NAME=$commitId\n\n\nBranches to build: \n$commitId\n\n\n\n\n\n\nRun \nwinci-prod-test\n\n\nParameters:\n\n\nZUUL_PROJECT=Juniper/contrail-controller\n\n\nZUUL_BRANCH=master\n\n\nZUUL_REF=None\n\n\nZUUL_URL=http://10.84.12.75/merge-warrior\n\n\nZUUL_UUID=$someRandomUUID\n\n\nZUUL_CHANGE=\n (can be left empty)\n\n\nZUUL_PATCHSET=\n (can be left empty)\n\n\n\n\n\n\n\n\n\n\n\n\nMerge development to production\n\n\n\n\n\n\nUpdate production branch (following git operations require administrative privileges on GitHub)\n\n\nbash\ngit fetch --all --prune\ngit checkout development\ngit pull\ngit checkout production\ngit merge development\ngit push\n\n\n\n\n\n\nUpdate Zuul configuration\n\n\n```bash\nlocalhost $ ssh winci-mgmt\nwinci-mgmt $ cd ~/ji/juniper-contrail-windows-ci\nwinci-mgmt $ git checkout production\nwinci-mgmt $ git pull\nwinci-mgmt $ git log\n\n\napply patch to ansible/roles/zuul/defaults/main.yml with production url/key/user\n\n\n- gerrit_server\n\n\n- gerrit_user\n\n\n- gerrit_keyname\n\n\nwinci-mgmt $ cd ansible\nwinci-mgmt $ ansible-playbook -i ~/ji/ansible.hosts play.yml --vault-password-file ~/.ansible-vault\n```\n\n\n\n\n\n\nZuul update playbook\n\n\n---\n- hosts: zuul\n  remote_user: ciadmin\n  become: yes\n  roles:\n  - zuul\n\n\n\n\nPost checks\n\n\n\n\nCheck Zuul services\n\n\nzuul-merger\n\n\nzuul-server\n\n\n\n\n\n\nTrigger Zuul job\n\n\nCreate a dummy PR on Gerrit\n\n\nPost \nrecheck windows\n on some existing PR\n\n\n\n\n\n\n\n\nFuture considerations\n\n\n\n\nSlave VM templates creation and promotion\n\n\nBuilder/tester deployment",
             "title": "Merge development to production"
