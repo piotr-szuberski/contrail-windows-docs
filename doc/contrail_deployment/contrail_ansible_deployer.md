@@ -2,7 +2,7 @@
 
 ## Environment
 
-![alt text](environment.png)
+![alt text](Environment.png)
 
 ## Playbooks
 
