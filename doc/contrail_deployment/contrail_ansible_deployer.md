@@ -1,14 +1,14 @@
-# A few words about contrail deployment
+# A few words about contrail deployment in Windows CI
 
 ## Environment
 
-![alt text](Environment.png)
+![Windows CI Environment](Environment.png)
 
 ## Playbooks
 
 * provision_instances.yml - creates server instances (e.g. on AWS) not used in Contrail Windows CI
 * configure_instances.yml - installs dependencies installs and starts docker
-* install_contrail.yml - installs Contrail installs orchestrator (optional)
+* install_contrail.yml - installs Contrail and installs orchestrator (optional)
 
 ## Configuration
 
@@ -34,15 +34,15 @@
 
 * CentOS 7.4 (kernel >= 3.10.0-693.17.1)
 * Two interfaces:
-* Control Plane
-* Data Plane
+  * Control Plane
+  * Data Plane
 * IP address is required on every interface - can be static
 * More information:
   * https://github.com/Juniper/contrail-ansible-deployer#prerequisites
 
 ## Windows-CI
 
-![alt text](Windows-CI.png)
+![Controller Deployment Flow](ControllerDeployment.png)
 
 ## Troubleshooting
 
