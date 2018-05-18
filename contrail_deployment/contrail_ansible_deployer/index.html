@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Utility tools - Tungsten Fabric for Windows Documentation</title>
+  <title>A few words about contrail deployment in Windows CI - Tungsten Fabric for Windows Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -20,9 +20,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Utility tools";
-    var mkdocs_page_input_path = "windows_compute/Utility_tools.md";
-    var mkdocs_page_url = "/windows_compute/Utility_tools/";
+    var mkdocs_page_name = "A few words about contrail deployment in Windows CI";
+    var mkdocs_page_input_path = "contrail_deployment/contrail_ansible_deployer.md";
+    var mkdocs_page_url = "/contrail_deployment/contrail_ansible_deployer/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -74,9 +74,35 @@
 		
     <span class="caption-text">Contrail deployment</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../contrail_deployment/contrail_ansible_deployer/">A few words about contrail deployment in Windows CI</a>
+    <a class="current" href="./">A few words about contrail deployment in Windows CI</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#a-few-words-about-contrail-deployment-in-windows-ci">A few words about contrail deployment in Windows CI</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#environment">Environment</a></li>
+        
+            <li><a class="toctree-l4" href="#playbooks">Playbooks</a></li>
+        
+            <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#kolla">Kolla</a></li>
+        
+            <li><a class="toctree-l4" href="#base-image">Base image</a></li>
+        
+            <li><a class="toctree-l4" href="#windows-ci">Windows-CI</a></li>
+        
+            <li><a class="toctree-l4" href="#troubleshooting">Troubleshooting</a></li>
+        
+            <li><a class="toctree-l4" href="#zuul-v3">Zuul V3</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -106,56 +132,47 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../Communication_Agent_Extension/">Communication Agent Extension</a>
+    <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Container_creation_lifecycle/">Container creation lifecycle</a>
+    <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Docker_on_Windows/">Docker</a>
+    <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Forwarding_extension/">Forwarding extension</a>
+    <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../HyperV_extensible_switch/">HyperV extensible switch</a>
+    <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Linux_Overview/">Contrail Controller</a>
+    <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Network_creation_lifecycle/">Network creation lifecycle</a>
+    <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Root_HNS_network/">Root HNS network</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Utility tools</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#basic-utils">Basic utils</a></li>
-    
-
-    <li class="toctree-l3"><a href="#extended-utils">Extended utils</a></li>
-    
-
-    </ul>
+    <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../_Blueprint/"> Blueprint</a>
+    <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../vRouter_Linux_implementation/">vRouter Linux implementation</a>
+    <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
                 </li>
     </ul>
 	    </li>
@@ -182,11 +199,11 @@
     
       
         
-          <li>Windows compute &raquo;</li>
+          <li>Contrail deployment &raquo;</li>
         
       
     
-    <li>Utility tools</li>
+    <li>A few words about contrail deployment in Windows CI</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -196,29 +213,61 @@
           <div role="main">
             <div class="section">
               
-                <p>A set of utility tools (sometimes referred to simply as "Utils") useful for manually injecting rules into the datapath or for introspect and debugging. They communicate directly with the Forwarding Extension. There are split into two categories:</p>
-<h3 id="basic-utils">Basic utils</h3>
-<p>These are used for basic vRouter introspection, but also for manual insertion of own rules and objects into the Forwarding Extension.</p>
+                <h1 id="a-few-words-about-contrail-deployment-in-windows-ci">A few words about contrail deployment in Windows CI</h1>
+<h2 id="environment">Environment</h2>
+<p><img alt="Windows CI Environment" src="../Environment.png" /></p>
+<h2 id="playbooks">Playbooks</h2>
 <ul>
-<li>vif - used for showing and creating virtual interfaces</li>
-<li>nh - used for showing and creating next hops</li>
-<li>rt - used for showing and creating routes</li>
-<li>flow - used for showing flows</li>
+<li>provision_instances.yml - creates server instances (e.g. on AWS) not used in Contrail Windows CI</li>
+<li>configure_instances.yml - installs dependencies installs and starts docker</li>
+<li>install_contrail.yml - installs Contrail and installs orchestrator (optional)</li>
 </ul>
-<p>The fifth "basic util" is a test util. Since kernel drivers are hard to test without moving them into userspace, Juniper decided to implement a tool that simulates normal usage.</p>
+<h2 id="configuration">Configuration</h2>
 <ul>
-<li>vtest - runs playback tests against the Forwarding Extension</li>
+<li>Orchestrators:</li>
+<li>None</li>
+<li>OpenStack</li>
+<li>VCenter</li>
+<li>Contrail version and kolla version:</li>
+<li>ocata-master-91 and ocata</li>
+<li>Docker registry</li>
+<li>ci-repo.englab.juniper.net or <a href="https://hub.docker.com/u/opencontrailnightly/">opencontrailnigthly</a></li>
+<li>Interfaces</li>
+<li>Example <a href="https://github.com/Juniper/contrail-ansible-deployer/blob/master/config/">config</a></li>
+<li>Windows-CI <a href="https://github.com/Juniper/contrail-windows-ci/blob/development/ansible/roles/contrail-ansible-deployer/templates/instances.j2">config</a></li>
 </ul>
-<h3 id="extended-utils">Extended utils</h3>
-<p>These are mainly used for statistics and advanced debugging.</p>
+<h2 id="kolla">Kolla</h2>
 <ul>
-<li>vxlan</li>
-<li>vrmemstats</li>
-<li>vrfstats</li>
-<li>qosmap</li>
-<li>mpls</li>
-<li>dropstats</li>
-<li>mirror</li>
+<li>Kolla == production-ready containers and deployment tools for operating OpenStack</li>
+<li>contrail-ansible-deployer internally clones Juniper/contrail-kolla-ansible (branch: contrail/ocata)</li>
+<li>Bugs which may affect us can be introduced in contrail-ansible-deployer as well as in contrail-kolla-ansible</li>
+</ul>
+<h2 id="base-image">Base image</h2>
+<ul>
+<li>CentOS 7.4 (kernel &gt;= 3.10.0-693.17.1)</li>
+<li>Two interfaces:</li>
+<li>Control Plane</li>
+<li>Data Plane</li>
+<li>IP address is required on every interface - can be static</li>
+<li>More information:</li>
+<li>https://github.com/Juniper/contrail-ansible-deployer#prerequisites</li>
+</ul>
+<h2 id="windows-ci">Windows-CI</h2>
+<p><img alt="Controller Deployment Flow" src="../ControllerDeployment.png" /></p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li>Try to run playbook locally from laptop</li>
+<li>Try to look for similar issue on contra-cloud.slack channel: contrail-ansible</li>
+<li>Check recent commits in contrail-ansible-deployer and contrail-kolla-deployer</li>
+<li>Ask our devops team</li>
+<li>Ask on slack channel</li>
+</ul>
+<h2 id="zuul-v3">Zuul V3</h2>
+<ul>
+<li>Controller image from pull request</li>
+<li>Correct version of contrail-ansible-deployer</li>
+<li>Correct version of contrail-kolla-deployer</li>
+<li>Enable voting on contrail-ansible-deployer and contrail-kolla-deployer</li>
 </ul>
               
             </div>
@@ -227,10 +276,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../_Blueprint/" class="btn btn-neutral float-right" title=" Blueprint">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../style_guides/C/" class="btn btn-neutral float-right" title="C">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Root_HNS_network/" class="btn btn-neutral" title="Root HNS network"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/" class="btn btn-neutral" title="Run gerrit pipeline on github PR"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -256,10 +305,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Root_HNS_network/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../continuous_deployment/Run_gerrit_pipeline_on_github_PR/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../_Blueprint/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../style_guides/C/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
