@@ -1,7 +1,7 @@
-# HNS errors
+# HNS errors bestiary
 
-HNS error messages ofter aren't descriptive enough. Here are error messages the team encountered
-in different contexts, and their meaning.
+HNS error messages ofter aren't descriptive enough. 
+Here are error messages the team encountered in different contexts, and their meaning.
 
 ## 1. HNS Unspecified Error
 
