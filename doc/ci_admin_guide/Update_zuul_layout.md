@@ -9,9 +9,9 @@ This config file must be updated when:
 
 For now, update process has 2 steps:
 1. Commit updated `layout.yaml` file to specific Windows CI git repository.
-2. Reload Zuul service.
+2. Reload Zuul configuration.
 
-### 1. Updating Zuul's `layout.yaml` file
+### 1. Commit updated `layout.yaml` file to specific Windows CI git repository.
 
 1. Clone `github.com/Juniper/contrail-windows-ci` repository.
 ```
@@ -36,7 +36,7 @@ git diff
 7. Wait for CI checks to pass.
 8. Add one of Windows team members as reviewers.
 
-### 2. Reloading Zuul configuration
+### 2. Reload Zuul configuration.
 
 1. SSH to the machine that runs the zuul daemon.
 ```
@@ -46,7 +46,7 @@ localhost $ ssh winci-mgmt
 2. Checkout newest version of `development` branch of `github.com/Juniper/contrail-windows-ci`.
 ```
 winci-mgmt $ cd ~/ji/juniper-contrail-windows-ci
-winci-mgmt $ git checkout production
+winci-mgmt $ git checkout development
 winci-mgmt $ git pull
 ```
 
