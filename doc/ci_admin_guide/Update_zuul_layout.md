@@ -38,9 +38,9 @@ git diff
 
 ### 2. Reload Zuul configuration.
 
-1. SSH to the machine that runs the zuul daemon.
+1. SSH to the `winci-mgmt` machine using provided credentials.
 ```
-localhost $ ssh winci-mgmt
+localhost $ ssh SOME_USER@10.84.12.25
 ```
 
 2. Checkout newest version of `development` branch of `github.com/Juniper/contrail-windows-ci`.
