@@ -30,10 +30,11 @@ git diff
 # verify what changed
 ```
 
-4. Commit the changes.
-5. Open a PR to `development` branch of `github.com/Juniper/contrail-windows-ci`.
-6. Wait for CI checks to pass.
-7. Add one of Windows team members as reviewers.
+4. (Optional) Make any "manual" changes to `ansible/roles/zuul/files/layout.yaml` file. Do not modify automatically generated lines.
+5. Commit the changes.
+6. Open a PR to `development` branch of `github.com/Juniper/contrail-windows-ci`.
+7. Wait for CI checks to pass.
+8. Add one of Windows team members as reviewers.
 
 ### 2. Reloading Zuul configuration
 
