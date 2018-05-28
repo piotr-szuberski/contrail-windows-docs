@@ -44,10 +44,6 @@ Run production pipeline on `development` branch
     winci-mgmt $ git checkout production
     winci-mgmt $ git pull
     winci-mgmt $ git log
-    # apply patch to ansible/roles/zuul/defaults/main.yml with production url/key/user
-    # - gerrit_server
-    # - gerrit_user
-    # - gerrit_keyname
     winci-mgmt $ cd ansible
     winci-mgmt $ ansible-playbook -i ~/ji/ansible.hosts play.yml --vault-password-file ~/.ansible-vault
     ```
