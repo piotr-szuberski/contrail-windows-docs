@@ -13,7 +13,7 @@ from. Below are some techniques which may help.
 Always try cleaning using the lowest level procedure. The higher the level, the more 
 potential damage the cleanup can cause.
 
-### Level 1 decontamination procedure
+### Level Alpha decontamination procedure
 
 1. First, stop the docker service.
 ```
@@ -32,9 +32,7 @@ Restart-Service hns
 Restart-Service docker
 ```
 
-### Level 2 decontamination procedure
-
-
+### Level Beta decontamination procedure
 
 1. Remove all container networks. Always do this because some vmswitches may not be removed properly if you just execute the next command.
 ```
@@ -51,13 +49,13 @@ del C:\programdata\Microsoft\Windows\HNS\HNS.data;
 net start hns;
 ```
 
-### Level 3 decontamination procedure
+### Level Gamma decontamination procedure
 
 Use official Microsoft script to cleanup. It will also cleanup some registry entries and do much more.
 
 https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/CleanupContainerHostNetworking
 
-### Level 4 decontamination procedure
+### Level [REDACTED] decontamination procedure
 
 All hope is lost; all we can do is hope that the contamination won't spread to other hosts.
 
