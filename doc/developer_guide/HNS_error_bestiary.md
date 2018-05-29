@@ -98,7 +98,7 @@ TODO
 
 ### Natural habitat:
 
-1. When attempting to create a transparent docker network
+1. [Hypothesis] When attempting to create a transparent docker network
     * when no other transparent docker network exists and
     * Ethernet adapter to be used by the transparent networks has no IP address or it's invalid.
 
