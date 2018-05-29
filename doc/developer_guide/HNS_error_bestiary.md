@@ -57,7 +57,7 @@ https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-
 
 ### Level [REDACTED] decontamination procedure
 
-All hope is lost; all we can do is hope that the contamination won't spread to other hosts.
+Everything is lost. All we can do wipe all devices and hope that the contamination won't spread to other hosts.
 
 > Warning: this might BSOD.
 
