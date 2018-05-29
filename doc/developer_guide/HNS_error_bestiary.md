@@ -13,6 +13,10 @@ from. Below are some techniques which may help.
 Always try cleaning using the lowest level procedure. The higher the level, the more 
 potential damage the cleanup can cause.
 
+### A word of caution
+
+*Never* develop HNS on a baremetal or own laptop.
+
 ### Level Alpha decontamination procedure
 
 1. First, stop the docker service.
