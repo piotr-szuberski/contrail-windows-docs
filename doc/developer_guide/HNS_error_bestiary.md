@@ -78,11 +78,16 @@ The following chapter contains a list of HNS errors encountered throughout devel
 
 ### Natural habitat:
 
-TODO
+1.  When attempting to create a transparent HNS network
+    * when creation of another network or VMSwitch is already in progress
+      (eg. we've just started Docker service and it tries to create the NAT network).
+
+    We can work around this bug by retrying after a few seconds.
 
 ### Reproduction:
 
-TODO
+Try to create multiple HNS networks in a loop simultaneously with multiple processes.
+We suspect that this error occurs during a high load.
 
 ## 2. HNS Invalid Parameter
 
