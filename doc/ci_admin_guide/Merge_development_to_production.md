@@ -16,9 +16,9 @@ Run production pipeline on `development` branch
     - Parameters:
         - `ZUUL_PROJECT=Juniper/contrail-controller`
         - `ZUUL_BRANCH=master`
-        - `ZUUL_REF=None`
+        - `ZUUL_REF=None` (it should literally be `None`)
         - `ZUUL_URL=http://10.84.12.75/merge-warrior`
-        - `ZUUL_UUID=$someRandomUUID`
+        - `ZUUL_UUID=$someRandomUUID` (e.g. $commitId with the first 8 characters replaced by `deadbeef`)
         - `ZUUL_CHANGE=` (can be left empty)
         - `ZUUL_PATCHSET=` (can be left empty)
 
@@ -39,7 +39,7 @@ Run production pipeline on `development` branch
 2. Update Zuul configuration
 
     ```bash
-    localhost $ ssh winci-mgmt
+    localhost $ ssh winci-mgmt # with provided credentials; current address 10.84.12.25
     winci-mgmt $ cd ~/ji/juniper-contrail-windows-ci
     winci-mgmt $ git checkout production
     winci-mgmt $ git pull
@@ -63,9 +63,16 @@ Run production pipeline on `development` branch
 
 ## Post checks
 
-1. Check Zuul services
+1. Check Zuul services:
     - `zuul-merger`
     - `zuul-server`
+    
+    ```bash
+    localhost $ ssh winci-zuulv2-production # with provided credentials; current address 10.84.12.75
+    systemctl status zuul-merger.service # should be active (running)
+    systemctl status zuul-server.service # should be active (running)
+    ```
+
 2. Trigger Zuul job
     - Create a dummy PR on Gerrit
     - Post `recheck windows` on some existing PR
