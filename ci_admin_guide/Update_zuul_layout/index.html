@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HyperV extensible switch - Tungsten Fabric for Windows Documentation</title>
+  <title>Update zuul layout - Tungsten Fabric for Windows Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,7 +23,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "HyperV extensible switch";
+    var mkdocs_page_name = "Update zuul layout";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -95,81 +95,77 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Communication_Agent_Extension/">Communication Agent Extension</a>
+        <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Container_creation_lifecycle/">Container creation lifecycle</a>
+        <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Docker_on_Windows/">Docker on Windows</a>
+        <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Forwarding_extension/">Forwarding extension</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">HyperV extensible switch</a>
-        
-            <ul>
-            
-            </ul>
+        <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Linux_Overview/">Linux Overview</a>
+        <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Network_creation_lifecycle/">Network creation lifecycle</a>
+        <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Root_HNS_network/">Root HNS network</a>
+        <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Utility_tools/">Utility tools</a>
+        <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../_Blueprint/"> Blueprint</a>
+        <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../vRouter_Linux_implementation/">vRouter Linux implementation</a>
+        <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
         
     </li>
 
@@ -199,35 +195,46 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/List_of_VMs_in_Windows_CI/">List of VMs in Windows CI</a>
+        <a class="" href="../List_of_VMs_in_Windows_CI/">List of VMs in Windows CI</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
+        <a class="" href="../Merge_development_to_production/">Merge development to production</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+        <a class="" href="../Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Update_Zuul/">Update Zuul</a>
+        <a class="" href="../Update_Zuul/">Update Zuul</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Update_zuul_layout/">Update zuul layout</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Update zuul layout</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#update-zuul-layout">Update Zuul layout</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-commit-updated-layoutyaml-file-to-specific-windows-ci-git-repository">1. Commit updated layout.yaml file to specific Windows CI git repository.</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-reload-zuul-configuration">2. Reload Zuul configuration.</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -302,11 +309,11 @@
     
       
         
-          <li>Windows compute &raquo;</li>
+          <li>Ci admin guide &raquo;</li>
         
       
     
-    <li>HyperV extensible switch</li>
+    <li>Update zuul layout</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -316,22 +323,71 @@
           <div role="main">
             <div class="section">
               
-                <p>Windows Server 2012 introduced Hyper-V Extensible Switch. It’s a virtual switch that runs in OS running in Hyper-V’s parent partition. It’s mainly used for forwarding packets flowing in and out of child partitions (VMs and containers).</p>
-<p>Three types of switches can be instantiated:</p>
-<ul>
-<li>private - only interfaces connected to the vSwitch can communicate</li>
-<li>internal - like private, but the host (hypervisor) is also connected</li>
-<li>external - like internal, but external network adapter is also connected. Usually, this is the physical adapter. Multiple external switches may exist at any given time.</li>
-</ul>
-<p>Hyper-V Extensible Switch is "Extensible", which means it can be extended using third party extensions (plugins).</p>
-<p>Multiple extensions can be enabled at the same time. Hyper-V Switch's plugin architecture resembles a stack. The order in which ingress and egress packets will be processed by a specific extension depends on their position in the filter stack.</p>
-<p>There are three types of extensions:</p>
-<ul>
-<li>capture - which can inspect packets, and, for example, log them somewhere</li>
-<li>filter - like capture, but has the ability to drop packets</li>
-<li>forwarding - like filter, but has the ability to forward and modify the packets.</li>
-</ul>
-<p>Multiple instances of capture and filter extensions can be enabled in arbitrary locations in the extensions stack, but only one forwarding extension can be enabled at a time. It must be located at the bottom of the stack as well, which means that it is the last to process ingress packets, but the first to process egress packets.</p>
+                <h1 id="update-zuul-layout">Update Zuul layout</h1>
+<p>Zuul is a triggering mechanism for Windows CI. It listens for events sent by Gerrit.
+Some events make Zuul trigger specific Jenkins jobs. 
+Zuul knows which events on which projects should trigger which jobs thanks to a config file.
+This config file must be updated when:
+<em> one wants to add a project on Gerrit
+</em> one wants to change which jobs run on existing projects</p>
+<p>For now, update process has 2 steps:
+1. Commit updated <code>layout.yaml</code> file to specific Windows CI git repository.
+2. Reload Zuul configuration.</p>
+<h3 id="1-commit-updated-layoutyaml-file-to-specific-windows-ci-git-repository">1. Commit updated <code>layout.yaml</code> file to specific Windows CI git repository.</h3>
+<ol>
+<li>Clone <code>github.com/Juniper/contrail-windows-ci</code> repository.</li>
+</ol>
+<pre><code>git clone https://github.com/Juniper/contrail-windows-ci
+</code></pre>
+
+<ol>
+<li>Run <code>update-zuul-layout.py</code> script from <code>ansible</code> directory.</li>
+</ol>
+<pre><code>cd ansible
+python .\update-zuul-layout.py
+</code></pre>
+
+<ol>
+<li>Verify what changed in the <code>ansible/roles/zuul/files/layout.yaml</code> file:</li>
+</ol>
+<pre><code>git diff
+# verify what changed
+</code></pre>
+
+<ol>
+<li>(Optional) Make any "manual" changes to <code>ansible/roles/zuul/files/layout.yaml</code> file. Do not modify automatically generated lines.</li>
+<li>Commit the changes.</li>
+<li>Open a PR to <code>development</code> branch of <code>github.com/Juniper/contrail-windows-ci</code>.</li>
+<li>Wait for CI checks to pass.</li>
+<li>Add one of Windows team members as reviewers.</li>
+</ol>
+<h3 id="2-reload-zuul-configuration">2. Reload Zuul configuration.</h3>
+<ol>
+<li>SSH to the <code>winci-mgmt</code> machine using provided credentials.</li>
+</ol>
+<pre><code>localhost $ ssh SOME_USER@10.84.12.25
+</code></pre>
+
+<ol>
+<li>Checkout newest version of <code>development</code> branch of <code>github.com/Juniper/contrail-windows-ci</code>.</li>
+</ol>
+<pre><code>winci-mgmt $ cd ~/ji/juniper-contrail-windows-ci
+winci-mgmt $ git checkout development
+winci-mgmt $ git pull
+</code></pre>
+
+<ol>
+<li>Verify that commit with updated <code>layout.yaml</code> is present.</li>
+</ol>
+<pre><code>winci-mgmt $ git log
+</code></pre>
+
+<ol>
+<li>Run an ansible playbook that will update and reload Zuul daemon.</li>
+</ol>
+<pre><code>winci-mgmt $ cd ansible
+winci-mgmt $ ansible-playbook -i ~/ji/ansible.hosts play.yml --vault-password-file ~/.ansible-vault
+</code></pre>
               
             </div>
           </div>
@@ -339,10 +395,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Linux_Overview/" class="btn btn-neutral float-right" title="Linux Overview"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../developer_guide/HNS_error_bestiary/" class="btn btn-neutral float-right" title="HNS error bestiary"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Forwarding_extension/" class="btn btn-neutral" title="Forwarding extension"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Update_Zuul/" class="btn btn-neutral" title="Update Zuul"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -368,10 +424,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Forwarding_extension/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Update_Zuul/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Linux_Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../developer_guide/HNS_error_bestiary/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

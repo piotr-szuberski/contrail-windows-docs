@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dockerized builder using ansible - Tungsten Fabric for Windows Documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+  <link href="../../../highlight.css" rel="stylesheet">
+  <link href="../../../theme.css" rel="stylesheet">
+  <link href="../../../theme_extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dockerized builder using ansible";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Style guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../style_guides/C/">C</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../style_guides/Cpp/">Cpp</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../style_guides/Go/">Go</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Windows compute</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Forwarding_extension/">Forwarding extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Linux_Overview/">Linux Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Root_HNS_network/">Root HNS network</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/Utility_tools/">Utility tools</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/_Blueprint/"> Blueprint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Updating documentation</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Ci admin guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../ci_admin_guide/List_of_VMs_in_Windows_CI/">List of VMs in Windows CI</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../ci_admin_guide/Update_Zuul/">Update Zuul</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../ci_admin_guide/Update_zuul_layout/">Update zuul layout</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Developer guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../HNS_error_bestiary/">HNS error bestiary</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Building</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Dockerized builder using ansible</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#dockerized-builder-using-ansible">Dockerized builder using ansible</a></li>
+                
+                    <li><a class="toctree-l4" href="#windows">Windows</a></li>
+                
+                    <li><a class="toctree-l4" href="#docker">Docker</a></li>
+                
+                    <li><a class="toctree-l4" href="#ansible">Ansible</a></li>
+                
+                    <li><a class="toctree-l4" href="#container-components">Container components</a></li>
+                
+                    <li><a class="toctree-l4" href="#troubleshooting">Troubleshooting</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contrail deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../contrail_deployment/contrail_ansible_deployer/">Contrail ansible deployer</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Building &raquo;</li>
+        
+      
+    
+    <li>Dockerized builder using ansible</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dockerized-builder-using-ansible">Dockerized builder using ansible</h1>
+<p>This document describes what <em>would</em> be needed create
+a builder docker image (for building vrouter agent and extension)
+by reusing <a href="https://www.ansible.com/">ansible</a> scripts that are already used in
+the <a href="https://github.com/Juniper/contrail-windows-ci">contrail-windows-ci</a> repository to deploy builder machines.</p>
+<p>This method of building is not yet supported, but this document
+describes the steps needed to make it work. It also tries to
+list the potential obstacles.</p>
+<p>This document describes the process from the developer's point
+of view, but it could be adapted to running in CI too.</p>
+<h2 id="windows">Windows</h2>
+<p>Currently, this process is supported only for Windows machines.</p>
+<h2 id="docker">Docker</h2>
+<p>Install <a href="https://store.docker.com/editions/community/docker-ce-desktop-windows">Docker Community Edition for Windows</a>. Note that:</p>
+<ul>
+<li>You need to sign in / create to accout to download the installer.</li>
+<li>You need to choose windows containers (not linux) when installing.</li>
+</ul>
+<p>TODO: Is there another installation method?</p>
+<h2 id="ansible">Ansible</h2>
+<p>To execute ansible on Windows Docker containers you need to have:</p>
+<ol>
+<li>A container image prepared for connecting via ansible to.</li>
+<li>A (virtual) linux machine to run ansible.</li>
+<li>(Optionally) To troubleshoot remote connection to container,
+   you need to have the container IP in <a href="http://winintro.ru/windowspowershell2corehelp.en/html/f23b65e2-c608-485d-95f5-a8c20e00f1fc.htm">trusted hosts lists</a>.
+   Depending on the configuration of your system, this may require
+   changing the policy in your domain.</li>
+</ol>
+<h3 id="preparing-container-for-ansible">Preparing container for ansible</h3>
+<p>Notes:</p>
+<ul>
+<li>Perhaps there exists a ready container prepared for ansible?</li>
+<li>There exists an example script <a href="https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"><code>ConfigureRemotingForAnsible.ps1</code></a>.
+  Unfortunately, the <code>microsoft/windowsservercore</code> image does not have the firewall
+  service used by the script, so steps in this scripts need to be run manually.
+  This wasn't finished, and it needs some additional investigation.</li>
+</ul>
+<h3 id="machine-for-ansible">Machine for ansible</h3>
+<p>The preferred way to use ansible on windows machine is to use
+the Linux Subsystem on Windows. You can install <a href="https://www.microsoft.com/en-us/p/ubuntu-1804/9n9tngvndl3q">Ubuntu 18.04
+from the Windows Store</a>. (18.04 version is
+needed for the ansible 2.4 to be available. On the older
+version you can probably install ansible using pip)</p>
+<blockquote>
+<p>Note: Alternatively, you can install ansible and its dependencies also
+using <a href="https://github.com/Juniper/contrail-windows-ci/blob/development/ansible/python-requirements.txt">this python-requirements.txt file</a>
+from <a href="https://github.com/Juniper/contrail-windows-ci">contrail-windows-ci</a> repository with
+<code>pip install -r python-requirements.txt</code></p>
+</blockquote>
+<p>Install ansible &gt;= 2.4 using <code>apt</code>:</p>
+<pre><code class="bash">sudo apt install ansible
+</code></pre>
+
+<p>There are additional python packages that need to be installed
+to let ansible connect to Windows machine:</p>
+<pre><code class="bash">sudo apt install python-requests
+sudo apt install python-pip
+pip install pywinrm
+pip install requests-credssp
+</code></pre>
+
+<p>The <code>group_vars/windows</code> also need to be configured for windows:
+NOTE: <code>group_vars</code>, inventory and other scripts would be
+already prepared, so this step won't be needed for the end user.</p>
+<pre><code class="yaml">ansible_port: 5986
+ansible_connection: winrm
+ansible_winrm_transport: credssp
+ansible_winrm_server_cert_validation: ignore
+ansible_winrm_operation_timeout_sec: 60
+ansible_winrm_read_timeout_sec: 120
+ansible_user: Administrator@localhost
+ansible_password: 'hunter2'
+</code></pre>
+
+<h2 id="container-components">Container components</h2>
+<h3 id="build-tools-and-net">Build tools and .NET</h3>
+<p>Installation of .NET on <code>microsoft/windowsservercore</code> is not supported,
+but microsoft provides the <code>microsoft/dotnet-framework</code> image.</p>
+<p>TODO: Do we need to install multiple .NET versions? If not,
+this image would be sufficient.</p>
+<p>The build tools can be installed on the container following
+the instruction on <a href="https://docs.microsoft.com/en-us/visualstudio/install/build-tools-container">this page in microsoft docs</a>.
+Unfortunately, I haven't managed to finish it, due to some
+HCS errors. Perhaps it was related to insufficient disk
+space (before running the Dockerfile I had 50GB free space).
+Perhaps there is some other way of installing build tools,
+which I haven't tested.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>When encountering weird errors in <code>docker build</code>
+(the errors may come from HCS), it's probable that they're caused by:</p>
+<ul>
+<li>Insufficient available RAM/swap on the host machine.</li>
+<li>Insufficient RAM assigned to container.</li>
+<li>Insufficient disk space on the host machine.</li>
+<li>Insufficient disk space assigned to container.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../contrail_deployment/contrail_ansible_deployer/" class="btn btn-neutral float-right" title="Contrail ansible deployer"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../HNS_error_bestiary/" class="btn btn-neutral" title="HNS error bestiary"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../HNS_error_bestiary/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../../contrail_deployment/contrail_ansible_deployer/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

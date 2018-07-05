@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>List of VMs in Windows CI - Tungsten Fabric for Windows Documentation</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../highlight.css" rel="stylesheet">
+  <link href="../../theme.css" rel="stylesheet">
+  <link href="../../theme_extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "List of VMs in Windows CI";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Style guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../style_guides/C/">C</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../style_guides/Cpp/">Cpp</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../style_guides/Go/">Go</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Windows compute</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Updating documentation</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Ci admin guide</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">List of VMs in Windows CI</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#list-of-all-important-vms-in-windows-ci">List of all important VMs in Windows CI</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Merge_development_to_production/">Merge development to production</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Update_Zuul/">Update Zuul</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Update_zuul_layout/">Update zuul layout</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Developer guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS error bestiary</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Building</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../developer_guide/building/Dockerized_builder_using_ansible/">Dockerized builder using ansible</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contrail deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contrail_deployment/contrail_ansible_deployer/">Contrail ansible deployer</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Ci admin guide &raquo;</li>
+        
+      
+    
+    <li>List of VMs in Windows CI</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="list-of-all-important-vms-in-windows-ci">List of all important VMs in Windows CI</h1>
+<ol>
+<li>
+<p>VMware:</p>
+<ul>
+<li><code>ci-vc</code><ul>
+<li>vCenter Server on Windows</li>
+<li>Critical</li>
+<li><strong>REQUIRES BACKUP</strong></li>
+</ul>
+</li>
+<li><code>ci-vc-um</code><ul>
+<li>vCenter Update Manager</li>
+<li><strong>REQUIRES BACKUP</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Base OS templates:</p>
+<ul>
+<li><code>Windows</code> - Install OS (manually) + instruction (manually)<ul>
+<li>Preferrably: automate</li>
+</ul>
+</li>
+<li><code>CentOS</code> - Prepared manually, no instruction<ul>
+<li>TODO: Instruction with requirements</li>
+<li>Requirements:<ul>
+<li>root access SSH (password-based)</li>
+<li>2 NICs</li>
+<li>TODO: Verify if there are no more requirements</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Ubuntu</code> - No template, required to provision Ubuntu-based VMs<ul>
+<li>TODO: Instruction/automation</li>
+<li>Requirements:<ul>
+<li><code>ciadmin</code> user (SSH accessible, password-based)</li>
+<li><code>python3</code></li>
+<li>1 NIC</li>
+<li>TODO: Verify if there are no more requirements</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CI templates:</p>
+<ul>
+<li><code>builder</code> - Ansible, Jenkins job<ul>
+<li>Requires Windows template</li>
+</ul>
+</li>
+<li><code>tester</code> - Ansible, Jenkins job<ul>
+<li>Requires Windows template </li>
+</ul>
+</li>
+<li><code>testbed</code> - Ansible<ul>
+<li>Requires Windows template</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Infra:</p>
+<ul>
+<li><code>builders</code> - Ansible, Jenkins job</li>
+<li><code>testers</code> - Ansible, Jenkins job</li>
+<li><code>mgmt-dhcp</code> - Created manually, DHCP server + configuration (172.17.0.0/24)<ul>
+<li>impact if down:<ul>
+<li>will cause failure in all production CI jobs due to lack of dhcp for testbed machines</li>
+<li>will not affect demo-env, dev-env and other machines in public network</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>Automate deployment</li>
+<li>Before automation, backup</li>
+<li>VMware HA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-drive</code> - Created manually, network drive with (probably) temporary content<ul>
+<li>impact if down: <ul>
+<li>no impact on production CI</li>
+<li>degrades debuggability of CI (cannot upload or use ready artifacts)</li>
+<li>impacts ability to create builder templates</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>will need to recreate directory structure and copy contents from one of the builders</li>
+<li>this process is not documented to this degree of detail (no list of dependencies)</li>
+<li>Before automation, backup</li>
+<li>VMware HA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-graphite</code> - Created manually<ul>
+<li>impact if down:<ul>
+<li>no impact on production CI</li>
+<li>degrades CI monitoring</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>Automate VM provisioning</li>
+<li>Automate configuration and dashboard deployment</li>
+<li>Backup needed to preserve historical data</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-monitoring</code> - Created manually<ul>
+<li>impact if down:<ul>
+<li>TODO: does this affect production job (namely - post stage will fail, right?)</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>TODO</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-jenkins</code> - Created manually, plugins + configuration<ul>
+<li>impact if down:<ul>
+<li>ABSOLUTELY CRITICAL</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>BACKUP<ul>
+<li>job configuration</li>
+<li>job logs</li>
+<li>logs server ssh keys</li>
+<li>jenkins plugin list (initial version on contrail-windows-ci; need to check if works)</li>
+<li>credentials</li>
+</ul>
+</li>
+<li>Automate configuration</li>
+<li>VMware HA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-mgmt</code> - Created manually, Python requirements.txt have to be installed<ul>
+<li>impact if down:<ul>
+<li>ABSOLUTELY CRITICAL (cannot create testenvs)</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>Automate provisioning <ul>
+<li>Ubuntu configured for Ansible</li>
+<li>Ubuntu configured for Python tests</li>
+<li>Ubuntu configured for monitoring scripts</li>
+</ul>
+</li>
+<li>Backup<ul>
+<li>ansible-vault-key</li>
+<li>logs server ssh keys</li>
+<li>github deploy ssh key</li>
+</ul>
+</li>
+<li>VMware HA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-vyos-mgmt</code><ul>
+<li>impact if down:<ul>
+<li>ABSOLUTELY CRITICAL (cannot deploy contrail controllers)</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>Backup</li>
+<li>Document configuration</li>
+<li>VMware HA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-zuulv2-production</code> - Created manually with Ansible script<ul>
+<li>impact if down:<ul>
+<li>ABSOLUTELY CRITICAL (cannot run jobs)</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>Already automated<ul>
+<li>Create prod and dev inventories for Zuul</li>
+</ul>
+</li>
+<li>Backup:<ul>
+<li>gerrit ssh keys</li>
+<li>jenkins ssh keys</li>
+</ul>
+</li>
+<li>VMware HA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-purgatory</code> - Probably created manually? What is installed there?<ul>
+<li>impact if down:<ul>
+<li>ABSOLUTELY CRITICAL (cannot run jobs)</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>pending PR for automation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Hosts:</p>
+<ul>
+<li>esxi1-5<ul>
+<li>fix cost:<ul>
+<li>VMware HA on critical virtual machines</li>
+<li>backup konfiguracji</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SSD/SATA drivers<ul>
+<li>fix cost:<ul>
+<li>TODO: Determine if servers can into RAID</li>
+<li>Maintenance to configure RAID</li>
+<li>If not RAID, then shared storage for critical VMs is needed<ul>
+<li>Preferrably some storage array with RAID configured</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NICs<ul>
+<li>we lack redundancy in case of main NIC failure</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Backup:</p>
+<ul>
+<li>Additional storage space for backup, independent of VMware storage</li>
+<li>TODO: Backup method?</li>
+<li>TODO: Backup tool?</li>
+<li>TODO: Backup procedure?</li>
+<li>TODO: DR procedure for critical VMs?</li>
+<li>TODO: hardware monitoring?</li>
+</ul>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Merge_development_to_production/" class="btn btn-neutral float-right" title="Merge development to production"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../updating_documentation/How_to_update_this_documentation/" class="btn btn-neutral" title="How to update this documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../updating_documentation/How_to_update_this_documentation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Merge_development_to_production/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
