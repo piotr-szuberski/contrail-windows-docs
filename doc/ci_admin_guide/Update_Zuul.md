@@ -46,6 +46,17 @@ This procedure updates configuration using `development` branch from [contrail-w
     # ... omitted
     ```
 
+    **Example**
+
+    - Assume that [add contrail-infra-doc to gerrit (#212)](https://github.com/Juniper/contrail-windows-ci/pull/212) is a latest PR that was merged and this change has to be applied on Zuul
+    - Then output of `git log` should look like this:
+
+    ```
+    93c783b add contrail-infra-doc to gerrit (#212)
+    1f86f26 zuul: setup-zuul-server playbook; variables in prod inventory (#210)
+    # ... omitted
+    ```
+
 1.  Move to `ansible` directory
 
     ```bash
