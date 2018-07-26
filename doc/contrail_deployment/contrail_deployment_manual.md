@@ -26,4 +26,5 @@
     * Refer to `config/instances.yaml.bms_win_example` or `config/instances.yaml.bms_win_full_example` for an example
   * Proceed with running Ansible playbooks:
     * `sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml`
+    * `sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml`
     * `sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml`
