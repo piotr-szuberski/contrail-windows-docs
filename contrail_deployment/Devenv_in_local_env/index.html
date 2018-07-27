@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Devenv in CodiLime VMware lab - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../highlight.css" rel="stylesheet">
+  <link href="../../theme.css" rel="stylesheet">
+  <link href="../../theme_extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Devenv in CodiLime VMware lab";
+    var mkdocs_page_input_path = "contrail_deployment/Devenv_in_local_env.md";
+    var mkdocs_page_url = "/contrail_deployment/Devenv_in_local_env/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Ci admin guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Infrastructure_backups/">Infrastructure backups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/List_of_VMs_in_Windows_CI/">List of all important VMs in Windows CI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Update_Zuul/">Update Windows CI Zuulv2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contrail deployment</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Devenv in CodiLime VMware lab</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#devenv-in-codilime-vmware-lab">Devenv in CodiLime VMware lab</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a class="toctree-l4" href="#devenv-setup">Devenv setup</a></li>
+        
+            <li><a class="toctree-l4" href="#controller-setup">Controller setup</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#hostnamectl-set-hostname-initials-ctrl">hostnamectl set-hostname "[INITIALS]-ctrl"</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#run-ansible-playbook">Run Ansible playbook</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#enter-vault-key">Enter vault key</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#to-do">To do</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../contrail_ansible_deployer/">Contrail ansible deployer</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developer guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS error bestiary</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Building</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../developer_guide/building/Dockerized_builder_using_ansible/">Dockerized builder using ansible</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../style_guides/C/">C</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Updating documentation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">User guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../user_guide/caveats/">Caveats</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Contrail deployment &raquo;</li>
+        
+      
+    
+    <li>Devenv in CodiLime VMware lab</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="devenv-in-codilime-vmware-lab">Devenv in CodiLime VMware lab</h1>
+<p>This document describes the steps required to provision a development environment in CodiLime VMware lab.
+From high-level perspective steps are as follows:</p>
+<ol>
+<li>Provision Windows and Linux virtual machines with suitable configuration in CodiLime VMware lab.</li>
+<li>Configure Networking on Windows and Linux virtual machines using VMware console.</li>
+<li>Run Ansible playbook to deploy Windows Contrail compute and Contrail Controller nodes.</li>
+</ol>
+<p>Performing steps described below correctly should result in a configured devenv consiting of:</p>
+<ul>
+<li>2 virtual machines configured as Windows Contrail compute, named <code>[INITIALS]-tb1</code> and <code>[INITIALS]-tb2</code><ul>
+<li>Windows will have vRouter dependencies installed</li>
+<li>vRouter/vRouter Agent/Docker Driver will not be installed</li>
+</ul>
+</li>
+<li>1 virtual machine configured as Contrail Controller node named <code>[INITIALS]-ctrl</code><ul>
+<li>Contrail Controller will be fully installed and configured</li>
+</ul>
+</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="select-private-network-for-devenv">Select private network for devenv</h3>
+<p>Because of lacking infrastructure and licensing we simulate private networks based on PVLANs, using VMware's standard virtual switches.
+This limits a communication in this private network to a single ESXi host.
+Thus each virtual machine from a single devenv must be placed on a single ESXi host.
+There are two ESXi hosts at this moment: <code>10.5.88.85</code> and <code>10.5.88.86</code></p>
+<p>These private networks are named <code>vS-DevEnvX-Y</code>.
+<code>X</code> is an identifier of the host.
+<code>Y</code> is an identifier of the network.
+<code>X</code> can be:</p>
+<ul>
+<li>If you chose <code>10.5.88.85</code> as your host, then <code>X = 1</code></li>
+<li>If you chose <code>10.5.88.86</code> as your host, then <code>X = 2</code></li>
+</ul>
+<p>To find an available network for use do the following:</p>
+<ul>
+<li>In vSphere Web Client, navigate to <code>Networking</code> tab in the navigation pane on the left</li>
+<li>On the left should be a list of VMware networks</li>
+<li>Look for an available network from networks named <code>vS-DevEnvX-Y</code>:<ul>
+<li>Click on the network <code>vS-DevEnvX-Y</code> </li>
+<li>Select <code>VMs</code> tab in the center pane</li>
+<li>Make sure <code>Virtual Machines</code> option is selected</li>
+<li>If the table should be empty, there are no virtual machines in this network, thus it is available</li>
+<li>If there are some virtual machines, check another network</li>
+</ul>
+</li>
+</ul>
+<h3 id="virtual-machines-addressing">Virtual machines addressing</h3>
+<p>This document supports the following addressing scheme for the devenv:</p>
+<table>
+<thead>
+<tr>
+<th>Virtual machine</th>
+<th>Type</th>
+<th>Network Adapter 1</th>
+<th>Network Adapter 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[INITIALS]-tb1</td>
+<td>Windows Compute</td>
+<td>DHCP, from 10.7.0.0/24 subnet</td>
+<td>Static, 172.16.0.1/24</td>
+</tr>
+<tr>
+<td>[INITIALS]-tb2</td>
+<td>Windows Compute</td>
+<td>DHCP, from 10.7.0.0/24 subnet</td>
+<td>Static, 172.16.0.2/24</td>
+</tr>
+<tr>
+<td>[INITIALS]-ctrl</td>
+<td>Contrail Controller</td>
+<td>DHCP, from 10.7.0.0/24 subnet</td>
+<td>Static, 172.16.0.10/24</td>
+</tr>
+</tbody>
+</table>
+<p>In this scenario:</p>
+<ul>
+<li><code>Network Adapter 1</code> corresponds to management adapter (Contrail's mgmt plane)<ul>
+<li>On Windows - <code>Ethernet1</code></li>
+<li>On CentOS - <code>ens192</code></li>
+</ul>
+</li>
+<li><code>Network Adapter 2</code> corresponds to control adapter (Contrail's control and data plane)<ul>
+<li>On Windows - <code>Ethernet2</code></li>
+<li>On CentOS - <code>ens224</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="devenv-setup">Devenv setup</h2>
+<h3 id="windows-testbed-setup">Windows Testbed setup</h3>
+<ol>
+<li>Create a folder for virtual machines<ul>
+<li>Select <code>VMs and Templates</code> tab in navigation pane on the left</li>
+<li>Traverse to <code>Dev</code> folder</li>
+<li>Right clink on <code>Dev</code> directory and select <code>New folder</code></li>
+<li>Provide folder name in the text box<ul>
+<li>Name it with your initials, e.g. <code>DS</code></li>
+<li>I'll refer to this folder's name as <code>[DESTINATION]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Clone virtual machine from <code>Codilime/__Templates/windows/win2016core-bare</code> template<ul>
+<li>Select <code>VMs and Templates</code> tab in navigation pane on the left</li>
+<li>Traverse to <code>Codilime/__Templates/windows/</code> folder</li>
+<li>Right click on <code>win2016core-bare</code> template and select <code>New VM from This Template</code></li>
+<li><code>Deploy from Template</code> wizard should appear<ul>
+<li>In <code>Select a name and folder</code> step do the following:<ul>
+<li>Provide virtual machine name in <code>Enter a name for the virtual machine</code> input box<ul>
+<li>Name it using your initials, appending testbed number, e.g. <code>DS-tb1</code></li>
+<li>I'll refer to this named as <code>[INITIALS]-tb1</code></li>
+</ul>
+</li>
+<li>Using <code>Select a location for the virtual machine</code> window traverse to <code>Codilime/Dev/[DESTINATION]</code> folder</li>
+<li>Select <code>[DESTINATION]</code> folder in the tree</li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Select a compute resource</code> step do the following:<ul>
+<li>Expand <code>MSDN</code> item in the resource tree viewer in the middle</li>
+<li>Select one of the available hosts from <code>MSDN</code> cluster<ul>
+<li><strong>IMPORTANT</strong> Choice is arbitrary, however it is required that all devenv virtual machines are located on the same host</li>
+</ul>
+</li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Select storage</code> step  do the following:<ul>
+<li>Select <code>esxiX-main</code> datastore<ul>
+<li><code>X</code> is a host identifier</li>
+<li>If you chose <code>10.5.88.85</code> as your host, then <code>X = 1</code></li>
+<li>If you chose <code>10.5.88.86</code> as your host, then <code>X = 2</code></li>
+</ul>
+</li>
+<li>Select <code>Thin provision</code> in <code>Select virtual dist format</code> select box</li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Select clone options</code> step do the following:<ul>
+<li>Check <code>Customize this virtual machine's hardware (Experimental)</code></li>
+<li>Check <code>Power on virtual machine after creation</code></li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Customize hardware</code> step do the following:<ul>
+<li>For <code>Network Adapter 1</code> choose <code>v1800_VM</code> from the select menu</li>
+<li>For <code>Network Adapter 1</code> check <code>Connect At Power On</code></li>
+<li>For <code>Network Adapter 2</code> choose <code>vS-DevEnvX-Y</code> from the select menu<ul>
+<li>If no such network is on the list, click <code>Show more networks...</code></li>
+<li>Network should be chosen based on steps from <em>Select private network for devenv</em></li>
+</ul>
+</li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Ready to complete</code> step verify your settings and click <code>Finish</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Configure virtual machine</p>
+<ul>
+<li>Select <code>VMs and Templates</code> tab in navigation pane on the left</li>
+<li>Traverse to <code>Codilime/Dev/[DESTINATION]</code> folder</li>
+<li>Left click on <code>[INITIALS]-tb1</code></li>
+<li>On virtual machine preview click a gear icon and select <code>Launch Remote Console</code><ul>
+<li>If you do not have a VMware Remote Console installed, click <code>Install Remote Console</code> and install a provided MSI</li>
+</ul>
+</li>
+<li>Click <code>Send Ctrl+Alt+Del to virtual machine</code> button</li>
+<li>Click on the interior to passthrough mouse and keyboard to the virtual machine</li>
+<li>Login using provided credentials</li>
+<li>Start PowerShell console</li>
+<li>
+<p>Change hostname</p>
+<p><code>Rename-Computer "[INITIALS]-tb1"</code></p>
+</li>
+<li>
+<p>Disable DHCP on Ethernet1 and preserve address on restart</p>
+<p><code>Set-NetIPInterface -InterfaceAlias Ethernet1 -Dhcp Disabled -PolicyStore PersistentStore</code></p>
+</li>
+<li>
+<p>Restart Ethernet1</p>
+<p><code>Restart-NetAdapter -InterfaceAlias Ethernet1</code></p>
+</li>
+<li>
+<p>Set static IP address on dataplane adater Ethernet1 (based on addressing scheme from <em>Virtual machines addressing</em>)</p>
+<p><code>New-NetIPAddress -InterfaceAlias Ethernet1 -IPAddress "172.16.0.1" -PrefixLength 24</code></p>
+</li>
+<li>
+<p>Verify if IP address is configured correctly</p>
+<p><code>Get-NetIPAddress -InterfaceAlias Ethernet1</code></p>
+</li>
+<li>
+<p>Turn off the firewall</p>
+<p><code>Set-NetFirewallProfile -Enabled false</code></p>
+</li>
+<li>
+<p>Restart virtual machine</p>
+<p><code>Restart-Computer</code></p>
+</li>
+<li>
+<p>Check IP address of <code>Ethernet0</code> adapter</p>
+<p><code>Get-NetIPAddress -InterfaceAlias Ethernet0 -AddressFamily IPv4</code></p>
+<ul>
+<li>Note down shown address; It will be required to connect to this virtual machine using Ansible</li>
+</ul>
+</li>
+<li>
+<p>Press <code>Ctrl+Alt</code> to escape VMware Remote Console</p>
+</li>
+<li>Close VMware Remote Console</li>
+</ul>
+</li>
+</ol>
+<p>Now repeat these steps to create a second testbed <code>[INITIALS]-tb2</code></p>
+<h2 id="controller-setup">Controller setup</h2>
+<ol>
+<li>Clone virtual machine from <code>Codilime/__Templates/windows/centos7.4-bare</code> template<ul>
+<li>Steps are the same as in <em>Clone virtual machine from <code>Codilime/__Templates/windows/win2016core-bare</code> template</em></li>
+<li>This time use <code>[INITIALS]-ctrl</code></li>
+</ul>
+</li>
+<li>
+<p>Configure virtual machine</p>
+<ul>
+<li>Select <code>VMs and Templates</code> tab in navigation pane on the left</li>
+<li>Traverse to <code>Codilime/Dev/[DESTINATION]</code> folder</li>
+<li>Left click on <code>[INITIALS]-ctrl</code></li>
+<li>On virtual machine preview click a gear icon and select <code>Launch Remote Console</code></li>
+<li>Click on the interior to passthrough mouse and keyboard to the virtual machine<ul>
+<li>If nothing is shown, start typing</li>
+</ul>
+</li>
+<li>Login using provided credentials</li>
+<li>
+<p>Change hostname</p>
+<p>```</p>
+<h1 id="hostnamectl-set-hostname-initials-ctrl">hostnamectl set-hostname "[INITIALS]-ctrl"</h1>
+<p>```</p>
+</li>
+<li>
+<p>Configure static addressing on <code>ens224</code> adapter (<code>Network Adapter 2</code> from addressing scheme)</p>
+<ul>
+<li>
+<p>Edit file <code>/etc/sysconfig/network-scripts/ifcfg-ens224</code> to include following entries</p>
+<p><code>BOOTPROTO=static
+DEFROUTE=no
+IPADDR=172.16.0.10
+NETMASK=255.255.255.0</code></p>
+</li>
+<li>
+<p>Restart networking</p>
+<p><code>systemctl restart network</code></p>
+</li>
+<li>
+<p>Verify address configuration</p>
+<p><code>ip addr show</code></p>
+</li>
+<li>
+<p>Check <code>ens192</code> address</p>
+<p><code>ip addr show ens192</code></p>
+<ul>
+<li>Note down shown address; It will be required to connect to this virtual machine using Ansible</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Reboot virtual machine</p>
+<p><code>systemctl reboot</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="run-ansible-playbook">Run Ansible playbook</h2>
+<p>This section assumes the reader has Windows Subsystem for Linux (WSL) installed and configured.
+If not, please refer to <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">this</a> document for install and configuration details.</p>
+<p>All steps below should be done from WSL.</p>
+<ol>
+<li>
+<p>Install required packages</p>
+<p><code>sudo apt install python3 python3-pip python3-virtualenv sshpass</code></p>
+</li>
+<li>
+<p>Clone <code>contrail-windows-ci</code> git repository from <a href="https://github.com/Juniper/contrail-windows-ci">https://github.com/Juniper/contrail-windows-ci</a></p>
+<p><code>mkdir ~/dev
+cd ~/dev
+git clone https://github.com/Juniper/contrail-windows-ci.git</code></p>
+</li>
+<li>
+<p>Checkout <code>local-testenv</code> branch</p>
+<p><code>cd ./contrail-windows-ci
+git branch local-testenv origin/local-testenv
+git checkout local-testenv</code></p>
+</li>
+<li>
+<p>Traverse to <code>contrail-windows-ci/ansible</code> directory</p>
+<p><code>cd ./ansible</code></p>
+</li>
+<li>
+<p>Create virtualenv for Python</p>
+<p><code>python3 -m virtualenv -p /usr/bin/python3 venv</code></p>
+</li>
+<li>
+<p>Active virtualenv</p>
+<ul>
+<li>shell prompt should change to indicate that virtualenv is activated</li>
+</ul>
+<p><code>$ . venv/bin/activate
+(venv) $</code></p>
+</li>
+<li>
+<p>Install Python dependencies</p>
+<p><code>pip install -r python-requirements.txt</code></p>
+</li>
+<li>
+<p>Create a file for a provided Ansible vault key</p>
+<p>```
+touch ~/ansible-vault-key
+vi ~/ansible-vault-key</p>
+<h1 id="enter-vault-key">Enter vault key</h1>
+<p>```</p>
+</li>
+<li>
+<p>Copy <code>inventory.testenv</code> file to <code>inventory</code></p>
+<p><code>cp inventory.testenv inventory</code></p>
+</li>
+<li>
+<p>Add Windows virtual machines to <code>testbed</code> group by editing the <code>inventory</code> file</p>
+<p><code>[testbed]
+[INITIALS]-tb1 ansible_host=MGMT_IP_TB1
+[INITIALS]-tb2 ansible_host=MGMT_IP_TB2</code></p>
+<ul>
+<li><code>MGMT_IP_TB1</code>, <code>MGMT_IP_TB2</code> are addresses of <code>Ethernet0</code> adapters we checked earlier</li>
+</ul>
+</li>
+<li>
+<p>Add Controller virtual machine to <code>controller</code> group</p>
+<p><code>[controller]
+[INITIALS]-ctrl ansible_host=MGMT_IP_CTRL ansible_user=PROVIDED_USER ansible_ssh_pass=PROVIDED_PASSWORD</code></p>
+<ul>
+<li><code>MGMT_IP_CTRL</code> is an address of <code>ens192</code> adapter we checked earlier</li>
+<li><code>PROVIDED_USER</code> and <code>PROVIDED_PASSWORD</code> are provided credentials for CentOS</li>
+</ul>
+</li>
+<li>
+<p>Test network connection to devenv virtual machines</p>
+<p><code>ping MGMT_IP_TB1
+ping MGMT_IP_TB2
+ping MGMT_IP_CTRL</code></p>
+</li>
+<li>
+<p>Test Ansible connectivity to Windows virtual machines</p>
+<p><code>ansible -i inventory testbed -m win_ping</code></p>
+</li>
+<li>
+<p>Test Ansible connectivity to Controller virtual machine</p>
+<p><code>ansible -i inventory controller -m ping</code></p>
+</li>
+<li>
+<p>Run <code>configure-local-testenv.yml</code></p>
+<p><code>ansible-playbook -i inventory configure-local-testenv.yml --skip-tags yum-repos</code></p>
+<ul>
+<li>Playbook should take at least an hour to complete</li>
+</ul>
+</li>
+<li>
+<p>Verify if Contrail Controller is accessible</p>
+<ul>
+<li>Access <code>https://MGMT_IP_CTRL:8143</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="to-do">To do</h2>
+<ul>
+<li>Changes in <code>controller</code> role required to provision Linux compute node.</li>
+<li>Merge <code>local-testenv</code> to main branch in <code>contrail-windows-ci</code> repository</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contrail_ansible_deployer/" class="btn btn-neutral float-right" title="Contrail ansible deployer">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../ci_admin_guide/Update_Zuul/" class="btn btn-neutral" title="Update Windows CI Zuulv2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../ci_admin_guide/Update_Zuul/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../contrail_ansible_deployer/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

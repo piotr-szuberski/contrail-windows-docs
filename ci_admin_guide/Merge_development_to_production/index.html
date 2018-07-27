@@ -61,6 +61,10 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../Infrastructure_backups/">Infrastructure backups</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../List_of_VMs_in_Windows_CI/">List of all important VMs in Windows CI</a>
                 </li>
                 <li class=" current">
@@ -93,10 +97,6 @@
                     
     <a class="" href="../Update_Zuul/">Update Zuul</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../Update_zuul_layout/">Update zuul layout</a>
-                </li>
     </ul>
 	    </li>
           
@@ -104,6 +104,10 @@
 		
     <span class="caption-text">Contrail deployment</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contrail_deployment/Devenv_in_local_env/">Devenv in local env</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../../contrail_deployment/contrail_ansible_deployer/">Contrail ansible deployer</a>
@@ -158,6 +162,17 @@
                 <li class="">
                     
     <a class="" href="../../updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">User guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../user_guide/caveats/">Caveats</a>
                 </li>
     </ul>
 	    </li>
@@ -266,7 +281,7 @@
 <li><code>ZUUL_PROJECT=Juniper/contrail-controller</code></li>
 <li><code>ZUUL_BRANCH=master</code></li>
 <li><code>ZUUL_REF=None</code> (it should literally be <code>None</code>)</li>
-<li><code>ZUUL_URL=http://10.84.12.75/merge-warrior</code></li>
+<li><code>ZUUL_URL=http://10.84.12.30/merge-warrior</code></li>
 <li><code>ZUUL_UUID=$someRandomUUID</code> (e.g. $commitId with the first 8 characters replaced by <code>deadbeef</code>)</li>
 <li><code>ZUUL_CHANGE=</code> (can be left empty)</li>
 <li><code>ZUUL_PATCHSET=</code> (can be left empty)</li>
@@ -289,14 +304,9 @@ git push</code></p>
 </li>
 <li>
 <p>Update Zuul configuration</p>
-<p><code>bash
-localhost $ ssh winci-mgmt # with provided credentials; current address 10.84.12.25
-winci-mgmt $ cd ~/ji/juniper-contrail-windows-ci
-winci-mgmt $ git checkout production
-winci-mgmt $ git pull
-winci-mgmt $ git log
-winci-mgmt $ cd ansible
-winci-mgmt $ ansible-playbook -i ~/ji/ansible.hosts play.yml --vault-password-file ~/.ansible-vault</code></p>
+<ul>
+<li>Refer to <a href="https://github.com/Juniper/contrail-windows-docs/blob/master/doc/ci_admin_guide/Update_Zuul.md">Update Windows CI Zuulv2</a> documentation</li>
+</ul>
 </li>
 </ol>
 <h3 id="zuul-update-playbook">Zuul update playbook</h3>

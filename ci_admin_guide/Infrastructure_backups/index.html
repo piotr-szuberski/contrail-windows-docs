@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Infrastructure backups - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../highlight.css" rel="stylesheet">
+  <link href="../../theme.css" rel="stylesheet">
+  <link href="../../theme_extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Infrastructure backups";
+    var mkdocs_page_input_path = "ci_admin_guide/Infrastructure_backups.md";
+    var mkdocs_page_url = "/ci_admin_guide/Infrastructure_backups/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Ci admin guide</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Infrastructure backups</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#infrastructure-backups">Infrastructure backups</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#current-backup-setup">Current backup setup</a></li>
+        
+            <li><a class="toctree-l4" href="#vm-recovery-guide">VM recovery guide</a></li>
+        
+            <li><a class="toctree-l4" href="#backup-scripts-update-guide">Backup scripts update guide</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../List_of_VMs_in_Windows_CI/">List of VMs in Windows CI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Update_Zuul/">Update Zuul</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contrail deployment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contrail_deployment/Devenv_in_local_env/">Devenv in local env</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contrail_deployment/contrail_ansible_deployer/">Contrail ansible deployer</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developer guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS error bestiary</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Building</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../developer_guide/building/Dockerized_builder_using_ansible/">Dockerized builder using ansible</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../style_guides/C/">C</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Updating documentation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">User guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../user_guide/caveats/">Caveats</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Ci admin guide &raquo;</li>
+        
+      
+    
+    <li>Infrastructure backups</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="infrastructure-backups">Infrastructure backups</h1>
+<p>This document describes current backup system configuration for Contrail Windows CI.</p>
+<p><strong>Table of contents</strong></p>
+<ul>
+<li><a href="#current-backup-setup">Current backup setup</a></li>
+<li><a href="#vm-recovery-guide">VM recovery guide</a></li>
+<li><a href="#backup-scripts-update-guide">Backup scripts update guide</a></li>
+</ul>
+<h2 id="current-backup-setup">Current backup setup</h2>
+<p>Diagram below presents an overview of current backup setup for Contrail Windows CI.</p>
+<p><img alt="winci-backup-infrastructure" src="../winci-backup-infrastructure.png" /></p>
+<ul>
+<li>Contrail Windows CI underlying infrastructure is based VMware vSphere</li>
+<li>Services support Contrail Windows CI are running on a set of <em>Infrastructure VMs</em></li>
+<li>Infrastructure VMs reside on <code>WinCI-Datastores-Infra</code> datastore cluster</li>
+<li>WinCI-Datastores-Infra datastore cluster consists of an independent set of SSD-based datastores<ul>
+<li>independent, meaning these datastores are used solely for Infrastructure VMs</li>
+</ul>
+</li>
+<li>Backups are performed using Veeam Backup &amp; Replication software<ul>
+<li>Veeam Backup Free Edition is used</li>
+</ul>
+</li>
+<li>Veeam is installed on <code>winci-veeam</code>, Windows Server 2016 virtual machine</li>
+<li><code>winci-veeam</code> has a mounted NFS share <code>winci_nfsbackup</code> which is used as a backups repository</li>
+<li>Veeam connects to vSphere cluster using vSphere API</li>
+<li>Veeam performs full VM backups (using VeeamZIP feature in the Free edition)</li>
+</ul>
+<p>Backups are performed regulary using <em>Windows Scheduled Tasks</em>.
+Currently scheduled task runs every day, at 10 PM PST.
+Scheduled task executes a PowerShell Script <code>Backup.ps1</code> located in <code>C:\BackupScripts\</code> directory.</p>
+<p>Backup procedure looks as follows:</p>
+<ul>
+<li>Backups are performed by a set of PowerShell scripts<ul>
+<li>Scripts are located in <code>backups/</code> directory in <a href="https://github.com/Juniper/contrail-windows-ci">contrail-windows-ci</a> repository</li>
+</ul>
+</li>
+<li><code>Backup.ps1</code> script performs the following steps:<ul>
+<li>Prunes backups by removing all but last <em>N</em> backups<ul>
+<li><em>N</em> is configurable in the script</li>
+</ul>
+</li>
+<li>Uses VeeamZIP PowerShell cmdlets to perform a full backups of VMs listed in <code>Backup.ps1</code> file</li>
+</ul>
+</li>
+<li>If an error occurs for any of the VMs listed, script continues its job. After performing backups for other VMs it terminates with an exception</li>
+<li>Each full backup is stored in a separate directory, located in <code>\\winci_nfsbackups\Backups\</code> directory on backup NFS share</li>
+</ul>
+<h2 id="vm-recovery-guide">VM recovery guide</h2>
+<p>Current backup setup supports only full VM recovery. It needs to be performed, e.g. when:</p>
+<ul>
+<li>in case of underlying infrastructure hardware failure (e.g. corrupted disk, ESXi host failure)</li>
+<li>in case of bricking an operating system/virtual machine</li>
+<li>recovery of VM state from a certain point in time is desirable</li>
+</ul>
+<p>Prerequisites to backup scripts updating:</p>
+<ul>
+<li>Windows 10/Windows Server 2016 machine to perform the steps</li>
+<li>Credentials to <code>winci-veeam</code> server<ul>
+<li>Please contact Windows CI team</li>
+</ul>
+</li>
+</ul>
+<p>To recover a VM from backup perform the following steps:</p>
+<ol>
+<li>Establish a RDP connection <code>winci-veeam</code> server</li>
+<li>Open <code>Veeam Backup &amp; Replication Console</code><ul>
+<li>program is available through Start menu</li>
+</ul>
+</li>
+<li>Veeam login window should open up<ul>
+<li>ensure that <code>localhost</code> and port <code>9392</code> are selected and <code>Use Windows session authentication</code> option is selected</li>
+<li>click <code>Connect</code></li>
+</ul>
+</li>
+<li>In the upper left corner click an option <code>Restore</code><ul>
+<li><code>Select backup file to restore</code> windows should open up</li>
+<li>Click <code>browse</code></li>
+<li>In the address bar type in <code>X:\Backups\</code></li>
+<li>A list of directories named with date timestamps should show up</li>
+<li>Select a directory with a date, matching your desired restore point</li>
+<li>Enter this directory</li>
+<li>Select a backup file (file with <code>.vbk</code> extension) which has prefix matching VM to be restored</li>
+<li>Click <code>Open</code></li>
+</ul>
+</li>
+<li>Progress bar named <code>Reading the backup file, please wait...</code> should show up</li>
+<li>When a table named <code>Contained VMs</code> appears, select a VM to be restored, click <code>Restore</code>; clicking <code>Restore</code> opens up contextual menu; click option <code>Entire VM (including registration)</code></li>
+<li>After a few moments a restore wizard should show up</li>
+<li>In <code>Virtual machine</code> section<ul>
+<li>From a table <code>Virtual machines to restore</code> select a VM to be restored</li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Restore Mode</code> section<ul>
+<li>Select <code>Restore to the original location</code> option</li>
+<li>Make sure <code>Restore VM tags</code> option is checked</li>
+<li>Make sure <code>Quick rollback</code> option is unchecked</li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Reason</code> section<ul>
+<li>Enter a reason for VM restoring into <code>Restore reasons</code> textbox</li>
+<li>Click <code>Next</code></li>
+</ul>
+</li>
+<li>In <code>Summary</code> section<ul>
+<li>Verify VM details presented in <code>Summary</code> textbox</li>
+<li>Check <code>Power on target virtual machine</code> option if you want the restored VM to power on after restoration is completed</li>
+<li>Click <code>Finish</code></li>
+</ul>
+</li>
+<li><code>VM Restore</code> window with progress report should appear<ul>
+<li>Window can be closed by clicking <code>Close</code> button, this will not stop the restore procedure</li>
+</ul>
+</li>
+<li>To open up <code>VM Restore</code> window again<ul>
+<li>Click <code>History</code> button in the lower left corner of Veeam Console</li>
+<li>In the tree (in the left middle part of the Veeam Console) select <code>Restore &gt; Full VM Restore</code> branch</li>
+<li>A list of restore jobs should appear in the middle</li>
+<li>Double-click a job corresponding to a VM you are currently restoring</li>
+<li><code>VM Restore</code> window should open up again</li>
+</ul>
+</li>
+<li>When a restore job finishes, verify if all services provided by the machine are up and working</li>
+</ol>
+<h2 id="backup-scripts-update-guide">Backup scripts update guide</h2>
+<p>Backup scripts need to be updated, e.g. when:</p>
+<ul>
+<li>A list of VMs requiring backup changes</li>
+<li>A bug was fixed in the backup scripts</li>
+</ul>
+<p>Prerequisites to backup scripts updating:</p>
+<ul>
+<li>Windows 10/Windows Server 2016 machine to perform the steps</li>
+<li>Credentials to <code>winci-veeam</code> server<ul>
+<li>Please contact Windows CI team</li>
+</ul>
+</li>
+</ul>
+<p>To update backup scripts perform the following steps:</p>
+<ol>
+<li>
+<p>Clone <code>contrail-windows-ci</code> repository and enter <code>backups/</code> directory</p>
+<p><code>powershell
+PS C:\Users\user&gt; git clone https://github.com/Juniper/contrail-windows-ci.git
+PS C:\Users\user&gt; cd contrail-windows-ci\backups
+PS C:\Users\user\contrail-windows-ci\backups&gt;</code></p>
+</li>
+<li>
+<p>Establish a PowerShell session with <code>winci-veeam</code> server</p>
+<p><code>powershell
+PS C:\Users\user\contrail-windows-ci\backups&gt; $session = New-PSSession -ComputerName 10.84.12.29 -Credentials $(Get-Credential)</code></p>
+</li>
+<li>
+<p>Copy <code>backups</code> directory's contents to <code>winci-veeam</code> server, to <code>C:\BackupScripts</code> directory</p>
+<p><code>powershell
+PS C:\Users\user\contrail-windows-ci\backups&gt; Copy-Item .\* C:\BackupScripts -ToSession $session</code></p>
+</li>
+<li>
+<p>Close PowerShell session</p>
+<p><code>powershell
+PS C:\Users\user\contrail-windows-ci\backups&gt; Remove-PSSession $session</code></p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../List_of_VMs_in_Windows_CI/" class="btn btn-neutral float-right" title="List of VMs in Windows CI">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../List_of_VMs_in_Windows_CI/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
