@@ -51,6 +51,6 @@
         * No priviliged containers support
         * It is relatively new
       * Because of that running components as containers in Windows would result in:
-        * **_Security issue_** - all containers would have access to the **shared memory**
-        * **_Container communication_** - at this moment we don't know if Docker for Windows supports container communication through named pipes
+        * **_Security issue_** - **_ALL_** containers would have access to the **shared memory**
+        * **_Probably no container communication_** - at this moment we don't know if Docker for Windows supports container communication through named pipes
       * However, we want to deploy contrail components in separate containers in the future
