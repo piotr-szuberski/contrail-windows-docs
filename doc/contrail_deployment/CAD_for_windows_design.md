@@ -7,11 +7,11 @@ This is a document describing initial support of deploying Windows compute nodes
     * Mimic function of not working module with `win_shell` module
 
 ## OS-specific roles:
-  * There are particular roles which needs to be done differently for Windows
+  * There are particular roles which have to be done differently for Windows
   * Thus, these roles are divided into `*_Linux` and `*_Win32NT` for usage in c-a-d for Linux and c-a-d for Windows respectively
 
 ## Supported orchestrators:
-  * `Openstack` - keystone is needed by Windows Docker driver for authorization
+  * `Openstack` - keystone is required by Windows Docker driver for authorization
 
 ## Playbooks:
   * `provision_instances.yml` - not supported at this moment
@@ -27,10 +27,10 @@ This is a document describing initial support of deploying Windows compute nodes
 
 ## Install_openstack:
   * There aren't any changes to this playbook
-  * Whole openstack is installed for now, but in the future there should be need to specify only the role in `config/instances.yaml` which is responsible for installing keystone
+  * Whole openstack is installed for now, but in the future there should have to specify only the role in `config/instances.yaml` which is responsible for installing keystone
 
 ## Install_contrail:
-  * For debugging, specific dlls need to be present in main Windows system directory (`C:/Windows/System32`)
+  * For debugging, specific dlls must be present in main Windows system directory (`C:/Windows/System32`)
   * Because on Windows only Contrail compute nodes are supported, there are 2 supported roles:
     * `vrouter` - installs vRouter kernel module, vRouter agent and utils (`create_vrouter_Win32NT.yml`)
       * Pulls artifacts from `contrail-windows-vrouter` image. Artifacts' directory structure:
@@ -49,7 +49,7 @@ This is a document describing initial support of deploying Windows compute nodes
       * Generally speaking Docker driver is very similiar to OpenStack Nova Agent, however implementation differs significantly, because:
         * The driver needs to have communication with Windows-specific modules
         * Docker driver communicates directly with Contrail config node
-    * The artifacts need to be built on Windows. Built artifacts are pulled from docker repository specified in `WINDOWS_CONTAINER_REGISTRY` in `config/instances.yaml`
+    * The artifacts have to be built on Windows. Built artifacts are pulled from docker repository specified in `WINDOWS_CONTAINER_REGISTRY` in `config/instances.yaml`
   * On Windows contrail-ansible-deployer starts components as Windows services,
     in contrast to Linux where they reside in separate containers, because:
     * No possibility to run Linux containers on Windows Server 2016
