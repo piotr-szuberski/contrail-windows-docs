@@ -1,5 +1,5 @@
 # Contrail-ansible-deployer for Windows design document
-This is a short document describing initial support of deploying Windows compute nodes with contrail-ansible-deployer.
+This is a document describing initial support of deploying Windows compute nodes with contrail-ansible-deployer.
 ## Supported orchestrators:
   * `Openstack` - keystone is needed by Windows Docker driver for authorization
 
