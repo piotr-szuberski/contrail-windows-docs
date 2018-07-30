@@ -4,7 +4,7 @@ This is a document describing initial support of deploying Windows compute nodes
 ## Ansible for Windows
   * A lot of ansible modules don't work on Windows. Possible workarounds:
     * Use modules with `win_` prefix if they exist, however a lot of modules don't have Windows equivalent
-    * Mimic function of not working module with `win_shell` module
+    * Mimic function of not working module with other ways possible (e.g. using `win_shell`)
 
 ## OS-specific roles:
   * There are particular roles which have to be done differently for Windows
