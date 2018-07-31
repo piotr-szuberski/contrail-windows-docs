@@ -46,7 +46,7 @@ This is a document describing initial support of deploying Windows compute nodes
       * Pulls artifact from `contrail-windows-docker-driver` image. Artifact's directory structure:
         * `C:/Artifacts/`
           * `docker_driver/docker-driver.msi` - installs Docker driver and creates `DockerDriver` service
-      * Generally speaking Docker driver is very similiar to OpenStack Nova Agent, however implementation differs significantly, because:
+      * From high-level perspective Docker driver is very similiar to OpenStack Nova Agent, however they differ significantly at low-level, because:
         * The driver needs to have communication with Windows-specific modules
         * Docker driver communicates directly with Contrail config node
     * The artifacts have to be built on Windows. Built artifacts are pulled from docker repository specified in `WINDOWS_CONTAINER_REGISTRY` in `config/instances.yaml`
