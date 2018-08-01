@@ -11,8 +11,7 @@ This is a document describing initial support of deploying Windows compute nodes
   * Thus, these roles are divided into `*_Linux` and `*_Win32NT` for usage in c-a-d for Linux and c-a-d for Windows respectively.
 
 ## Orchestrators:
-  * None of orchestrators are supported at this moment.
-  * However, Keystone is required by Windows Docker driver for authorization, so OpenStack must be specified as an orchestrator.
+  * OpenStack must be specified as an orchestrator, because Keystone is required by Windows Docker driver for authorization.
 
 ## Playbooks:
   * `provision_instances.yml` - not supported at this moment.
@@ -46,7 +45,7 @@ This is a document describing initial support of deploying Windows compute nodes
     * `win_docker_driver` - installs Windows Docker driver (`create_win_docker_driver.yml`):
       * Pulls `contrail-windows-docker-driver` image with artifact. Artifact's directory structure:
         * `C:/Artifacts/`
-          * `docker_driver/docker-driver.msi` - installs Docker driver and creates `DockerDriver` service;
+          * `docker-driver/docker-driver.msi` - installs Docker driver and creates `DockerDriver` service;
       * From high-level perspective Docker driver is very similiar to OpenStack Nova Agent, however they differ significantly at low-level, because:
         * The driver needs to have communication with Windows-specific modules,
         * Docker driver communicates directly with Contrail config node.
@@ -54,7 +53,7 @@ This is a document describing initial support of deploying Windows compute nodes
   * On Windows contrail-ansible-deployer starts components as Windows services,
     in contrast to Linux where they reside in separate containers.
     * Reasons:
-      * It's no possible to run Linux containers on Windows Server 2016,
+      * It's not possible to run Linux containers on Windows Server 2016,
       * On other Windows versions, containerization of Windows Compute components wasn't tested and implemented yet.
     * There are plans to do it in future release.
     * Note: potential challenges:
