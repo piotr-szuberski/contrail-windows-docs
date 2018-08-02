@@ -21,7 +21,7 @@ This is a document describing initial support of deploying Windows compute nodes
 
 ## Configure_instances:
   * Some differences between Windows and non-Windows c-a-d workflows exist for this playbook:
-    * Windows compute nodes need Windows-specific dependencies and particular features turned on/off. `Install_software_Win32.yml` is responsible for that.
+    * Windows compute nodes need Windows-specific dependencies and particular features turned on/off. `install_software_Win32.yml` is responsible for that.
     * In the future, vRouter kernel module will be digitally signed, but for now, it uses self-signed certificates.
     To do that, Windows Test-Signing Mode must be enabled and reboot is done to apply the change.
 
