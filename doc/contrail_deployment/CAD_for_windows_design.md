@@ -58,4 +58,4 @@ This is a document describing initial support of deploying Windows compute nodes
     * There are plans to do it in future release.
     * Note: potential challenges:
       * Security -  No priviliged containers support in Docker for Windows would result in all containers having access to the shared memory which is implementation of vRouter *flow0* interface;
-      * Communication - at this moment there is no support for communication between container and the host through Windows named pipes. vRouter *pkt0* and *ksync* interfaces are implemented with named pipes on Windows.
+      * Communication - communication between container and the host through Windows named pipes isn't tested and implemented yet. vRouter *pkt0* and *ksync* interfaces are implemented with named pipes on Windows.
