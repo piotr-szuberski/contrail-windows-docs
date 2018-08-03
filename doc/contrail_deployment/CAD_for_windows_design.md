@@ -5,6 +5,10 @@ This is a document describing initial support of deploying Windows compute nodes
   * A lot of ansible modules don't work on Windows. Possible workarounds:
     * Use modules with `win_` prefix if they exist, however a lot of modules don't have Windows equivalent,
     * Mimic function of not working module with other ways possible (e.g. using `win_shell`).
+  * Particular packages must be present on ansible host machine:
+    * For now they have to be installed, before running the playbooks
+    * In the future they will be installed at the beginning of `configure_instances.yml` playbook.
+    * Required packages are specified in `CAD-python-requirements.txt` file.
 
 ## OS-specific roles:
   * There are particular roles which have to be done differently for Windows.
@@ -21,8 +25,21 @@ This is a document describing initial support of deploying Windows compute nodes
 
 ## Configure_instances:
   * Some differences between Windows and non-Windows c-a-d workflows exist for this playbook:
-    * Windows compute nodes need Windows-specific dependencies and particular features turned on/off. `install_software_Win32.yml` is responsible for that.
-    * In the future, vRouter kernel module will be digitally signed, but for now, it uses self-signed certificates.
+    * Windows compute nodes need Windows-specific dependencies and particular features turned on/off. `install_software_Win32.yml` is responsible for that. This role makes following changes on Windows nodes:
+      * Installs following software:
+        * Windows-Containers
+        * NET-Framework-Features
+        * Hyper-V
+        * Non-Sucking Service Manager
+        * Docker
+        * MS Visual C++ Redistributable
+      * Sets these Windows features:
+        * ON:
+          * Test-Signing Mode - reason explained below
+        * OFF:
+          * WinNAT
+          * Windows Firewall
+  * In the future, vRouter kernel module will be digitally signed, but for now, it uses self-signed certificates.
     To do that, Windows Test-Signing Mode must be enabled and reboot is done to apply the change.
 
 ## Install_openstack:
@@ -31,7 +48,7 @@ This is a document describing initial support of deploying Windows compute nodes
 
 ## Install_contrail:
   * Specific dlls must be present in main Windows system directory (`C:/Windows/System32`) for the software to run.
-  * Because on Windows only Contrail compute nodes are supported, there are 2 supported roles:
+  * Because on Windows only Contrail compute nodes are supported, there are 2 roles for Windows compute nodes:
     * `vrouter` - installs vRouter kernel module, vRouter agent and utils (`create_vrouter_Win32NT.yml`):
       * Pull `contrail-windows-vrouter` image with artifacts. Artifacts' directory structure:
         * `C:/Artifacts/`
@@ -58,4 +75,4 @@ This is a document describing initial support of deploying Windows compute nodes
     * There are plans to do it in future release.
     * Note: potential challenges:
       * Security -  No priviliged containers support in Docker for Windows would result in all containers having access to the shared memory which is implementation of vRouter *flow0* interface;
-      * Communication - communication between container and the host through Windows named pipes isn't tested and implemented yet. vRouter *pkt0* and *ksync* interfaces are implemented with named pipes on Windows.
+      * Communication - communication between container and the host through Windows named pipes isn't tested yet. vRouter *pkt0* and *ksync* interfaces are implemented with named pipes on Windows.
