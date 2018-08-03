@@ -5,11 +5,6 @@ This is a document describing initial support of deploying Windows compute nodes
   * A lot of ansible modules don't work on Windows. Possible workarounds:
     * Use modules with `win_` prefix if they exist, however a lot of modules don't have Windows equivalent,
     * Mimic function of not working module with other ways possible (e.g. using `win_shell`).
-  * Particular packages must be present on ansible host machine:
-    * For now they have to be installed, before running the playbooks
-    * In the future they will be installed at the beginning of `configure_instances.yml` playbook.
-    * Required packages are specified in `CAD-python-requirements.txt` file.
-
 ## OS-specific roles:
   * There are particular roles which have to be done differently for Windows.
   * Thus, these roles are divided into `*_Linux` and `*_Win32NT` for usage in c-a-d for Linux and c-a-d for Windows respectively.
@@ -25,12 +20,13 @@ This is a document describing initial support of deploying Windows compute nodes
 
 ## Configure_instances:
   * Some differences between Windows and non-Windows c-a-d workflows exist for this playbook:
+    * Particular packages must be present on ansible host machine used for secure communication between the ansible machine and Windows nodes. The packages are installed by this role.
     * Windows compute nodes need Windows-specific dependencies and particular features turned on/off. `install_software_Win32.yml` is responsible for that. This role makes following changes on Windows nodes:
       * Installs following software:
         * Windows-Containers
         * NET-Framework-Features
         * Hyper-V
-        * Non-Sucking Service Manager
+        * NSSM
         * Docker
         * MS Visual C++ Redistributable
       * Sets these Windows features:
@@ -55,7 +51,7 @@ This is a document describing initial support of deploying Windows compute nodes
           * `agent/`
             * `contrail-vrouter-agent.msi` - installs vRouter agent and creates `ContrailAgent` service;
           * `vrouter/`
-            * `utils.msi` - installer for vRouter utils;
+            * `utils.msi` - installs vRouter utils;
             * `vRouter.msi` - installs vRouter kernel module and creates `vRouter` service;
             * `vRouter.cer` - certificate for vRouter kernel module;
           * `vtest/*` - vtest utility (needed in Windows CI);
