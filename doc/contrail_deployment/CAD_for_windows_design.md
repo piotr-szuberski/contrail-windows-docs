@@ -18,7 +18,7 @@ This is a document describing initial support of deploying Windows compute nodes
   * `install_openstack.yml`
   * `install_contrail.yml`
 
-## Configure_instances:
+## configure_instances:
   * Some differences between Windows and non-Windows c-a-d workflows exist for this playbook:
     * Particular packages must be present on ansible host machine used for secure communication between the ansible machine and Windows nodes. The packages are installed by this role.
     * Windows compute nodes need Windows-specific dependencies and particular features turned on/off. `install_software_Win32.yml` is responsible for that. This role makes following changes on Windows nodes:
@@ -38,11 +38,11 @@ This is a document describing initial support of deploying Windows compute nodes
   * In the future, vRouter kernel module will be digitally signed, but for now, it uses self-signed certificates.
     To do that, Windows Test-Signing Mode must be enabled and reboot is done to apply the change.
 
-## Install_openstack:
+## install_openstack:
   * There are no changes to this playbook.
   * Whole OpenStack is installed for now, but in the future there should have to specify only the role in `config/instances.yaml` which is responsible for installing Keystone.
 
-## Install_contrail:
+## install_contrail:
   * Specific dlls must be present in main Windows system directory (`C:/Windows/System32`) for the software to run.
   * Because on Windows only Contrail compute nodes are supported, there are 2 roles for Windows compute nodes:
     * `vrouter` - installs vRouter kernel module, vRouter agent and utils (`create_vrouter_Win32NT.yml`):
