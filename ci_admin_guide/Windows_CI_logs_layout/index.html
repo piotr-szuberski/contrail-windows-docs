@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Root HNS network - Tungsten Fabric for Windows Documentation</title>
+  <title>Windows CI logs layout - Tungsten Fabric for Windows Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,7 +23,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Root HNS network";
+    var mkdocs_page_name = "Windows CI logs layout";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -95,81 +95,77 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Communication_Agent_Extension/">Communication Agent Extension</a>
+        <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Container_creation_lifecycle/">Container creation lifecycle</a>
+        <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Docker_on_Windows/">Docker on Windows</a>
+        <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Forwarding_extension/">Forwarding extension</a>
+        <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../HyperV_extensible_switch/">HyperV extensible switch</a>
+        <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Linux_Overview/">Linux Overview</a>
+        <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Network_creation_lifecycle/">Network creation lifecycle</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Root HNS network</a>
-        
-            <ul>
-            
-            </ul>
+        <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../Utility_tools/">Utility tools</a>
+        <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../_Blueprint/"> Blueprint</a>
+        <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../vRouter_Linux_implementation/">vRouter Linux implementation</a>
+        <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
         
     </li>
 
@@ -214,49 +210,62 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Infrastructure_backups/">Infrastructure backups</a>
+        <a class="" href="../Infrastructure_backups/">Infrastructure backups</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/List_of_VMs_in_Windows_CI/">List of VMs in Windows CI</a>
+        <a class="" href="../List_of_VMs_in_Windows_CI/">List of VMs in Windows CI</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
+        <a class="" href="../Merge_development_to_production/">Merge development to production</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+        <a class="" href="../Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Update_Zuul/">Update Zuul</a>
+        <a class="" href="../Update_Zuul/">Update Zuul</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Update_private_docker_registry/">Update private docker registry</a>
+        <a class="" href="../Update_private_docker_registry/">Update private docker registry</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../ci_admin_guide/Windows_CI_logs_layout/">Windows CI logs layout</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Windows CI logs layout</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#windows-ci-logs-layout">Windows CI logs layout</a></li>
+                
+                    <li><a class="toctree-l4" href="#log-structure">Log structure</a></li>
+                
+                    <li><a class="toctree-l4" href="#ciselfcheck">CISelfcheck</a></li>
+                
+                    <li><a class="toctree-l4" href="#windowscompute">WindowsCompute</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -345,11 +354,11 @@
     
       
         
-          <li>Windows compute &raquo;</li>
+          <li>Ci admin guide &raquo;</li>
         
       
     
-    <li>Root HNS network</li>
+    <li>Windows CI logs layout</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -359,13 +368,58 @@
           <div role="main">
             <div class="section">
               
-                <p>HNS operates by using two virtual switches:</p>
+                <h1 id="windows-ci-logs-layout">Windows CI logs layout</h1>
+<p>This document describes a log structure generated by <code>ci-contrail-windows-production</code> job.
+One can access these logs by following a link <code>ci-contrail-windows-production</code> in the comment posted by <code>Contrail Windows CI</code> used, after a job has finished.</p>
+<h2 id="log-structure">Log structure</h2>
 <ul>
-<li>an external vswitch, which is connected directly to physical adapter. This adapter is called "vEthernet (HNSTransparent)", and the switch is called "Layered Etherenet0" depending on which physicial adapter it's connected to. If there is physical NIC teaming, then its name contains all the physical adapters separated by a coma, like "Layered Ethernet0,Ethernet1"</li>
-<li>an internal vswitch, for the purpose of NATing. The adapter that connects to the host is named "vEthernet (HNS Internal NIC)", and the switch is called "nat".</li>
+<li><code>log.txt.gz</code> - full Jenkins job log</li>
+<li><code>unittests-logs</code> - logs for vRouter unit tests ran by Windows CI</li>
+<li><code>TestReports/CISelfcheck</code> - test report for Windows CI unit tests suite<ul>
+<li>for information about more detailed logs please refer to <a href="#ciselfcheck">CI Selfcheck</a></li>
 </ul>
-<p>Those virtual switches are not created unless there is at least one HNS network using corresponding Mode: "transparent" or "nat". If the last network of corresponding Mode is removed, the vswitch is also removed. Creation/deletion of vswitch takes a couple seconds and disrupts network connectivity.</p>
-<p>This dynamism of creating/deleting vswitches poses a problem, because we want vRouter Forwarding Extension to be persistent, no matter if there are many or no virtual networks. That's why, when Docker Driver initializes, it creates a "dummy" Root HNS Network, which makes HNS create an external vswitch "Layered Ethernet*". Forwarding Extension is then enabled for that vswitch.</p>
+</li>
+<li><code>TestReports/WindowsCompute</code> - test report for Contrail Windows integration tests suite<ul>
+<li>for information about more detailed logs please refer to <a href="#windowscompute">WindowsCompute</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="ciselfcheck">CISelfcheck</h2>
+<p><code>CISelfcheck</code> is a set of unit tests for PowerShell scripts used in Windows CI.</p>
+<p><code>TestReports/CISelfcheck</code> directory holds the following:</p>
+<ul>
+<li><code>TestReports/CISelfcheck/pretty_test_report</code> - contains an HTML test report<ul>
+<li><a href="http://logs.opencontrail.org/winci/ed700a876ad74506a21d1937a26f02dc/TestReports/CISelfcheck/pretty_test_report/">example test report</a></li>
+<li>tests marked <strong>green</strong> have passed</li>
+<li>tests marked <strong>red</strong> have failed</li>
+<li>tests marked <strong>orange</strong> are marked as inconclusive which means they are currently disabled in CI</li>
+</ul>
+</li>
+<li><code>TestReports/CISelfcheck/raw_NUnit</code> - contains NUnit XML files generated by PowerShell test runner</li>
+</ul>
+<h2 id="windowscompute">WindowsCompute</h2>
+<p><code>WindowsCompute</code> is a set of integration tests for Contrail Windows.
+This test suite is run on a 3-node cluster consisting of 1 Contrail Controller node (all-in-one deployment) and 2 Contrail Windows compute nodes.
+A fresh cluster is provisioned before each test.
+Contrail Controller is provisioned using contrail-ansible-deployer.
+In the future Contrail Windows compute nodes will also be provisioned with contrail-ansible-deployer.</p>
+<p><code>TestReports/WindowsCompute</code> directory holds the following:</p>
+<ul>
+<li><code>TestReports/WindowsCompute/pretty_test_report</code> - contains an HTML test report<ul>
+<li><a href="http://logs.opencontrail.org/winci/ed700a876ad74506a21d1937a26f02dc/TestReports/WindowsCompute/pretty_test_report/">example test report</a></li>
+<li>tests marked <strong>green</strong> have passed</li>
+<li>tests marked <strong>red</strong> have failed</li>
+<li>tests marked <strong>orange</strong> are marked as inconclusive which means they are currently disabled in CI</li>
+</ul>
+</li>
+<li><code>TestReports/WindowsCompute/ddriver_junit_test_logs</code> - contains JUnit XML files generated by Contrail Windows Docker Driver test runner</li>
+<li><code>TestReports/WindowsCompute/detailed_logs</code> - contains logs dumped from test environment for each test; log file can contain logs from:<ul>
+<li>Contrail Windows Docker Driver running on compute nodes</li>
+<li>Windows containers ran on compute nodes</li>
+</ul>
+</li>
+<li><code>TestReports/WindowsCompute/raw_NUnit</code> - contains NUnit XML files generated by PowerShell test runner</li>
+</ul>
               
             </div>
           </div>
@@ -373,10 +427,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Utility_tools/" class="btn btn-neutral float-right" title="Utility tools"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../developer_guide/HNS_error_bestiary/" class="btn btn-neutral float-right" title="HNS error bestiary"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Network_creation_lifecycle/" class="btn btn-neutral" title="Network creation lifecycle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Update_private_docker_registry/" class="btn btn-neutral" title="Update private docker registry"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -402,10 +456,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Network_creation_lifecycle/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Update_private_docker_registry/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Utility_tools/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../developer_guide/HNS_error_bestiary/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
