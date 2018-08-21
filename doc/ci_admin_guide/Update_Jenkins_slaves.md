@@ -33,6 +33,7 @@ The upgrade procedure consists of:
     a chocolatey package, in addition to updating the `version` parameter of
     `win_chocolatey` role, one must also run an additional task of uninstalling
     the package first. See examples below.
+
     1. Checkout github.com/Juniper/contrail-windows-ci repository. Enter ansible/ directory.
     1. Prepare your environment by going through steps described in `README.md`. 
     1. Find the ansible role that is responsible for the upgrade.
@@ -54,7 +55,8 @@ The upgrade procedure consists of:
             1. Open the pull request with "do not merge" in the title.
             1. Wait for CI to be triggered normally. Wait for it to pass.
 
-    > NOTE: the following steps rely on specific circumstance
+    > NOTE: the following steps may change depending on case-by-case basic.
+
 1. Open a normal pull request with cleaned up changes to ansible roles.
 1. Get it merged.
 1. (Optional) Create a new builder template.
@@ -100,6 +102,7 @@ inventory.devel/groups:
 ...
 ```
 
+Command to run:
 ```
 ansible-playbook -i inventory.devel --vault-password-file ~/.ansible-vault --tags "bump" mysite.yml
 ```
