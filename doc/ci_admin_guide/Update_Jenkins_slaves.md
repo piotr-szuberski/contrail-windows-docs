@@ -63,7 +63,7 @@ The upgrade procedure consists of:
 
 1. Open a normal pull request with cleaned up changes to ansible roles.
 1. Get it merged.
-1. Create a new builder template. (see [this](rolling-out-new-slaves))
+1. Create a new builder template. (see [this](#rolling-out-new-slaves))
 1. Rollout the change to other slaves by repeating steps 1-2 but specifying larger subsets of nodes.
 
 #### Examples.
