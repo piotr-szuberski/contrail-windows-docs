@@ -37,7 +37,8 @@ The upgrade procedure consists of:
     `win_chocolatey` role, one must also run an additional task of uninstalling
     the package first. See examples below.
 
-    1. Checkout github.com/Juniper/contrail-windows-ci repository. Enter ansible/ directory.
+    1. Checkout `github.com/Juniper/contrail-windows-ci` repository.
+    1. Enter `ansible/` directory.
     1. Prepare your environment by going through steps described in `README.md`. 
     1. Find the ansible role that is responsible for the upgrade.
         1. Modify the role to suit your needs. 
@@ -46,14 +47,14 @@ The upgrade procedure consists of:
         1. Edit file `inventory.devel/groups`.
         1. Add IP of your selected slave under the correct group.
     1. Create one-off playbook.
-        1. Create an yml file in the root of ansible/ dir.
+        1. Create an yml file in the root of `ansible/` dir.
         1. Specify hosts and roles to be executed.
     1. Run the playbook, specifying ansible vault, the inventory and prepared playbook.
 1. Test if the change worked.
     1. Remote into the machine and verify if change was successful.
     1. Test if job passes.
         1. In Jenkins, go into the selected node view. Remove all tags it has. Add some temporary tag (e.g. 'temp-upgrade').
-        1. Open a test pull request to github.com/Juniper/contrail-windows-ci
+        1. Open a test pull request to `github.com/Juniper/contrail-windows-ci`
             1. In its Jenksinfile, replace tags of nodes that you removed on t he node with the temporary tag.
             1. Open the pull request with "do not merge" in the title.
             1. Wait for CI to be triggered normally. Wait for it to pass.
