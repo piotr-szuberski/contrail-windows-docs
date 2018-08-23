@@ -12,8 +12,11 @@ TODO
 
 ## Updating existing slaves
 
-Some minor maintenance work does not require rollout of new slaves. An example might be an upgrade of
-some library or other dependency. In this case, there is no need to update the underlying slave template.
+Some minor maintenance work does not require rollout of new slaves. An example might be an
+upgrade of some library or other dependency. In this case, one can update the running cluster
+without having to create a new template and rolling out every machine. However, the template must
+be updated at the end of the procedure, so that future fresh machines will also have the
+required changes.
 
 The upgrade procedure consists of:
 1. Manually upgrade a subset of nodes
@@ -59,7 +62,7 @@ The upgrade procedure consists of:
 
 1. Open a normal pull request with cleaned up changes to ansible roles.
 1. Get it merged.
-1. (Optional) Create a new builder template.
+1. Create a new builder template. (see [this](rolling-out-new-slaves))
 1. Rollout the change to other slaves by repeating steps 1-2 but specifying larger subsets of nodes.
 
 #### Examples.
