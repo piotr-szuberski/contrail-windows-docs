@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Cpp - Tungsten Fabric for Windows Documentation</title>
+  <title>How to deploy Contrail with Windows compute nodes - Tungsten Fabric for Windows Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -20,9 +20,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Cpp";
-    var mkdocs_page_input_path = "style_guides/Cpp.md";
-    var mkdocs_page_url = "/style_guides/Cpp/";
+    var mkdocs_page_name = "How to deploy Contrail with Windows compute nodes";
+    var mkdocs_page_input_path = "contrail_deployment/contrail_deployment_manual.md";
+    var mkdocs_page_url = "/contrail_deployment/contrail_deployment_manual/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -100,19 +100,35 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../contrail_deployment/CAD_for_windows_design/">Contrail-ansible-deployer for Windows design document</a>
+    <a class="" href="../CAD_for_windows_design/">Contrail-ansible-deployer for Windows design document</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../contrail_deployment/Devenv_in_local_env/">Devenv in CodiLime VMware lab</a>
+    <a class="" href="../Devenv_in_local_env/">Devenv in CodiLime VMware lab</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../contrail_deployment/contrail_deployment_in_ci/">A few words about contrail deployment in Windows CI</a>
+    <a class="" href="../contrail_deployment_in_ci/">A few words about contrail deployment in Windows CI</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../contrail_deployment/contrail_deployment_manual/">How to deploy Contrail with Windows compute nodes</a>
+    <a class="current" href="./">How to deploy Contrail with Windows compute nodes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#how-to-deploy-contrail-with-windows-compute-nodes">How to deploy Contrail with Windows compute nodes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a class="toctree-l4" href="#steps">Steps</a></li>
+        
+            <li><a class="toctree-l4" href="#testing-the-new-setup">Testing the new setup</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -123,7 +139,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS errors bestiary</a>
+    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS error bestiary</a>
                 </li>
                 <li class="">
                     
@@ -144,49 +160,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../C/">C</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Cpp</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#general">General</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#platform-specific-code">Platform-specific code</a></li>
-        
-            <li><a class="toctree-l4" href="#practices">Practices</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#style">Style</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#files">Files</a></li>
-        
-            <li><a class="toctree-l4" href="#naming">Naming</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#design">Design</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#paradigm">Paradigm</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../style_guides/C/">C</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Go/">Go</a>
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
                 </li>
     </ul>
 	    </li>
@@ -290,11 +272,11 @@
     
       
         
-          <li>Style guides &raquo;</li>
+          <li>Contrail deployment &raquo;</li>
         
       
     
-    <li>Cpp</li>
+    <li>How to deploy Contrail with Windows compute nodes</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -304,100 +286,56 @@
           <div role="main">
             <div class="section">
               
-                <p>We aim to use a subset of all C++ features. This includes most features present in C++ up to C++11.</p>
-<h1 id="general">General</h1>
-<h2 id="platform-specific-code">Platform-specific code</h2>
+                <h1 id="how-to-deploy-contrail-with-windows-compute-nodes">How to deploy Contrail with Windows compute nodes</h1>
+<h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Use #ifdef to differentiate Windows and non-Windows code</li>
-<li>Try to implement Windows-specific code on the lowest possible abstraction layer so that the higher ones can be platform agnostic.</li>
-<li>When providing alternate body of a function, use one function header/signature but two implementations in its body, encased in #ifdef guards.</li>
+<li>Machine with CentOS 7.4 installed</li>
+<li>Machine(s) with Windows Server 2016 and updates installed</li>
+<li>Machine for running Ansible playbooks (Linux or Windows with WSL)</li>
 </ul>
-<h2 id="practices">Practices</h2>
+<h2 id="steps">Steps</h2>
 <ul>
-<li>Use class declarations in header files if the definition is not necessary.</li>
+<li>On each of the Windows hosts:
+    <code>powershell
+    Invoke-WebRequest https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -OutFile ConfigureRemotingForAnsible.ps1
+    .\ConfigureRemotingForAnsible.ps1 -DisableBasicAuth -EnableCredSSP -ForceNewSSLCert -SkipNetworkProfileCheck</code></li>
+<li>On the Ansible machine:
+    <code>bash
+    git clone git@github.com:Juniper/contrail-ansible-deployer.git
+    cd contrail-ansible-deployer
+    vim config/instances.yaml</code><ul>
+<li>Refer to examples:<ul>
+<li><code>config/instances.yaml.bms_win_example</code> if you have already deployed controller and you only want windows compute nodes</li>
+<li><code>config/instances.yaml.bms_win_full_example</code> if you want to deploy controller and windows compute nodes together</li>
 </ul>
-<pre><code>class BgpAttr;
-</code></pre>
-
-<ul>
-<li>In header files, use #ifdef guards to prevent any issues arising from including the same header twice</li>
+</li>
+<li>More precise explanation of the required fields:<ul>
+<li>For Windows computes use <code>bms_win</code> dict instead of regular <code>bms</code></li>
+<li>Roles supported on Windows are <code>vrouter</code> and <code>win_docker_driver</code> - specify them</li>
+<li>Set <code>WINDOWS_PHYSICAL_INTERFACE</code> to dataplane interface alias</li>
+<li>Specify <code>WINDOWS_ENABLE_TEST_SIGNING</code> if you want to install untrusted artifacts (this is needed at this moment)</li>
+<li>Set <code>WINDOWS_DEBUG_DLLS_PATH</code> to path on Ansible machine containing MSVC 2015 debug dlls, specifically: <code>msvcp140d.dll</code>, <code>ucrtbased.dll</code> and <code>vcruntime140d.dll</code></li>
 </ul>
-<pre><code>#ifndef ctrlplane_ksync_sock_h
-#define ctrlplane_ksync_sock_h
-// Some code
-#endif
-Use of many for-each variants instead of iterating over an index when accessing an array
-for(auto &amp;element : array) {
-  //do something...
-}
-auto itr = strvec.begin();
-while(itr != strvec.end()) {
-  //do something...
-  ++itr;
-}
-</code></pre>
-
-<h1 id="style">Style</h1>
-<h2 id="files">Files</h2>
-<ul>
-<li>Use .cc files for C++ source code</li>
-<li>Use .h files for C++ header code</li>
+</li>
+<li>To deploy a controller for windows compute nodes:<ul>
+<li>Configure as it would be a controller node for a linux ecosystem</li>
+<li>For now docker driver on windows needs keystone set up on controller:<ul>
+<li>Add openstack-* roles to the controller node and set <code>CLOUD_ORCHESTRATOR</code> to <code>openstack</code></li>
+<li>Fill keystone credentials and kolla config. Check <code>config/instances.yaml.openstack_example</code></li>
 </ul>
-<h2 id="naming">Naming</h2>
-<h3 id="files_1">Files</h3>
-<ul>
-<li>Files should be named in snake case.</li>
+</li>
 </ul>
-<pre><code>iroute_aggregator.h
-Classes
-Classes should be named in camel case with the first letter capital
-class IRouteAggregator {
-};
-</code></pre>
-
-<h3 id="functionsmethods">Functions/Methods</h3>
-<ul>
-<li>Methods and functions should be named in upper camel case</li>
+</li>
+<li>Proceed with running Ansible playbooks:
+    <code>bash
+    sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
+    sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml
+    sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml</code></li>
 </ul>
-<pre><code>class IRouteAggregator {
-    void Initialize();
-};
-</code></pre>
-
-<h3 id="variablesfields">Variables/Fields</h3>
-<ul>
-<li>Variables and fields should be named according to the snake case convention
-** Note: Private fields often have a single underscore appended, as this makes creating a getter/setter more intuitive</li>
+</li>
 </ul>
-<h1 id="design">Design</h1>
-<h2 id="paradigm">Paradigm</h2>
-<ul>
-<li>Agent is designed with traditional object-oriented model of C++ application, therefore we should try to maintain that style.</li>
-</ul>
-<pre><code>Agent does not use exceptions, instead relying on old-school return code error handling.
-int func()
-{
-    if (error)
-        return -ENOMEM;
-}
-</code></pre>
-
-<ul>
-<li>Agent does use virtual and abstract (pure virtual) classes.</li>
-</ul>
-<pre><code>class Class {
-public:
-virtual void Func() = 0;
-virtual void Func2();
-void Func3();
-private:
-};
-</code></pre>
-
-<ul>
-<li>Agent uses proper visibility settings, ie. uses public, private and protected specifiers in class definitions.</li>
-<li>Templating is used and encouraged.</li>
-</ul>
+<h2 id="testing-the-new-setup">Testing the new setup</h2>
+<p>Refer to <a href="../../user_guide/connection_scenarios/">this document</a></p>
               
             </div>
           </div>
@@ -405,10 +343,10 @@ private:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Go/" class="btn btn-neutral float-right" title="Go">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../developer_guide/HNS_error_bestiary/" class="btn btn-neutral float-right" title="HNS error bestiary">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../C/" class="btn btn-neutral" title="C"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contrail_deployment_in_ci/" class="btn btn-neutral" title="A few words about contrail deployment in Windows CI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -434,10 +372,10 @@ private:
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../C/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../contrail_deployment_in_ci/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Go/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../developer_guide/HNS_error_bestiary/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

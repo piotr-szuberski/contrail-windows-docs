@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Connection scenarios - Tungsten Fabric for Windows Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../highlight.css" rel="stylesheet">
+  <link href="../../theme.css" rel="stylesheet">
+  <link href="../../theme_extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Connection scenarios";
+    var mkdocs_page_input_path = "user_guide/connection_scenarios.md";
+    var mkdocs_page_url = "/user_guide/connection_scenarios/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Ci admin guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Infrastructure_backups/">Infrastructure backups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/List_of_VMs_in_Windows_CI/">List of all important VMs in Windows CI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Update_Jenkins_slaves/">Updating Jenkins slaves</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Update_Zuul/">Update Windows CI Zuulv2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Update_private_docker_registry/">How to update private docker registry</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ci_admin_guide/Windows_CI_logs_layout/">Windows CI logs layout</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Contrail deployment</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../contrail_deployment/CAD_for_windows_design/">Contrail-ansible-deployer for Windows design document</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contrail_deployment/Devenv_in_local_env/">Devenv in CodiLime VMware lab</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contrail_deployment/contrail_deployment_in_ci/">A few words about contrail deployment in Windows CI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../contrail_deployment/contrail_deployment_manual/">How to deploy Contrail with Windows compute nodes</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developer guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS errors bestiary</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Building</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../developer_guide/building/Dockerized_builder_using_ansible/">Dockerized builder using ansible</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Style guides</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../style_guides/C/">C</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Updating documentation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">User guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../caveats/">Known issues</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Connection scenarios</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#connection-scenarios">Connection scenarios</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#creating-virtual-networks-containers-and-interactive-sessions">Creating virtual network(s), containers and interactive sessions</a></li>
+        
+            <li><a class="toctree-l4" href="#icmp">ICMP</a></li>
+        
+            <li><a class="toctree-l4" href="#tcp">TCP</a></li>
+        
+            <li><a class="toctree-l4" href="#udp">UDP</a></li>
+        
+            <li><a class="toctree-l4" href="#network-policies-and-security-groups">Network policies and security groups</a></li>
+        
+            <li><a class="toctree-l4" href="#ecmp">ECMP</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Windows compute</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Forwarding_extension/">Forwarding extension</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Root_HNS_network/">Root HNS network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/Utility_tools/">Utility tools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/_Blueprint/"> Blueprint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Tungsten Fabric for Windows Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User guide &raquo;</li>
+        
+      
+    
+    <li>Connection scenarios</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="connection-scenarios">Connection scenarios</h1>
+<h2 id="creating-virtual-networks-containers-and-interactive-sessions">Creating virtual network(s), containers and interactive sessions</h2>
+<ul>
+<li>
+<p>Via Contrail WebUI:</p>
+<ol>
+<li>Create a policy with the following rule:
+    <code>pass protocol any network any ports any &lt;&gt; network any ports any</code></li>
+<li>Create virtual network called <code>testnet1</code> with single subnet: <code>10.0.1.0/24</code>. Leave every field as default except IP pool (set it to be from <code>10.0.1.10</code> to <code>10.0.1.100</code>) and network policy (set it to policy created in first step).</li>
+<li>Create virtual network called <code>testnet2</code> with single subnet: <code>10.0.2.0/24</code>. Leave every field as default except IP pool (set it to be from <code>10.0.2.10</code> to <code>10.0.2.100</code>) and network policy (set it to policy created in first step).</li>
+</ol>
+</li>
+<li>
+<p>On both Windows VMs:</p>
+<ol>
+<li>Verify if Agent service is running:
+    <code>powershell
+    Get-Service ContrailAgent</code>
+    State should be Running</li>
+<li>Verify if VMSwitch Extension is running and enabled:
+    <code>powershell
+    Get-VMSwitch -Name "Layered*" | Get-VMSwitchExtension</code>
+    Find block of data describing to <code>vRouter</code><br />
+    Both Enabled and Running fields should be True</li>
+<li>Verify if Docker Driver service is running:
+    <code>powershell
+    Get-Service contrail-docker-driver</code>
+    State should be Running</li>
+<li>Create docker network <code>testnet1</code> on the 1st Windows compute code:
+    <code>powershell
+    docker network create --ipam-driver windows -d Contrail --opt tenant=admin --opt network=testnet1 testnet1</code></li>
+<li>Run a docker container in the prepared network on the 1st Windows compute node:
+    <code>powershell
+    docker run -id --network testnet1 --name container1 microsoft/windowsservercore powershell</code></li>
+<li>Inspect container1 on the 1st Windows compute node. Find the part that describes endpoints and verify that it has a correct IP address assigned (from the previously configured IP pool).
+    <code>powershell
+    docker inspect container1</code></li>
+<li>Run interactive shell inside the container1 on the 1st Windows compute node:
+    <code>powershell
+    docker exec -it container1 powershell</code></li>
+<li>Create docker network ‘testnet2’ on the 2nd Windows compute node:
+    <code>powershell
+    docker network create --ipam-driver windows -d Contrail --opt tenant=admin --opt network=testnet2 testnet2</code></li>
+<li>Run a docker container in the prepared network (‘testnet2’) on the 2nd Windows compute node:
+    <code>powershell
+    docker run -id --network testnet2 --name container2 microsoft/windowsservercore powershell</code></li>
+<li>Inspect container2 on 2nd Windows compute node. Find the part that describes endpoints and verify that it has a correct IP address assigned (from the previously configured IP pool).
+    <code>powershell
+    docker inspect container2</code></li>
+<li>Run a 2nd docker container in the prepared network (‘testnet2’) on the 2nd Windows compute node:
+    <code>powershell
+    docker run -id --network testnet2 --name container3 microsoft/iis powershell</code></li>
+<li>Inspect container3 on the 2nd Windows compute node. Find the part that describes endpoints and verify that it has a correct IP address assigned (from the previously configured IP pool).
+    <code>powershell
+    docker inspect container3</code></li>
+<li>Run interactive shell inside the container2 on the 2nd Windows compute node:
+    <code>powershell
+    docker exec -it container2 powershell</code></li>
+<li>Run interactive shell inside the container3 on the 2nd Windows compute node. Remember that Powershell console that has been used in previous step is now running a session in container2. To operate on a host system, open new Powershell console.
+    <code>powershell
+    docker exec -it container3 powershell</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="icmp">ICMP</h2>
+<ol>
+<li>Verify that ICMP protocol works within single virtual network.<br />
+    To do that invoke the following Powershell command in interactive session of container2 (on the 2nd Windows compute Node):
+    <code>powershell
+    ping &lt;IP address of container3&gt;</code></li>
+<li>Verify that ICMP protocol works across virtual network boundaries.<br />
+    To do that invoke the following Powershell command in interactive session of container1 (on the 1st Windows Compute Node):
+    <code>powershell
+    ping &lt;IP address of container2&gt;</code></li>
+</ol>
+<h2 id="tcp">TCP</h2>
+<ol>
+<li>Invoke the following commands in container3’s interactive session (on the 2nd Windows Compute Node):
+    <code>powershell
+    cd \inetpub\wwwroot
+    echo "We come in peace." &gt;&gt; index.html</code></li>
+<li>Invoke the following command in container1’s interactive session (on the 1st Windows Compute Node). Verify that you receive server response with webpage prepared in previous step.
+    <code>powershell
+    Invoke-WebRequest http://&lt;container3's IP address&gt; -UseBasicParsing</code></li>
+</ol>
+<h2 id="udp">UDP</h2>
+<ol>
+<li>Set up UDP listener on container3 (on the 2nd Windows Compute Node).<br />
+    To do that invoke the following commands in container3’s interactive console. Last instruction is a blocking call waiting for incoming packet.
+    <code>powershell
+    $RemoteIPEndpoint = New-Object System.Net.IPEndPoint([IPAddress]::Any, 0)
+    $UDPRcvSocket = New-Object System.Net.Sockets.UdpClient 3000
+    $Payload = $UDPRcvSocket.Receive([ref]$RemoteIPEndpoint)</code></li>
+<li>Send UDP packet from container1 (on the 1st Windows Compute Node).<br />
+    To do that invoke the following commands in container1’s interactive console.
+    <code>powershell
+    $ListenerAddress = New-Object System.Net.IPEndPoint([IPAddress]::Parse("10.0.2.4"), 3000)
+    $UDPSenderSocket = New-Object System.Net.Sockets.UdpClient 0
+    $Payload = [Text.Encoding]::UTF8.GetBytes("We come in peace.")
+    $UDPSenderSocket.Send($Payload, $Payload.Length, $ListenerAddress)</code></li>
+<li>When packet is received by container3, blocking call to <code>System.Net.Sockets.UdpClient.Receive</code> (in container3 on the 2nd Windows Compute Node) is going to return. If that doesn’t happen immediately, repeat invocation of <code>$UDPSenderSocket.Send</code> (in container1 on the 1st Windows Compute Node).</li>
+<li>Invoke the following command in container1’s interactive session to display payload of received UDP packet to verify that it’s consisted with sent message:
+    <code>powershell
+    [Text.Encoding]::UTF8.GetString($Payload)</code></li>
+</ol>
+<h2 id="network-policies-and-security-groups">Network policies and security groups</h2>
+<ol>
+<li>Create additional policies and security groups (through WebUI) with various settings and demonstrate that they affect communication between networks. One may follow ICMP/TCP/UDP test procedures with various policies and security groups.</li>
+<li>Revert network configuration (policies and security groups) to its original state not to affect other experiments.</li>
+</ol>
+<h2 id="ecmp">ECMP</h2>
+<ol>
+<li>Create Floating IP Pool through Contrail WebUI assigned to <code>testnet2</code>.</li>
+<li>Create Floating IP through WebUI. Assign it to previously created pool and set specific IP that is a correct address in <code>testnet2</code> (e.g. 10.0.2.101).</li>
+<li>Assign Floating IP created in second step to port (<code>Ports</code> tab) that belongs to container2.</li>
+<li>Assign Floating IP created in second step to port (<code>Ports</code> tab) that belongs to container3.</li>
+<li>Set up an UDP listener on container2. Enter the following Powershell instructions in interactive console of container2 on the 2nd Windows Compute Node:
+    <code>powershell
+    $Sock = [System.Net.Sockets.UdpClient]::new(5000)
+    $Endpoint = [System.Net.IPEndPoint]::new([IPAddress]::Any, 5000)
+    while ($True) {
+        $Data = $Sock.Receive([ref]$Endpoint)
+        Write-Host "Received packet from $Endpoint"
+    }</code></li>
+<li>Set up an UDP listener on container3. Enter the following Powershell instructions in interactive console of container3 on the 2nd Windows Compute Node:
+    <code>powershell
+    $Sock = [System.Net.Sockets.UdpClient]::new(5000)
+    $Endpoint = [System.Net.IPEndPoint]::new([IPAddress]::Any, 5000)
+    while ($True) {
+        $Data = $Sock.Receive([ref]$Endpoint)
+        Write-Host "Received packet from $Endpoint"
+    }</code></li>
+<li>Send multiple UDP packets from container1 on the 1st Windows Compute Node. Use different source ports. Set the floating IP (created in step 2) as destination address. Use 5000 (as used in step 6) as destination port.<br />
+    Then verify that some packets were received by container2 while some other packets were received by container3. Receiving container is going to display a message: <code>Received packet from &lt;sender address&gt;</code>.<br />
+    Use the following Powershell command to send 10 UDP packets from various source ports:
+    <code>powershell
+    1..100 | % {
+        $s = [System.Net.Sockets.UdpClient]::new(10000+$_)
+        $s.Send("C".ToCharArray(), 1, "10.0.2.101", 5000)
+    }</code></li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../windows_compute/Communication_Agent_Extension/" class="btn btn-neutral float-right" title="Communication Agent Extension">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../caveats/" class="btn btn-neutral" title="Known issues"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../caveats/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../windows_compute/Communication_Agent_Extension/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

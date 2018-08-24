@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Cpp - Tungsten Fabric for Windows Documentation</title>
+  <title>Updating Jenkins slaves - Tungsten Fabric for Windows Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -20,9 +20,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Cpp";
-    var mkdocs_page_input_path = "style_guides/Cpp.md";
-    var mkdocs_page_url = "/style_guides/Cpp/";
+    var mkdocs_page_name = "Updating Jenkins slaves";
+    var mkdocs_page_input_path = "ci_admin_guide/Update_Jenkins_slaves.md";
+    var mkdocs_page_url = "/ci_admin_guide/Update_Jenkins_slaves/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -61,35 +61,49 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../ci_admin_guide/Infrastructure_backups/">Infrastructure backups</a>
+    <a class="" href="../Infrastructure_backups/">Infrastructure backups</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../ci_admin_guide/List_of_VMs_in_Windows_CI/">List of all important VMs in Windows CI</a>
+    <a class="" href="../List_of_VMs_in_Windows_CI/">List of all important VMs in Windows CI</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
+    <a class="" href="../Merge_development_to_production/">Merge development to production</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+    <a class="" href="../Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Updating Jenkins slaves</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#updating-jenkins-slaves">Updating Jenkins slaves</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#rolling-out-new-slaves">Rolling out new slaves</a></li>
+        
+            <li><a class="toctree-l4" href="#updating-existing-slaves">Updating existing slaves</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../ci_admin_guide/Update_Jenkins_slaves/">Updating Jenkins slaves</a>
+    <a class="" href="../Update_Zuul/">Update Zuul</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../ci_admin_guide/Update_Zuul/">Update Windows CI Zuulv2</a>
+    <a class="" href="../Update_private_docker_registry/">Update private docker registry</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../ci_admin_guide/Update_private_docker_registry/">How to update private docker registry</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../ci_admin_guide/Windows_CI_logs_layout/">Windows CI logs layout</a>
+    <a class="" href="../Windows_CI_logs_layout/">Windows CI logs layout</a>
                 </li>
     </ul>
 	    </li>
@@ -100,19 +114,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../contrail_deployment/CAD_for_windows_design/">Contrail-ansible-deployer for Windows design document</a>
+    <a class="" href="../../contrail_deployment/CAD_for_windows_design/">CAD for windows design</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../contrail_deployment/Devenv_in_local_env/">Devenv in CodiLime VMware lab</a>
+    <a class="" href="../../contrail_deployment/Devenv_in_local_env/">Devenv in local env</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../contrail_deployment/contrail_deployment_in_ci/">A few words about contrail deployment in Windows CI</a>
+    <a class="" href="../../contrail_deployment/contrail_deployment_in_ci/">Contrail deployment in ci</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../contrail_deployment/contrail_deployment_manual/">How to deploy Contrail with Windows compute nodes</a>
+    <a class="" href="../../contrail_deployment/contrail_deployment_manual/">Contrail deployment manual</a>
                 </li>
     </ul>
 	    </li>
@@ -123,7 +137,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS errors bestiary</a>
+    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS error bestiary</a>
                 </li>
                 <li class="">
                     
@@ -144,49 +158,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../C/">C</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Cpp</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#general">General</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#platform-specific-code">Platform-specific code</a></li>
-        
-            <li><a class="toctree-l4" href="#practices">Practices</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#style">Style</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#files">Files</a></li>
-        
-            <li><a class="toctree-l4" href="#naming">Naming</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#design">Design</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#paradigm">Paradigm</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../style_guides/C/">C</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Go/">Go</a>
+    <a class="" href="../../style_guides/Cpp/">Cpp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../style_guides/Go/">Go</a>
                 </li>
     </ul>
 	    </li>
@@ -290,11 +270,11 @@
     
       
         
-          <li>Style guides &raquo;</li>
+          <li>Ci admin guide &raquo;</li>
         
       
     
-    <li>Cpp</li>
+    <li>Updating Jenkins slaves</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -304,100 +284,126 @@
           <div role="main">
             <div class="section">
               
-                <p>We aim to use a subset of all C++ features. This includes most features present in C++ up to C++11.</p>
-<h1 id="general">General</h1>
-<h2 id="platform-specific-code">Platform-specific code</h2>
-<ul>
-<li>Use #ifdef to differentiate Windows and non-Windows code</li>
-<li>Try to implement Windows-specific code on the lowest possible abstraction layer so that the higher ones can be platform agnostic.</li>
-<li>When providing alternate body of a function, use one function header/signature but two implementations in its body, encased in #ifdef guards.</li>
-</ul>
-<h2 id="practices">Practices</h2>
-<ul>
-<li>Use class declarations in header files if the definition is not necessary.</li>
-</ul>
-<pre><code>class BgpAttr;
+                <h1 id="updating-jenkins-slaves">Updating Jenkins slaves</h1>
+<h2 id="rolling-out-new-slaves">Rolling out new slaves</h2>
+<p>TODO
+- update templates
+- create templates
+- spawn new slaves
+- decomission old slaves
+- tags
+- how to test if it worked safely</p>
+<h2 id="updating-existing-slaves">Updating existing slaves</h2>
+<p>Some minor maintenance work does not require rollout of new slaves. An example might be an
+upgrade of some library or other dependency. In this case, one can update the running cluster
+without having to create a new template and rolling out every machine. However, the template must
+be updated at the end of the procedure, so that future fresh machines will also have the
+required changes.</p>
+<p>The upgrade procedure consists of:
+1. Manually upgrade a subset of nodes
+1. Test if CI job pass on the new set of nodes
+1. Upgrade the rest of the nodes</p>
+<h3 id="1-manually-upgrade-a-subset-of-nodes">1. Manually upgrade a subset of nodes</h3>
+<ol>
+<li>Select one Jenkins slave to use.<ol>
+<li>Make sure that there are other slaves that perform the same function (they have the same tags and are up).</li>
+<li>In Jenkins UI, press <code>Mark this node as temporarily offline</code>, providing the reason.</li>
+<li>Note the IP address of the slave.</li>
+</ol>
+</li>
+<li>
+<p>Manually run ansible against the node.</p>
+<blockquote>
+<p>NOTE: this is a one-off role. It doesn't necessarily need to be commited to
+version control. Therefore, any "hacks" are allowed. For example, to upgrade
+a chocolatey package, in addition to updating the <code>version</code> parameter of
+<code>win_chocolatey</code> role, one must also run an additional task of uninstalling
+the package first. See examples below.</p>
+</blockquote>
+<ol>
+<li>Checkout <code>github.com/Juniper/contrail-windows-ci</code> repository.</li>
+<li>Enter <code>ansible/</code> directory.</li>
+<li>Prepare your environment by going through steps described in <code>README.md</code>. </li>
+<li>Find the ansible role that is responsible for the upgrade.<ol>
+<li>Modify the role to suit your needs. </li>
+<li>Add a tag to every task that needs to be executed.</li>
+</ol>
+</li>
+<li>Prepare inventory file.<ol>
+<li>Edit file <code>inventory.devel/groups</code>.</li>
+<li>Add IP of your selected slave under the correct group.</li>
+</ol>
+</li>
+<li>Create one-off playbook.<ol>
+<li>Create an yml file in the root of <code>ansible/</code> dir.</li>
+<li>Specify hosts and roles to be executed.</li>
+</ol>
+</li>
+<li>Run the playbook, specifying ansible vault, the inventory and prepared playbook.</li>
+<li>Test if the change worked.</li>
+<li>Remote into the machine and verify if change was successful.</li>
+<li>Test if job passes.<ol>
+<li>In Jenkins, go into the selected node view. Remove all tags it has. Add some temporary tag (e.g. 'temp-upgrade').</li>
+<li>Open a test pull request to <code>github.com/Juniper/contrail-windows-ci</code><ol>
+<li>In its Jenksinfile, replace tags of nodes that you removed on t he node with the temporary tag.</li>
+<li>Open the pull request with "do not merge" in the title.</li>
+<li>Wait for CI to be triggered normally. Wait for it to pass.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>NOTE: the following steps may change depending on case-by-case basic.</p>
+</blockquote>
+</li>
+<li>
+<p>Open a normal pull request with cleaned up changes to ansible roles.</p>
+</li>
+<li>Get it merged.</li>
+<li>Create a new builder template. (see <a href="#rolling-out-new-slaves">this</a>)</li>
+<li>Rollout the change to other slaves by repeating steps 1-2 but specifying larger subsets of nodes.</li>
+</ol>
+<h4 id="examples">Examples.</h4>
+<ol>
+<li>Upgrade golang version.</li>
+</ol>
+<p>ansible/roles/builder/tasks/main.yml:</p>
+<pre><code>...
+- name: Uninstall golang
+  win_chocolatey:
+    name: golang
+    state: absent
+  tags: bump
+
+ - name: Install golang
+   win_chocolatey:
+     name: golang
+     version: 1.10.0
+     state: present
+  tags: bump
+...
 </code></pre>
 
-<ul>
-<li>In header files, use #ifdef guards to prevent any issues arising from including the same header twice</li>
-</ul>
-<pre><code>#ifndef ctrlplane_ksync_sock_h
-#define ctrlplane_ksync_sock_h
-// Some code
-#endif
-Use of many for-each variants instead of iterating over an index when accessing an array
-for(auto &amp;element : array) {
-  //do something...
-}
-auto itr = strvec.begin();
-while(itr != strvec.end()) {
-  //do something...
-  ++itr;
-}
+<p>ansible/mysite.yml</p>
+<pre><code>---
+- name: 'bump golang'
+  hosts: 
+    - builder
+  roles: 
+    - builder
 </code></pre>
 
-<h1 id="style">Style</h1>
-<h2 id="files">Files</h2>
-<ul>
-<li>Use .cc files for C++ source code</li>
-<li>Use .h files for C++ header code</li>
-</ul>
-<h2 id="naming">Naming</h2>
-<h3 id="files_1">Files</h3>
-<ul>
-<li>Files should be named in snake case.</li>
-</ul>
-<pre><code>iroute_aggregator.h
-Classes
-Classes should be named in camel case with the first letter capital
-class IRouteAggregator {
-};
+<p>inventory.devel/groups:</p>
+<pre><code>...
+[builder]
+10.84.12.87
+...
 </code></pre>
 
-<h3 id="functionsmethods">Functions/Methods</h3>
-<ul>
-<li>Methods and functions should be named in upper camel case</li>
-</ul>
-<pre><code>class IRouteAggregator {
-    void Initialize();
-};
+<p>Command to run:</p>
+<pre><code>ansible-playbook -i inventory.devel --vault-password-file ~/.ansible-vault --tags &quot;bump&quot; mysite.yml
 </code></pre>
-
-<h3 id="variablesfields">Variables/Fields</h3>
-<ul>
-<li>Variables and fields should be named according to the snake case convention
-** Note: Private fields often have a single underscore appended, as this makes creating a getter/setter more intuitive</li>
-</ul>
-<h1 id="design">Design</h1>
-<h2 id="paradigm">Paradigm</h2>
-<ul>
-<li>Agent is designed with traditional object-oriented model of C++ application, therefore we should try to maintain that style.</li>
-</ul>
-<pre><code>Agent does not use exceptions, instead relying on old-school return code error handling.
-int func()
-{
-    if (error)
-        return -ENOMEM;
-}
-</code></pre>
-
-<ul>
-<li>Agent does use virtual and abstract (pure virtual) classes.</li>
-</ul>
-<pre><code>class Class {
-public:
-virtual void Func() = 0;
-virtual void Func2();
-void Func3();
-private:
-};
-</code></pre>
-
-<ul>
-<li>Agent uses proper visibility settings, ie. uses public, private and protected specifiers in class definitions.</li>
-<li>Templating is used and encouraged.</li>
-</ul>
               
             </div>
           </div>
@@ -405,10 +411,10 @@ private:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Go/" class="btn btn-neutral float-right" title="Go">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Update_Zuul/" class="btn btn-neutral float-right" title="Update Zuul">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../C/" class="btn btn-neutral" title="C"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Run_gerrit_pipeline_on_github_PR/" class="btn btn-neutral" title="Run gerrit pipeline on github PR"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -434,10 +440,10 @@ private:
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../C/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Run_gerrit_pipeline_on_github_PR/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Go/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Update_Zuul/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
