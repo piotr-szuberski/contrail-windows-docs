@@ -2,7 +2,6 @@
 
 This document describes the steps required to perform a merge from `development` to `production` in Contrail Windows CI.
 
-
 ## Pre-merge check
 
 Run production pipeline on `development` branch
@@ -22,36 +21,29 @@ Run production pipeline on `development` branch
         - `ZUUL_CHANGE=` (can be left empty)
         - `ZUUL_PATCHSET=` (can be left empty)
 
-
 ## Merge development to production
 
 1. Update production branch (following git operations require administrative privileges on GitHub)
 
-    ```bash
-    git fetch --all --prune
-    git checkout development
-    git pull
-    git checkout production
-    git merge development
-    git push
-    ```
+        git fetch --all --prune
+        git checkout development
+        git pull
+        git checkout production
+        git merge development
+        git push
 
 2. Update Zuul configuration
 
     - Refer to [Update Windows CI Zuulv2][update-zuulv2] documentation
 
-
 ### Zuul update playbook
 
-```yaml
----
-- hosts: zuul
-  remote_user: ciadmin
-  become: yes
-  roles:
-  - zuul
-```
-
+    ---
+    - hosts: zuul
+      remote_user: ciadmin
+      become: yes
+      roles:
+      - zuul
 
 ## Post checks
 
@@ -59,16 +51,13 @@ Run production pipeline on `development` branch
     - `zuul-merger`
     - `zuul-server`
 
-    ```bash
-    localhost $ ssh winci-zuulv2-production # with provided credentials; current address 10.84.12.75
-    systemctl status zuul-merger.service # should be active (running)
-    systemctl status zuul-server.service # should be active (running)
-    ```
+            localhost $ ssh winci-zuulv2-production # with provided credentials; current address 10.84.12.75
+            systemctl status zuul-merger.service # should be active (running)
+            systemctl status zuul-server.service # should be active (running)
 
 2. Trigger Zuul job
     - Create a dummy PR on Gerrit
     - Post `recheck windows` on some existing PR
-
 
 ## Future considerations
 
