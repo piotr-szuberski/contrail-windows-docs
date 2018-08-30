@@ -351,11 +351,10 @@ git push
 <p>Check Zuul services:</p>
 <ul>
 <li><code>zuul-merger</code></li>
-<li>
-<p><code>zuul-server</code></p>
-<p>localhost $ ssh winci-zuulv2-production # with provided credentials; current address 10.84.12.75
-  systemctl status zuul-merger.service # should be active (running)
-  systemctl status zuul-server.service # should be active (running)</p>
+<li><code>zuul-server</code><pre><code>localhost $ ssh winci-zuulv2-production # with provided credentials; current address 10.84.12.75
+systemctl status zuul-merger.service # should be active (running)
+systemctl status zuul-server.service # should be active (running)
+</code></pre>
 </li>
 </ul>
 </li>
