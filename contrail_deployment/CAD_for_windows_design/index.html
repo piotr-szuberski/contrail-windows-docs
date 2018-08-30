@@ -394,11 +394,9 @@
     in contrast to Linux where they reside in separate containers.<ul>
 <li>Reasons:</li>
 <li>It's not possible to run Linux containers on Windows Server 2016,</li>
-<li>On other Windows versions, containerization of Windows Compute components wasn't tested and implemented yet.</li>
-<li>There are plans to do it in future release.</li>
-<li>Note: potential challenges:</li>
-<li>Security -  No priviliged containers support in Docker for Windows would result in all containers having access to the shared memory which is implementation of vRouter <em>flow0</em> interface;</li>
-<li>Communication - communication between container and the host through Windows named pipes isn't tested yet. vRouter <em>pkt0</em> and <em>ksync</em> interfaces are implemented with named pipes on Windows.</li>
+<li>Since priviliged containers do not exist on Windows, vrouter-agent wouldn't be able to access shared memory for flow and bridge tables</li>
+<li>Docker for Windows Server 2016 doesn't support passing named pipes from host to containers. vRouter <em>pkt0</em> and <em>ksync</em> interfaces are implemented with named pipes on Windows.</li>
+<li>There are plans to move to containers in the future.</li>
 </ul>
 </li>
 </ul>

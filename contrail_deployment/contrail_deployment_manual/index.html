@@ -299,15 +299,20 @@
 </ul>
 <h2 id="steps">Steps</h2>
 <ul>
-<li>On each of the Windows hosts:
-    <code>powershell
-    Invoke-WebRequest https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -OutFile ConfigureRemotingForAnsible.ps1
-    .\ConfigureRemotingForAnsible.ps1 -DisableBasicAuth -EnableCredSSP -ForceNewSSLCert -SkipNetworkProfileCheck</code></li>
-<li>On the Ansible machine:
-    <code>bash
-    git clone git@github.com:Juniper/contrail-ansible-deployer.git
-    cd contrail-ansible-deployer
-    vim config/instances.yaml</code><ul>
+<li>
+<p>On each of the Windows hosts:</p>
+<pre><code>Invoke-WebRequest https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -OutFile ConfigureRemotingForAnsible.ps1
+
+.\ConfigureRemotingForAnsible.ps1 -DisableBasicAuth -EnableCredSSP -ForceNewSSLCert -SkipNetworkProfileCheck
+</code></pre>
+</li>
+<li>
+<p>On the Ansible machine:</p>
+<pre><code>git clone git@github.com:Juniper/contrail-ansible-deployer.git
+cd contrail-ansible-deployer
+vim config/instances.yaml
+</code></pre>
+<ul>
 <li>Refer to examples:<ul>
 <li><code>config/instances.yaml.bms_win_example</code> if you have already deployed controller and you only want windows compute nodes</li>
 <li><code>config/instances.yaml.bms_win_full_example</code> if you want to deploy controller and windows compute nodes together</li>
@@ -330,11 +335,11 @@
 </li>
 </ul>
 </li>
-<li>Proceed with running Ansible playbooks:
-    <code>bash
-    sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
-    sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml
-    sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml</code></li>
+<li>Proceed with running Ansible playbooks:<pre><code>sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
+sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml
+sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>

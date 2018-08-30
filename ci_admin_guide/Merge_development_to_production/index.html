@@ -322,13 +322,13 @@
 <ol>
 <li>
 <p>Update production branch (following git operations require administrative privileges on GitHub)</p>
-<p><code>bash
-git fetch --all --prune
+<pre><code>git fetch --all --prune
 git checkout development
 git pull
 git checkout production
 git merge development
-git push</code></p>
+git push
+</code></pre>
 </li>
 <li>
 <p>Update Zuul configuration</p>
@@ -338,26 +338,26 @@ git push</code></p>
 </li>
 </ol>
 <h3 id="zuul-update-playbook">Zuul update playbook</h3>
-<pre><code class="yaml">---
+<pre><code>---
 - hosts: zuul
   remote_user: ciadmin
   become: yes
   roles:
   - zuul
 </code></pre>
-
 <h2 id="post-checks">Post checks</h2>
 <ol>
 <li>
 <p>Check Zuul services:</p>
 <ul>
 <li><code>zuul-merger</code></li>
-<li><code>zuul-server</code></li>
+<li>
+<p><code>zuul-server</code></p>
+<p>localhost $ ssh winci-zuulv2-production # with provided credentials; current address 10.84.12.75
+  systemctl status zuul-merger.service # should be active (running)
+  systemctl status zuul-server.service # should be active (running)</p>
+</li>
 </ul>
-<p><code>bash
-localhost $ ssh winci-zuulv2-production # with provided credentials; current address 10.84.12.75
-systemctl status zuul-merger.service # should be active (running)
-systemctl status zuul-server.service # should be active (running)</code></p>
 </li>
 <li>
 <p>Trigger Zuul job</p>

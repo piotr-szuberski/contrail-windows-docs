@@ -314,17 +314,20 @@
 <ul>
 <li>
 <p>download it from <a href="https://github.com/Juniper/contrail-windows-ci/tree/development/utility/update_docker_registry">here</a>:</p>
-<p><code>curl https://raw.githubusercontent.com/Juniper/contrail-windows-ci/development/utility/update_docker_registry/update-docker-registry.py --output update-docker-registry.py</code></p>
+<pre><code>curl https://raw.githubusercontent.com/Juniper/contrail-windows-ci/development/utility/update_docker_registry/update-docker-registry.py --output update-docker-registry.py
+</code></pre>
 </li>
 <li>
 <p>make it executable:</p>
-<p><code>chmod +x ./update-docker-registry.py</code></p>
+<pre><code>chmod +x ./update-docker-registry.py
+</code></pre>
 </li>
 </ul>
 </li>
 <li>
 <p>Run the script with Contrail version tag as parameter, for example:</p>
-<p><code>./update-docker-registry.py ocata-master-206</code></p>
+<pre><code>./update-docker-registry.py ocata-master-206
+</code></pre>
 </li>
 <li>
 <p>If new version of Contrail Ansible Deployer uses more images than listed in <code>update-docker-registry.py</code> script:</p>
@@ -345,29 +348,33 @@
 </li>
 <li>
 <p>Set the name of required image in local variable (replace <code>&lt;IMAGE-NAME&gt;</code> with proper value:</p>
-<p><code>image_name=&lt;IMAGE-NAME&gt;</code></p>
+<pre><code>image_name=&lt;IMAGE-NAME&gt;
+</code></pre>
 </li>
 <li>
 <p>Pull the image:</p>
-<p><code>docker image pull ci-repo.englab.juniper.net:5000/kolla/${image_name}:ocata</code></p>
+<pre><code>docker image pull ci-repo.englab.juniper.net:5000/kolla/${image_name}:ocata
+</code></pre>
 </li>
 <li>
 <p>Get the Image ID of previously pulled image:</p>
-<p><code>image_id=$(docker image ls | grep kolla | grep ${image_name} | awk '{ print $3 }' | uniq)</code></p>
+<pre><code>image_id=$(docker image ls | grep kolla | grep ${image_name} | awk '{ print $3 }' | uniq)
+</code></pre>
 <ul>
-<li>
-<p>verify the ID:</p>
-<p><code>echo "$image_id"</code></p>
+<li>verify the ID:<pre><code>echo "$image_id"
+</code></pre>
 </li>
 </ul>
 </li>
 <li>
 <p>Tag the image:</p>
-<p><code>docker tag ${image_id} localhost:5000/kolla/${image_name}:ocata</code></p>
+<pre><code>docker tag ${image_id} localhost:5000/kolla/${image_name}:ocata
+</code></pre>
 </li>
 <li>
 <p>Push the image to local repository:</p>
-<p><code>docker push localhost:5000/kolla/${image_name}:ocata</code></p>
+<pre><code>docker push localhost:5000/kolla/${image_name}:ocata
+</code></pre>
 </li>
 <li>
 <p>Repeat steps 2-6 for all other required images.</p>

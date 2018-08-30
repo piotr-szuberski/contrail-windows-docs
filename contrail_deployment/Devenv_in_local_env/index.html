@@ -121,21 +121,7 @@
         
             <li><a class="toctree-l4" href="#controller-setup">Controller setup</a></li>
         
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#hostnamectl-set-hostname-initials-ctrl">hostnamectl set-hostname "[INITIALS]-ctrl"</a></li>
-    
-        <ul>
-        
             <li><a class="toctree-l4" href="#run-ansible-playbook">Run Ansible playbook</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#enter-vault-key">Enter vault key</a></li>
-    
-        <ul>
         
             <li><a class="toctree-l4" href="#to-do">To do</a></li>
         
@@ -488,35 +474,43 @@ There are two ESXi hosts at this moment: <code>10.5.88.85</code> and <code>10.5.
 <li>Start PowerShell console</li>
 <li>
 <p>Change hostname</p>
-<p><code>Rename-Computer "[INITIALS]-tb1"</code></p>
+<pre><code>Rename-Computer "[INITIALS]-tb1"
+</code></pre>
 </li>
 <li>
 <p>Disable DHCP on Ethernet1 and preserve address on restart</p>
-<p><code>Set-NetIPInterface -InterfaceAlias Ethernet1 -Dhcp Disabled -PolicyStore PersistentStore</code></p>
+<pre><code>Set-NetIPInterface -InterfaceAlias Ethernet1 -Dhcp Disabled -PolicyStore PersistentStore
+</code></pre>
 </li>
 <li>
 <p>Restart Ethernet1</p>
-<p><code>Restart-NetAdapter -InterfaceAlias Ethernet1</code></p>
+<pre><code>Restart-NetAdapter -InterfaceAlias Ethernet1
+</code></pre>
 </li>
 <li>
 <p>Set static IP address on dataplane adater Ethernet1 (based on addressing scheme from <em>Virtual machines addressing</em>)</p>
-<p><code>New-NetIPAddress -InterfaceAlias Ethernet1 -IPAddress "172.16.0.1" -PrefixLength 24</code></p>
+<pre><code>New-NetIPAddress -InterfaceAlias Ethernet1 -IPAddress "172.16.0.1" -PrefixLength 24
+</code></pre>
 </li>
 <li>
 <p>Verify if IP address is configured correctly</p>
-<p><code>Get-NetIPAddress -InterfaceAlias Ethernet1</code></p>
+<pre><code>Get-NetIPAddress -InterfaceAlias Ethernet1
+</code></pre>
 </li>
 <li>
 <p>Turn off the firewall</p>
-<p><code>Set-NetFirewallProfile -Enabled false</code></p>
+<pre><code>Set-NetFirewallProfile -Enabled false
+</code></pre>
 </li>
 <li>
 <p>Restart virtual machine</p>
-<p><code>Restart-Computer</code></p>
+<pre><code>Restart-Computer
+</code></pre>
 </li>
 <li>
 <p>Check IP address of <code>Ethernet0</code> adapter</p>
-<p><code>Get-NetIPAddress -InterfaceAlias Ethernet0 -AddressFamily IPv4</code></p>
+<pre><code>Get-NetIPAddress -InterfaceAlias Ethernet0 -AddressFamily IPv4
+</code></pre>
 <ul>
 <li>Note down shown address; It will be required to connect to this virtual machine using Ansible</li>
 </ul>
@@ -550,31 +544,34 @@ There are two ESXi hosts at this moment: <code>10.5.88.85</code> and <code>10.5.
 <li>Login using provided credentials</li>
 <li>
 <p>Change hostname</p>
-<p>```</p>
-<h1 id="hostnamectl-set-hostname-initials-ctrl">hostnamectl set-hostname "[INITIALS]-ctrl"</h1>
-<p>```</p>
+<pre><code># hostnamectl set-hostname "[INITIALS]-ctrl"
+</code></pre>
 </li>
 <li>
 <p>Configure static addressing on <code>ens224</code> adapter (<code>Network Adapter 2</code> from addressing scheme)</p>
 <ul>
 <li>
 <p>Edit file <code>/etc/sysconfig/network-scripts/ifcfg-ens224</code> to include following entries</p>
-<p><code>BOOTPROTO=static
+<pre><code>BOOTPROTO=static
 DEFROUTE=no
 IPADDR=172.16.0.10
-NETMASK=255.255.255.0</code></p>
+NETMASK=255.255.255.0
+</code></pre>
 </li>
 <li>
 <p>Restart networking</p>
-<p><code>systemctl restart network</code></p>
+<pre><code>systemctl restart network
+</code></pre>
 </li>
 <li>
 <p>Verify address configuration</p>
-<p><code>ip addr show</code></p>
+<pre><code>ip addr show
+</code></pre>
 </li>
 <li>
 <p>Check <code>ens192</code> address</p>
-<p><code>ip addr show ens192</code></p>
+<pre><code>ip addr show ens192
+</code></pre>
 <ul>
 <li>Note down shown address; It will be required to connect to this virtual machine using Ansible</li>
 </ul>
@@ -583,7 +580,8 @@ NETMASK=255.255.255.0</code></p>
 </li>
 <li>
 <p>Reboot virtual machine</p>
-<p><code>systemctl reboot</code></p>
+<pre><code>systemctl reboot
+</code></pre>
 </li>
 </ul>
 </li>
@@ -595,65 +593,74 @@ If not, please refer to <a href="https://docs.microsoft.com/en-us/windows/wsl/in
 <ol>
 <li>
 <p>Install required packages</p>
-<p><code>sudo apt install python3 python3-pip python3-virtualenv sshpass</code></p>
+<pre><code>sudo apt install python3 python3-pip python3-virtualenv sshpass
+</code></pre>
 </li>
 <li>
 <p>Clone <code>contrail-windows-ci</code> git repository from <a href="https://github.com/Juniper/contrail-windows-ci">https://github.com/Juniper/contrail-windows-ci</a></p>
-<p><code>mkdir ~/dev
+<pre><code>mkdir ~/dev
 cd ~/dev
-git clone https://github.com/Juniper/contrail-windows-ci.git</code></p>
+git clone https://github.com/Juniper/contrail-windows-ci.git
+</code></pre>
 </li>
 <li>
 <p>Checkout <code>local-testenv</code> branch</p>
-<p><code>cd ./contrail-windows-ci
+<pre><code>cd ./contrail-windows-ci
 git branch local-testenv origin/local-testenv
-git checkout local-testenv</code></p>
+git checkout local-testenv
+</code></pre>
 </li>
 <li>
 <p>Traverse to <code>contrail-windows-ci/ansible</code> directory</p>
-<p><code>cd ./ansible</code></p>
+<pre><code>cd ./ansible
+</code></pre>
 </li>
 <li>
 <p>Create virtualenv for Python</p>
-<p><code>python3 -m virtualenv -p /usr/bin/python3 venv</code></p>
+<pre><code>python3 -m virtualenv -p /usr/bin/python3 venv
+</code></pre>
 </li>
 <li>
 <p>Active virtualenv</p>
 <ul>
-<li>shell prompt should change to indicate that virtualenv is activated</li>
+<li>shell prompt should change to indicate that virtualenv is activated<pre><code>$ . venv/bin/activate
+(venv) $
+</code></pre>
+</li>
 </ul>
-<p><code>$ . venv/bin/activate
-(venv) $</code></p>
 </li>
 <li>
 <p>Install Python dependencies</p>
-<p><code>pip install -r python-requirements.txt</code></p>
+<pre><code>pip install -r python-requirements.txt
+</code></pre>
 </li>
 <li>
 <p>Create a file for a provided Ansible vault key</p>
-<p>```
-touch ~/ansible-vault-key
-vi ~/ansible-vault-key</p>
-<h1 id="enter-vault-key">Enter vault key</h1>
-<p>```</p>
+<pre><code>touch ~/ansible-vault-key
+vi ~/ansible-vault-key
+# Enter vault key
+</code></pre>
 </li>
 <li>
 <p>Copy <code>inventory.testenv</code> file to <code>inventory</code></p>
-<p><code>cp inventory.testenv inventory</code></p>
+<pre><code>cp inventory.testenv inventory
+</code></pre>
 </li>
 <li>
 <p>Add Windows virtual machines to <code>testbed</code> group by editing the <code>inventory</code> file</p>
-<p><code>[testbed]
+<pre><code>[testbed]
 [INITIALS]-tb1 ansible_host=MGMT_IP_TB1
-[INITIALS]-tb2 ansible_host=MGMT_IP_TB2</code></p>
+[INITIALS]-tb2 ansible_host=MGMT_IP_TB2
+</code></pre>
 <ul>
 <li><code>MGMT_IP_TB1</code>, <code>MGMT_IP_TB2</code> are addresses of <code>Ethernet0</code> adapters we checked earlier</li>
 </ul>
 </li>
 <li>
 <p>Add Controller virtual machine to <code>controller</code> group</p>
-<p><code>[controller]
-[INITIALS]-ctrl ansible_host=MGMT_IP_CTRL ansible_user=PROVIDED_USER ansible_ssh_pass=PROVIDED_PASSWORD</code></p>
+<pre><code>[controller]
+[INITIALS]-ctrl ansible_host=MGMT_IP_CTRL ansible_user=PROVIDED_USER ansible_ssh_pass=PROVIDED_PASSWORD
+</code></pre>
 <ul>
 <li><code>MGMT_IP_CTRL</code> is an address of <code>ens192</code> adapter we checked earlier</li>
 <li><code>PROVIDED_USER</code> and <code>PROVIDED_PASSWORD</code> are provided credentials for CentOS</li>
@@ -661,21 +668,25 @@ vi ~/ansible-vault-key</p>
 </li>
 <li>
 <p>Test network connection to devenv virtual machines</p>
-<p><code>ping MGMT_IP_TB1
+<pre><code>ping MGMT_IP_TB1
 ping MGMT_IP_TB2
-ping MGMT_IP_CTRL</code></p>
+ping MGMT_IP_CTRL
+</code></pre>
 </li>
 <li>
 <p>Test Ansible connectivity to Windows virtual machines</p>
-<p><code>ansible -i inventory testbed -m win_ping</code></p>
+<pre><code>ansible -i inventory testbed -m win_ping
+</code></pre>
 </li>
 <li>
 <p>Test Ansible connectivity to Controller virtual machine</p>
-<p><code>ansible -i inventory controller -m ping</code></p>
+<pre><code>ansible -i inventory controller -m ping
+</code></pre>
 </li>
 <li>
 <p>Run <code>configure-local-testenv.yml</code></p>
-<p><code>ansible-playbook -i inventory configure-local-testenv.yml --skip-tags yum-repos</code></p>
+<pre><code>ansible-playbook -i inventory configure-local-testenv.yml --skip-tags yum-repos
+</code></pre>
 <ul>
 <li>Playbook should take at least an hour to complete</li>
 </ul>

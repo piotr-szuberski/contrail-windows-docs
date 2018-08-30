@@ -99,18 +99,6 @@
         </ul>
     
 
-    <li class="toctree-l3"><a href="#omitted">... omitted</a></li>
-    
-
-    <li class="toctree-l3"><a href="#omitted_1">... omitted</a></li>
-    
-
-    <li class="toctree-l3"><a href="#task-list-omitted-for-brevity">task list omitted for brevity</a></li>
-    
-
-    <li class="toctree-l3"><a href="#-task-run-time-omitted-for-brevity">... - task run time omitted for brevity</a></li>
-    
-
     </ul>
                 </li>
                 <li class="">
@@ -322,103 +310,104 @@ This procedure updates configuration using <code>development</code> or <code>pro
 <ol>
 <li>
 <p>Install required <code>apt</code> dependencies on Ansible control machine</p>
-<p><code>bash
-apt-get install git python3 python3-pip python3-virtualenv</code></p>
+<pre><code>apt-get install git python3 python3-pip python3-virtualenv
+</code></pre>
 </li>
 <li>
 <p>Clone <code>contrail-windows-ci</code> repository</p>
-<p><code>bash
-cd ~/
+<pre><code>cd ~/
 git clone https://github.com/Juniper/contrail-windows-ci.git
-cd contrail-windows-ci</code></p>
+cd contrail-windows-ci
+</code></pre>
 </li>
 <li>
 <p>Checkout branch that you want to use for configuring Zuul. For example:</p>
 <ul>
 <li>
 <p>to checkout <code>development</code> branch:</p>
-<p><code>bash
-git checkout development</code></p>
+<pre><code>git checkout development
+</code></pre>
 </li>
 <li>
 <p>to checkout <code>production</code> branch:</p>
-<p><code>bash
-git fetch --all
+<pre><code>git fetch --all
 git branch production origin/production
-git checkout production</code></p>
+git checkout production
+</code></pre>
 </li>
 </ul>
 </li>
 <li>
 <p>Verify that <code>development</code> (or <code>production</code>) branch contains PRs with required changes to Zuul configuration</p>
 <ul>
-<li>Assuming <code>PR#2</code> and <code>PR#1</code> are required PRs, run the following command:</li>
-</ul>
-<p><code>bash
-git log --oneline</code></p>
-<ul>
-<li>Output will contain a list of merged PRs, from newest to oldest. Required PRs should be at the top:</li>
-</ul>
-<p>```
-abcdabc PR#2
+<li>
+<p>Assuming <code>PR#2</code> and <code>PR#1</code> are required PRs, run the following command:</p>
+<pre><code>git log --oneline
+</code></pre>
+</li>
+<li>
+<p>Output will contain a list of merged PRs, from newest to oldest. Required PRs should be at the top:</p>
+<pre><code>abcdabc PR#2
 abcd123 PR#1
 e8691f5 Some other PR
-3af841e Some other PR, part 2</p>
-<h1 id="omitted">... omitted</h1>
-<p>```</p>
+3af841e Some other PR, part 2
+# ... omitted
+</code></pre>
+</li>
+</ul>
 <p><strong>Example</strong></p>
 <ul>
 <li>Assume that <a href="https://github.com/Juniper/contrail-windows-ci/pull/212">add contrail-infra-doc to gerrit (#212)</a> is a latest PR that was merged and this change has to be applied on Zuul</li>
-<li>Then output of <code>git log</code> should look like this:</li>
+<li>Then output of <code>git log</code> should look like this:<pre><code>93c783b add contrail-infra-doc to gerrit (#212)
+1f86f26 zuul: setup-zuul-server playbook; variables in prod inventory (#210)
+# ... omitted
+</code></pre>
+</li>
 </ul>
-<p>```
-93c783b add contrail-infra-doc to gerrit (#212)
-1f86f26 zuul: setup-zuul-server playbook; variables in prod inventory (#210)</p>
-<h1 id="omitted_1">... omitted</h1>
-<p>```</p>
 </li>
 <li>
 <p>Move to <code>ansible</code> directory</p>
-<p><code>bash
-cd ansible</code></p>
+<pre><code>cd ansible
+</code></pre>
 </li>
 <li>
 <p>Create a virtualenv and install <code>pip</code> dependencies</p>
-<p><code>bash
-python3 -m virtualenv -p /usr/bin/python3 venv
+<pre><code>python3 -m virtualenv -p /usr/bin/python3 venv
 source venv/bin/activate
-pip install -r python-requirements.txt</code></p>
+pip install -r python-requirements.txt
+</code></pre>
 </li>
 <li>
 <p>Create a file for Ansible vault key and populate it with the key</p>
-<p><code>bash
-touch ~/ansible-vault-key
-vim ~/ansible-vault-key  # enter ansible vault key into a file</code></p>
+<pre><code>touch ~/ansible-vault-key
+vim ~/ansible-vault-key  # enter ansible vault key into a file
+</code></pre>
 </li>
 <li>
 <p>Test connection to Zuul with Ansible</p>
-<p><code>bash
-ansible -i inventory.prod --private-key=YOUR_PRIVATE_KEY zuul -m ping</code></p>
+<pre><code>ansible -i inventory.prod --private-key=YOUR_PRIVATE_KEY zuul -m ping
+</code></pre>
 <ul>
 <li>where <code>YOUR_PRIVATE_KEY</code> is a path to your SSH private key</li>
 </ul>
 </li>
 <li>
 <p>Run <code>setup-zuul-server.yml</code> playbook</p>
-<p><code>bash
-ansible-playbook -i inventory.prod --private-key=YOUR_PRIVATE_KEY setup-zuul-server.yml</code></p>
+<pre><code>ansible-playbook -i inventory.prod --private-key=YOUR_PRIVATE_KEY setup-zuul-server.yml
+</code></pre>
 <p>Verify that the run completed successfully.
 The output should be following and <code>failed</code> task count must equal zero.</p>
-<p>```</p>
-<h1 id="_1"></h1>
-<h1 id="task-list-omitted-for-brevity">task list omitted for brevity</h1>
-<h1 id="_2"></h1>
-<p>PLAY RECAP <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>*</strong>*
-10.84.12.75                : ok=22   changed=2    unreachable=0    failed=0</p>
-<h1 id="_3"></h1>
-<h1 id="-task-run-time-omitted-for-brevity">... - task run time omitted for brevity</h1>
-<h1 id="_4"></h1>
-<p>```</p>
+<pre><code>#
+# task list omitted for brevity
+#
+
+PLAY RECAP    ********************************************************************************   **********
+10.84.12.75                : ok=22   changed=2    unreachable=0    failed=0
+
+#
+# ... - task run time omitted for brevity
+#
+</code></pre>
 <ul>
 <li><code>failed</code> task count should be equal to zero</li>
 </ul>

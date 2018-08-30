@@ -434,25 +434,25 @@ Scheduled task executes a PowerShell Script <code>Backup.ps1</code> located in <
 <ol>
 <li>
 <p>Clone <code>contrail-windows-ci</code> repository and enter <code>backups/</code> directory</p>
-<p><code>powershell
-PS C:\Users\user&gt; git clone https://github.com/Juniper/contrail-windows-ci.git
+<pre><code>PS C:\Users\user&gt; git clone https://github.com/Juniper/contrail-windows-ci.git
 PS C:\Users\user&gt; cd contrail-windows-ci\backups
-PS C:\Users\user\contrail-windows-ci\backups&gt;</code></p>
+PS C:\Users\user\contrail-windows-ci\backups&gt;
+</code></pre>
 </li>
 <li>
 <p>Establish a PowerShell session with <code>winci-veeam</code> server</p>
-<p><code>powershell
-PS C:\Users\user\contrail-windows-ci\backups&gt; $session = New-PSSession -ComputerName 10.84.12.29 -Credentials $(Get-Credential)</code></p>
+<pre><code>PS C:\Users\user\contrail-windows-ci\backups&gt; $session = New-PSSession -ComputerName 10.84.12.29 -Credentials $(Get-Credential)
+</code></pre>
 </li>
 <li>
 <p>Copy <code>backups</code> directory's contents to <code>winci-veeam</code> server, to <code>C:\BackupScripts</code> directory</p>
-<p><code>powershell
-PS C:\Users\user\contrail-windows-ci\backups&gt; Copy-Item .\* C:\BackupScripts -ToSession $session</code></p>
+<pre><code>PS C:\Users\user\contrail-windows-ci\backups&gt; Copy-Item .\* C:\BackupScripts -ToSession $session
+</code></pre>
 </li>
 <li>
 <p>Close PowerShell session</p>
-<p><code>powershell
-PS C:\Users\user\contrail-windows-ci\backups&gt; Remove-PSSession $session</code></p>
+<pre><code>PS C:\Users\user\contrail-windows-ci\backups&gt; Remove-PSSession $session
+</code></pre>
 </li>
 </ol>
               

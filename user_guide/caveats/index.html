@@ -286,6 +286,10 @@
 fragmentation to work.</li>
 <li>Multiple endpoints per container are not supported.</li>
 <li>Multiple IPs/networks per container endpoint are not supported.</li>
+<li><code>docker network inspect</code> on Contrail network does not show correct IPAM subnet, if subnet was not specified on creation<ul>
+<li>Please refer to this bug: https://bugs.launchpad.net/opencontrail/+bug/1789237</li>
+</ul>
+</li>
 </ul>
               
             </div>
