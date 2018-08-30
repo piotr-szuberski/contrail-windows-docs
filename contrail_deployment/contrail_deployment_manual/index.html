@@ -335,16 +335,21 @@ vim config/instances.yaml
 </li>
 </ul>
 </li>
-<li>Proceed with running Ansible playbooks:<pre><code>sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
-sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml
-sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml
-</code></pre>
-</li>
+<li>Proceed with running Ansible playbooks:<ul>
+<li>If you have already deployed the controller:
+        sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
+        sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml</li>
+<li>If you don't have the controller:
+        sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
+        sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml
+        sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml</li>
 </ul>
 </li>
 </ul>
 <h2 id="testing-the-new-setup">Testing the new setup</h2>
 <p>Refer to <a href="../../user_guide/connection_scenarios/">this document</a></p>
+</li>
+</ul>
               
             </div>
           </div>
