@@ -340,8 +340,8 @@ vim config/instances.yaml
 <ul>
 <li>
 <p>If you have already deployed the controller:</p>
-<pre><code>sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
-sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml
+<pre><code>sudo -H ansible-playbook -i inventory/ playbooks/configure_instances.yml
+sudo -H ansible-playbook -i inventory/ playbooks/install_contrail.yml
 </code></pre>
 </li>
 <li>
