@@ -13,14 +13,15 @@
 
   <link rel="stylesheet" href="./css/theme.css" type="text/css" />
   <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="./highlight.css" rel="stylesheet">
   <link href="./theme.css" rel="stylesheet">
   <link href="./theme_extra.css" rel="stylesheet">
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  <script src="./js/jquery-2.1.1.min.js" defer></script>
+  <script src="./js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -31,10 +32,10 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
+        <a href="./." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -45,7 +46,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href=".">Home</a>
+    <a class="" href="./.">Home</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -54,39 +55,39 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Dependencies/">Dependencies</a>
+    <a class="" href="./ci_admin_guide/Dependencies/">Dependencies</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Infrastructure_backups/">Infrastructure backups</a>
+    <a class="" href="./ci_admin_guide/Infrastructure_backups/">Infrastructure backups</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/List_of_VMs_in_Windows_CI/">List of VMs in Windows CI</a>
+    <a class="" href="./ci_admin_guide/List_of_VMs_in_Windows_CI/">List of all important VMs in Windows CI</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
+    <a class="" href="./ci_admin_guide/Merge_development_to_production/">Merge development to production</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
+    <a class="" href="./ci_admin_guide/Run_gerrit_pipeline_on_github_PR/">Run gerrit pipeline on github PR</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Update_Jenkins_slaves/">Update Jenkins slaves</a>
+    <a class="" href="./ci_admin_guide/Update_Jenkins_slaves/">Updating Jenkins slaves</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Update_Zuul/">Update Zuul</a>
+    <a class="" href="./ci_admin_guide/Update_Zuul/">Update Windows CI Zuulv2</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Update_private_docker_registry/">Update private docker registry</a>
+    <a class="" href="./ci_admin_guide/Update_private_docker_registry/">How to update private docker registry</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="ci_admin_guide/Windows_CI_logs_layout/">Windows CI logs layout</a>
+    <a class="" href="./ci_admin_guide/Windows_CI_logs_layout/">Windows CI logs layout</a>
                 </li>
     </ul>
 	    </li>
@@ -97,19 +98,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="contrail_deployment/CAD_for_windows_design/">CAD for windows design</a>
+    <a class="" href="./contrail_deployment/CAD_for_windows_design/">Contrail-ansible-deployer for Windows design document</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="contrail_deployment/Devenv_in_local_env/">Devenv in local env</a>
+    <a class="" href="./contrail_deployment/Devenv_in_local_env/">Devenv in CodiLime VMware lab</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="contrail_deployment/contrail_deployment_in_ci/">Contrail deployment in ci</a>
+    <a class="" href="./contrail_deployment/contrail_deployment_in_ci/">A few words about contrail deployment in Windows CI</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="contrail_deployment/contrail_deployment_manual/">Contrail deployment manual</a>
+    <a class="" href="./contrail_deployment/contrail_deployment_manual/">How to deploy Contrail with Windows compute nodes</a>
                 </li>
     </ul>
 	    </li>
@@ -120,7 +121,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="developer_guide/HNS_error_bestiary/">HNS error bestiary</a>
+    <a class="" href="./developer_guide/HNS_error_bestiary/">HNS errors bestiary</a>
                 </li>
                 <li class="">
                     
@@ -128,7 +129,7 @@
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="developer_guide/building/Dockerized_builder_using_ansible/">Dockerized builder using ansible</a>
+    <a class="" href="./developer_guide/building/Dockerized_builder_using_ansible/">Dockerized builder using ansible</a>
                 </li>
     </ul>
                 </li>
@@ -141,15 +142,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="style_guides/C/">C</a>
+    <a class="" href="./style_guides/C/">C</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="style_guides/Cpp/">Cpp</a>
+    <a class="" href="./style_guides/Cpp/">Cpp</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="style_guides/Go/">Go</a>
+    <a class="" href="./style_guides/Go/">Go</a>
                 </li>
     </ul>
 	    </li>
@@ -160,7 +161,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
+    <a class="" href="./updating_documentation/How_to_update_this_documentation/">How to update this documentation</a>
                 </li>
     </ul>
 	    </li>
@@ -171,11 +172,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="user_guide/caveats/">Caveats</a>
+    <a class="" href="./user_guide/caveats/">Known issues</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="user_guide/connection_scenarios/">Connection scenarios</a>
+    <a class="" href="./user_guide/connection_scenarios/">Connection scenarios</a>
                 </li>
     </ul>
 	    </li>
@@ -186,47 +187,47 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
+    <a class="" href="./windows_compute/Communication_Agent_Extension/">Communication Agent Extension</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
+    <a class="" href="./windows_compute/Container_creation_lifecycle/">Container creation lifecycle</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/Docker_on_Windows/">Docker on Windows</a>
+    <a class="" href="./windows_compute/Docker_on_Windows/">Docker</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/Forwarding_extension/">Forwarding extension</a>
+    <a class="" href="./windows_compute/Forwarding_extension/">Forwarding extension</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
+    <a class="" href="./windows_compute/HyperV_extensible_switch/">HyperV extensible switch</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/Linux_Overview/">Linux Overview</a>
+    <a class="" href="./windows_compute/Linux_Overview/">Contrail Controller</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
+    <a class="" href="./windows_compute/Network_creation_lifecycle/">Network creation lifecycle</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/Root_HNS_network/">Root HNS network</a>
+    <a class="" href="./windows_compute/Root_HNS_network/">Root HNS network</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/Utility_tools/">Utility tools</a>
+    <a class="" href="./windows_compute/Utility_tools/">Utility tools</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/_Blueprint/"> Blueprint</a>
+    <a class="" href="./windows_compute/_Blueprint/"> Blueprint</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
+    <a class="" href="./windows_compute/vRouter_Linux_implementation/">vRouter Linux implementation</a>
                 </li>
     </ul>
 	    </li>
@@ -241,7 +242,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Tungsten Fabric for Windows Documentation</a>
+        <a href="./.">Tungsten Fabric for Windows Documentation</a>
       </nav>
 
       
@@ -249,7 +250,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="./.">Docs</a> &raquo;</li>
     
     
     <li class="wy-breadcrumbs-aside">
@@ -266,7 +267,7 @@
 
   <form id="content_search" action="search.html">
     <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus>
+    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
   </form>
 
   <div id="mkdocs-search-results" class="search-results">
@@ -304,9 +305,8 @@
     </span>
 </div>
     <script>var base_url = '.';</script>
-    <script src="./js/theme.js"></script>
-      <script src="./search/require.js"></script>
-      <script src="./search/search.js"></script>
+    <script src="./js/theme.js" defer></script>
+      <script src="./search/main.js" defer></script>
 
 </body>
 </html>

@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../../highlight.css" rel="stylesheet">
   <link href="../../theme.css" rel="stylesheet">
   <link href="../../theme_extra.css" rel="stylesheet">
@@ -22,12 +22,13 @@
     // Current page data
     var mkdocs_page_name = "A few words about contrail deployment in Windows CI";
     var mkdocs_page_input_path = "contrail_deployment/contrail_deployment_in_ci.md";
-    var mkdocs_page_url = "/contrail_deployment/contrail_deployment_in_ci/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,7 +42,7 @@
         <a href="../.." class="icon icon-home"> Tungsten Fabric for Windows Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -142,7 +143,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../contrail_deployment_manual/">Contrail deployment manual</a>
+    <a class="" href="../contrail_deployment_manual/">How to deploy Contrail with Windows compute nodes</a>
                 </li>
     </ul>
 	    </li>
@@ -153,7 +154,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS error bestiary</a>
+    <a class="" href="../../developer_guide/HNS_error_bestiary/">HNS errors bestiary</a>
                 </li>
                 <li class="">
                     
@@ -204,7 +205,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../user_guide/caveats/">Caveats</a>
+    <a class="" href="../../user_guide/caveats/">Known issues</a>
                 </li>
                 <li class="">
                     
@@ -227,7 +228,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../windows_compute/Docker_on_Windows/">Docker on Windows</a>
+    <a class="" href="../../windows_compute/Docker_on_Windows/">Docker</a>
                 </li>
                 <li class="">
                     
@@ -239,7 +240,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../windows_compute/Linux_Overview/">Linux Overview</a>
+    <a class="" href="../../windows_compute/Linux_Overview/">Contrail Controller</a>
                 </li>
                 <li class="">
                     
@@ -363,7 +364,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../contrail_deployment_manual/" class="btn btn-neutral float-right" title="Contrail deployment manual">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../contrail_deployment_manual/" class="btn btn-neutral float-right" title="How to deploy Contrail with Windows compute nodes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../Devenv_in_local_env/" class="btn btn-neutral" title="Devenv in CodiLime VMware lab"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -400,9 +401,8 @@
     </span>
 </div>
     <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/require.js"></script>
-      <script src="../../search/search.js"></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

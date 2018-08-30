@@ -1,167 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Dependencies/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Infrastructure_backups/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/List_of_VMs_in_Windows_CI/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Merge_development_to_production/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Run_gerrit_pipeline_on_github_PR/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Update_Jenkins_slaves/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Update_Zuul/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Update_private_docker_registry/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/ci_admin_guide/Windows_CI_logs_layout/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/contrail_deployment/CAD_for_windows_design/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/contrail_deployment/Devenv_in_local_env/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/contrail_deployment/contrail_deployment_in_ci/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/contrail_deployment/contrail_deployment_manual/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/developer_guide/HNS_error_bestiary/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/developer_guide/building/Dockerized_builder_using_ansible/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/style_guides/C/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/style_guides/Cpp/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/style_guides/Go/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/updating_documentation/How_to_update_this_documentation/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/user_guide/caveats/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/user_guide/connection_scenarios/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Communication_Agent_Extension/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Container_creation_lifecycle/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Docker_on_Windows/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Forwarding_extension/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/HyperV_extensible_switch/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Linux_Overview/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Network_creation_lifecycle/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Root_HNS_network/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/Utility_tools/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/_Blueprint/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/windows_compute/vRouter_Linux_implementation/</loc>
+     <loc>None</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
