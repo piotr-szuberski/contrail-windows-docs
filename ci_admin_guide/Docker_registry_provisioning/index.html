@@ -36,7 +36,7 @@
     
     
       
-        <title>Network creation lifecycle - Tungsten Fabric for Windows Documentation</title>
+        <title>How to provision Docker registry - Tungsten Fabric for Windows Documentation</title>
       
     
     
@@ -77,6 +77,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#how-to-provision-docker-registry" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -99,7 +103,7 @@
                 Tungsten Fabric for Windows Documentation
               </span>
               <span class="md-header-nav__topic">
-                Network creation lifecycle
+                How to provision Docker registry
               </span>
             
           
@@ -180,10 +184,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Ci admin guide
@@ -201,7 +207,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Dependencies/" title="Dependencies" class="md-nav__link">
+    <a href="../Dependencies/" title="Dependencies" class="md-nav__link">
       Dependencies
     </a>
   </li>
@@ -211,11 +217,97 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Docker_registry_provisioning/" title="How to provision Docker registry" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        How to provision Docker registry
+      </label>
+    
+    <a href="./" title="How to provision Docker registry" class="md-nav__link md-nav__link--active">
       How to provision Docker registry
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-the-machine" title="Preparing the machine" class="md-nav__link">
+    Preparing the machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-docker" title="Installing Docker" class="md-nav__link">
+    Installing Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-the-registry" title="Starting the registry" class="md-nav__link">
+    Starting the registry
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-registry_1" title="Starting the registry" class="md-nav__link">
+    Starting the registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pulling-and-mirroring-the-images" title="Pulling and mirroring the images" class="md-nav__link">
+    Pulling and mirroring the images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#possible-improvements" title="Possible improvements" class="md-nav__link">
+    Possible improvements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -225,7 +317,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Infrastructure_backups/" title="Infrastructure backups" class="md-nav__link">
+    <a href="../Infrastructure_backups/" title="Infrastructure backups" class="md-nav__link">
       Infrastructure backups
     </a>
   </li>
@@ -237,7 +329,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/List_of_VMs_in_Windows_CI/" title="List of all important VMs in Windows CI" class="md-nav__link">
+    <a href="../List_of_VMs_in_Windows_CI/" title="List of all important VMs in Windows CI" class="md-nav__link">
       List of all important VMs in Windows CI
     </a>
   </li>
@@ -249,7 +341,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Merge_development_to_production/" title="Merge development to production" class="md-nav__link">
+    <a href="../Merge_development_to_production/" title="Merge development to production" class="md-nav__link">
       Merge development to production
     </a>
   </li>
@@ -261,7 +353,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Reconnecting_Host/" title="Reconnecting Host to Contrail Windows CI cluster" class="md-nav__link">
+    <a href="../Reconnecting_Host/" title="Reconnecting Host to Contrail Windows CI cluster" class="md-nav__link">
       Reconnecting Host to Contrail Windows CI cluster
     </a>
   </li>
@@ -273,7 +365,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/" title="Run gerrit pipeline on github PR" class="md-nav__link">
+    <a href="../Run_gerrit_pipeline_on_github_PR/" title="Run gerrit pipeline on github PR" class="md-nav__link">
       Run gerrit pipeline on github PR
     </a>
   </li>
@@ -285,7 +377,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Update_Jenkins_slaves/" title="Updating Jenkins slaves" class="md-nav__link">
+    <a href="../Update_Jenkins_slaves/" title="Updating Jenkins slaves" class="md-nav__link">
       Updating Jenkins slaves
     </a>
   </li>
@@ -297,7 +389,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Update_Zuul/" title="Update Windows CI Zuulv2" class="md-nav__link">
+    <a href="../Update_Zuul/" title="Update Windows CI Zuulv2" class="md-nav__link">
       Update Windows CI Zuulv2
     </a>
   </li>
@@ -309,7 +401,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Update_private_docker_registry/" title="How to update private docker registry" class="md-nav__link">
+    <a href="../Update_private_docker_registry/" title="How to update private docker registry" class="md-nav__link">
       How to update private docker registry
     </a>
   </li>
@@ -321,7 +413,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Windows_CI_infrastructure/" title="Windows CI infrastructure diagram" class="md-nav__link">
+    <a href="../Windows_CI_infrastructure/" title="Windows CI infrastructure diagram" class="md-nav__link">
       Windows CI infrastructure diagram
     </a>
   </li>
@@ -333,7 +425,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Windows_CI_logs_layout/" title="Windows CI logs layout" class="md-nav__link">
+    <a href="../Windows_CI_logs_layout/" title="Windows CI logs layout" class="md-nav__link">
       Windows CI logs layout
     </a>
   </li>
@@ -648,12 +740,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Windows compute
@@ -671,7 +761,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Communication_Agent_Extension/" title="Communication Agent Extension" class="md-nav__link">
+    <a href="../../windows_compute/Communication_Agent_Extension/" title="Communication Agent Extension" class="md-nav__link">
       Communication Agent Extension
     </a>
   </li>
@@ -683,7 +773,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Container_creation_lifecycle/" title="Container creation lifecycle" class="md-nav__link">
+    <a href="../../windows_compute/Container_creation_lifecycle/" title="Container creation lifecycle" class="md-nav__link">
       Container creation lifecycle
     </a>
   </li>
@@ -695,7 +785,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker_on_Windows/" title="Docker" class="md-nav__link">
+    <a href="../../windows_compute/Docker_on_Windows/" title="Docker" class="md-nav__link">
       Docker
     </a>
   </li>
@@ -707,7 +797,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Forwarding_extension/" title="Forwarding extension" class="md-nav__link">
+    <a href="../../windows_compute/Forwarding_extension/" title="Forwarding extension" class="md-nav__link">
       Forwarding extension
     </a>
   </li>
@@ -719,7 +809,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../HyperV_extensible_switch/" title="HyperV extensible switch" class="md-nav__link">
+    <a href="../../windows_compute/HyperV_extensible_switch/" title="HyperV extensible switch" class="md-nav__link">
       HyperV extensible switch
     </a>
   </li>
@@ -731,7 +821,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux_Overview/" title="Contrail Controller" class="md-nav__link">
+    <a href="../../windows_compute/Linux_Overview/" title="Contrail Controller" class="md-nav__link">
       Contrail Controller
     </a>
   </li>
@@ -743,7 +833,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../NBL_processing/" title="NET_BUFFER_LIST processing" class="md-nav__link">
+    <a href="../../windows_compute/NBL_processing/" title="NET_BUFFER_LIST processing" class="md-nav__link">
       NET_BUFFER_LIST processing
     </a>
   </li>
@@ -753,18 +843,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Network creation lifecycle" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../windows_compute/Network_creation_lifecycle/" title="Network creation lifecycle" class="md-nav__link">
       Network creation lifecycle
     </a>
-    
   </li>
 
         
@@ -774,7 +857,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Offloading_IP_checksums_and_other_tasks/" title="Offloading IP Checksums and other tasks" class="md-nav__link">
+    <a href="../../windows_compute/Offloading_IP_checksums_and_other_tasks/" title="Offloading IP Checksums and other tasks" class="md-nav__link">
       Offloading IP Checksums and other tasks
     </a>
   </li>
@@ -786,7 +869,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Root_HNS_network/" title="Root HNS network" class="md-nav__link">
+    <a href="../../windows_compute/Root_HNS_network/" title="Root HNS network" class="md-nav__link">
       Root HNS network
     </a>
   </li>
@@ -798,7 +881,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Utility_tools/" title="Utility tools" class="md-nav__link">
+    <a href="../../windows_compute/Utility_tools/" title="Utility tools" class="md-nav__link">
       Utility tools
     </a>
   </li>
@@ -810,7 +893,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../_Blueprint/" title=" Blueprint" class="md-nav__link">
+    <a href="../../windows_compute/_Blueprint/" title=" Blueprint" class="md-nav__link">
        Blueprint
     </a>
   </li>
@@ -822,7 +905,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../vRouter_Linux_implementation/" title="vRouter Linux implementation" class="md-nav__link">
+    <a href="../../windows_compute/vRouter_Linux_implementation/" title="vRouter Linux implementation" class="md-nav__link">
       vRouter Linux implementation
     </a>
   </li>
@@ -840,24 +923,182 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-the-machine" title="Preparing the machine" class="md-nav__link">
+    Preparing the machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-docker" title="Installing Docker" class="md-nav__link">
+    Installing Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-the-registry" title="Starting the registry" class="md-nav__link">
+    Starting the registry
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-registry_1" title="Starting the registry" class="md-nav__link">
+    Starting the registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pulling-and-mirroring-the-images" title="Pulling and mirroring the images" class="md-nav__link">
+    Pulling and mirroring the images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#possible-improvements" title="Possible improvements" class="md-nav__link">
+    Possible improvements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Network creation lifecycle</h1>
-                
-                <p>There is a slight discrepancy between Docker's and Contrail's networking model. Contrail can implement a logical, overlay network for containers. However, docker can only create a network locally, on the hypervisor.</p>
-<p>This means that "docker network create" command needs to be ran on each hypervisor that will contain any container that could be connected to a specific network. In other words, "local" networks must be prepared on each host.</p>
-<p>Furthermore, Docker's "network" is actually equivalent to Contrail's "subnet". This means, that during docker network creation, specific Contrail subnet (using CIDR notation) must be specified as a parameter.</p>
+                <h1 id="how-to-provision-docker-registry">How to provision Docker registry</h1>
+<blockquote>
+<p>Note. This document describes provisioning procedure.
+If you want just to update the images, see the <a href="../Update_private_docker_registry/">updating manual</a>.</p>
+</blockquote>
+<p>To provision a docker registry, you will:</p>
 <ol>
-<li>Docker client tells docker daemon to create a docker network that will represent a chunk of a Contrail subnet. Tenant name, network name and subnet's CIDR are passed as parameters.</li>
-<li>Docker daemon creates a network resource in its own, local database, and then delegates handling of network configuration to the docker driver.</li>
-<li>Docker driver queries Contrail Controller whether specified tenant, network and subnet combination exists. It also asks for their details.</li>
-<li>Contrail Controller returns subnet's default gateway address as well as subnet's UUID</li>
-<li>Docker driver calls HNS function to create a HNS network with subnet's CIDR and default gateway address. It also sets the HNS network's name as a concatenation of "Contrail" with tenant name, network name and subnet ID.</li>
-<li>Docker driver tells docker daemon to store tenant and network names in docker network's metadata. Docker daemon stores this information in its own, local database.</li>
+<li>Prepare the machine</li>
+<li>Install Docker</li>
+<li>Start the registry</li>
+<li>Pull and mirror the images</li>
+</ol>
+<p>The following sections describe these steps in details.</p>
+<h2 id="preparing-the-machine">Preparing the machine</h2>
+<ol>
+<li>
+<p>Spawn a VM in VMWare using the CentOS / Ubuntu image as template (the rest of instruction will assume (CentOS 7).</p>
+<ul>
+<li>Choose the machine name <code>winci-registry</code></li>
+<li>When asked about which customization to use, select DHCP.</li>
+</ul>
+</li>
+<li>
+<p>Log in using ssh and set the hostname:</p>
+<p>Edit the file <code>/etc/hostname</code> and type the same name as used in step 1.</p>
+</li>
+<li>
+<p>Update the system using <code>yum upgrade</code> and reboot.</p>
+</li>
+<li>
+<p><strong>Set up static IP</strong>:</p>
+<p>Log in using ssh and change the IP configuration to manual, by modifying the following file:
+<code>/etc/sysconfig/network-scripts/ifcfg-ens192</code>: Change the line with <code>BOOTPROTO</code> to</p>
+<pre><code>BOOTPROTO=static
+</code></pre>
+<p>and add the following lines at the end of that file:</p>
+<pre><code>IPADDR=10.84.12.27
+NETMASK=255.255.255.0
+GATEWAY=10.84.12.254
+DNS1=172.21.200.60
+DNS2=172.29.131.60
+DNS3=8.8.8.8
+DOMAIN="contrail.juniper.net englab.juniper.net juniper.net jnpr.net"
+</code></pre>
+<p>This IP is used by the <code>controller</code> role in our CI,
+<a href="https://github.com/Juniper/contrail-windows-ci/blob/development/ansible/roles/controller/defaults/main.yml#L1">as a <code>docker_registry</code> parameter</a></p>
+</li>
+<li>
+<p>Then reboot the machine and log in using the new IP.</p>
+</li>
+</ol>
+<h2 id="installing-docker">Installing Docker</h2>
+<ol>
+<li>
+<p>Install Docker using package manager</p>
+<pre><code>yum install docker
+systemctl enable docker
+systemctl start docker
+</code></pre>
+</li>
+<li>
+<p>Allow the <code>ci-repo</code> (from which we will be pulling the images) to use HTTP:</p>
+<ul>
+<li>
+<p>Add this line to <code>/etc/docker/daemon.json</code> (if the file is not there, create it):</p>
+<pre><code>{ "insecure-registries":["ci-repo.englab.juniper.net:5000"] }{}
+</code></pre>
+</li>
+<li>
+<p>Restart docker to apply changes</p>
+<pre><code>systemctl restart docker
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="starting-the-registry">Starting the registry</h2>
+<h3 id="starting-the-registry_1">Starting the registry</h3>
+<p>Start the registry container:</p>
+<pre><code class="bash">docker run -d -p 5000:5000 --restart=always --name registry registry:2
+</code></pre>
+
+<p>The container with the registry is set to autostart, so no further
+configuration is needed.</p>
+<h2 id="pulling-and-mirroring-the-images">Pulling and mirroring the images</h2>
+<p>Refer to <a href="../Update_private_docker_registry/">the registry update manual</a> to pull and start mirroring the images.</p>
+<h2 id="possible-improvements">Possible improvements</h2>
+<p>Perhaps we can also try mirroring base images for speed.</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://docs.docker.com/registry/deploying/">Deploy a registry server — Docker Documentation</a></li>
 </ol>
                 
                   
@@ -879,7 +1120,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../NBL_processing/" title="NET_BUFFER_LIST processing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Dependencies/" title="Dependencies" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -888,19 +1129,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                NET_BUFFER_LIST processing
+                Dependencies
               </span>
             </div>
           </a>
         
         
-          <a href="../Offloading_IP_checksums_and_other_tasks/" title="Offloading IP Checksums and other tasks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Infrastructure_backups/" title="Infrastructure backups" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Offloading IP Checksums and other tasks
+                Infrastructure backups
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

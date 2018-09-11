@@ -219,6 +219,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Docker_registry_provisioning/" title="How to provision Docker registry" class="md-nav__link">
+      How to provision Docker registry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Infrastructure_backups/" title="Infrastructure backups" class="md-nav__link">
       Infrastructure backups
     </a>
@@ -988,6 +1000,27 @@
 <li>ansible-vault-key</li>
 <li>logs server ssh keys</li>
 <li>github deploy ssh key</li>
+</ul>
+</li>
+<li>VMware HA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>winci-registry</code> – Created manually @ 10.84.12.27 –
+  Docker registry with <code>kolla</code> and <code>contrail-openstack-*</code> images
+  from <code>ci-repo.englab.juniper.net:5000</code>.
+  We're mirroring, because we may use some older snapshot
+  of images, that are already removed from <code>ci-repo</code> registry.<ul>
+<li>impact if down:<ul>
+<li>ABSOLUTELY CRITICAL (cannot create testenvs)</li>
+<li>In some cases we can switch back to ci-repo.</li>
+</ul>
+</li>
+<li>fix cost:<ul>
+<li>Manual provisioning using [provisioning manual][docker-registry-provisioning]</li>
+<li>Backup<ul>
+<li>Images removed from <code>ci-repo</code> may be unavailable, another registry?</li>
 </ul>
 </li>
 <li>VMware HA</li>
