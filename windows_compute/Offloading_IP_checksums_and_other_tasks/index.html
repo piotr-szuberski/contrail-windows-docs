@@ -36,7 +36,7 @@
     
     
       
-        <title>vRouter Linux implementation - Tungsten Fabric for Windows Documentation</title>
+        <title>Offloading IP Checksums and other tasks - Tungsten Fabric for Windows Documentation</title>
       
     
     
@@ -77,6 +77,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#offloading-ip-checksums-and-other-tasks" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -99,7 +103,7 @@
                 Tungsten Fabric for Windows Documentation
               </span>
               <span class="md-header-nav__topic">
-                vRouter Linux implementation
+                Offloading IP Checksums and other tasks
               </span>
             
           
@@ -753,11 +757,104 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Offloading_IP_checksums_and_other_tasks/" title="Offloading IP Checksums and other tasks" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Offloading IP Checksums and other tasks
+      </label>
+    
+    <a href="./" title="Offloading IP Checksums and other tasks" class="md-nav__link md-nav__link--active">
       Offloading IP Checksums and other tasks
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offloading-in-hyper-v-virtual-switches" title="Offloading in Hyper-V Virtual Switches" class="md-nav__link">
+    Offloading in Hyper-V Virtual Switches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulated-packet-offload" title="Encapsulated Packet Offload" class="md-nav__link">
+    Encapsulated Packet Offload
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#only-nvgre" title="Only NVGRE?" class="md-nav__link">
+    Only NVGRE?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-net-buffer-list-info" title="Handling Net Buffer List Info" class="md-nav__link">
+    Handling Net Buffer List Info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-with-dp-core" title="Interaction with dp-core" class="md-nav__link">
+    Interaction with dp-core
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#possible-performance-improvements" title="Possible performance improvements" class="md-nav__link">
+    Possible performance improvements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -801,18 +898,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="vRouter Linux implementation" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../vRouter_Linux_implementation/" title="vRouter Linux implementation" class="md-nav__link">
       vRouter Linux implementation
     </a>
-    
   </li>
 
         
@@ -828,17 +918,242 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offloading-in-hyper-v-virtual-switches" title="Offloading in Hyper-V Virtual Switches" class="md-nav__link">
+    Offloading in Hyper-V Virtual Switches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulated-packet-offload" title="Encapsulated Packet Offload" class="md-nav__link">
+    Encapsulated Packet Offload
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#only-nvgre" title="Only NVGRE?" class="md-nav__link">
+    Only NVGRE?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-net-buffer-list-info" title="Handling Net Buffer List Info" class="md-nav__link">
+    Handling Net Buffer List Info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-with-dp-core" title="Interaction with dp-core" class="md-nav__link">
+    Interaction with dp-core
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#possible-performance-improvements" title="Possible performance improvements" class="md-nav__link">
+    Possible performance improvements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>vRouter Linux implementation</h1>
-                
-                <p>On Linux, vRouter implementation consists of two parts: a userspace agent and a kernel module, along with all the userspace utility command line tools. The agent communicates with OpenContrail’s control nodes and receives configuration state, like forwarding information. Its main responsibility is installation of forwarding state into the kernel module.</p>
-<p>Functionality of the data plane, like flow tables, is contained in dp-core component. Translation between the agent’s object model and low-level data model used by datapath is realized by the KSync module, which is utilized by both the agent and the kernel module.</p>
-<p>On Linux, communication between the forwarding plane, which runs in kernel space, and the user space agent, is done via use of Netlink sockets and shared memory. However, neither BSD nor Windows support Netlink sockets. That’s why, on FreeBSD, they are emulated over raw sockets. </p>
+                <h1 id="offloading-ip-checksums-and-other-tasks">Offloading IP Checksums and other tasks</h1>
+<h2 id="introduction">Introduction</h2>
+<blockquote>
+<p>Note: Offloading basically means "let somebody else do it".</p>
+</blockquote>
+<p>There are <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/network/task-offload">various tasks</a> related to the IP stack that can be offloaded,
+such as computing checksums or segmenting large TCP packets.</p>
+<p>It is beneficial to perform these offloads as late as possible. In the best case,
+the offloading is performed in the network card hardware, so eg. no CPU cycles
+are wasted on computing the TCP checksum.</p>
+<p>Sometimes the offloading is not supported by the hardware, but still can be performed in the software.
+This is best described on an example — the LSO (Large (TCP) Send Offload) means
+that for the most time spent in the kernel the TCP packet can be stored as one single <a href="../NBL_processing/"><code>NET_BUFFER</code></a>,
+bigger than a single Ethernet frame. That means that all operations like filtering, routing, etc.
+can operate efficiently (because they look at a single packet instead of many)
+and the actual segmenting will be performed just before passing the buffer
+to the hardware. In the case of container-to-container connection, the actual segmentation
+can even never happen! As they say, the fastest code is the code that never runs.</p>
+<h2 id="offloading-in-hyper-v-virtual-switches">Offloading in Hyper-V Virtual Switches</h2>
+<blockquote>
+<p>Note: Refer to <a href="https://blogs.msdn.microsoft.com/altr/2014/09/12/hyper-v-virtual-switch-performance-offloads/">the blog post about VMSwitches and offloading</a> for more information.</p>
+</blockquote>
+<p>Usually, the OS Networking stack asks the network device about types
+of offloading it supports and offloads only the tasks that the hardware
+is capable of offloading. With VMSwitch it's not that simple, because
+it's hard to propagate the hardware capabilities to all the ports
+in VMSwitch (especially because when sending a packet into VMSwitch,
+we don't know where will it end up: a container, a virtual machine,
+a real network card?).</p>
+<p>To sidestep this uneven-offload-support issue, VMSwitch <strong>always</strong>
+advertises on all its ports that most offloads are supported.
+Therefore, any VMSwitch Extension must be prepared to handle NBLs
+with these offloads requested.</p>
+<p>The offloads that are always supported are:</p>
+<ul>
+<li>IP, TCP, UDP send checksum offload.</li>
+<li>LSO (Large Send Offload), which is basically TCP Segmentation offload.</li>
+<li>Receive checksum offload (VMSwitch with the help of hardware or by
+    itself will set appropriate flags that mark the validity of checksums
+    in <em>incoming</em> packets).</li>
+</ul>
+<p>So yes, we — vRouter VMSwitch Extension — must handle all these offload requests.
+But this relationship is symmetric — when sending packets
+we can rely on support for these offloads on all vPorts!</p>
+<p>Other offloads than listed above are not always advertised as supported.</p>
+<h2 id="encapsulated-packet-offload">Encapsulated Packet Offload</h2>
+<p>The most interesting type of offload which is <em>not</em> always
+advertised as supported by VMSwitch is the <a href="https://docs.microsoft.com/en-gb/windows-hardware/drivers/network/network-virtualization-using-generic-routing-encapsulation--nvgre--task-offload">Encapsulated Packet Offload</a>.
+In theory it enables to perform all the standard offload tasks
+(like computing checksums and Large Send Offload) on the inner packet,
+despite it being wrapped in a tunnel. It also allows to simultaneously
+offload the checksums of the tunneling headers themselves.</p>
+<p>Unfortunately it requires support from the network device or its driver.
+To check for support and enable the feature you can use the following commandlests:</p>
+<pre><code class="powershell">Get-NetAdapterEncapsulatedPacketTaskOffload
+Enable-NetAdapterEncapsulatedPacketTaskOffload
+</code></pre>
+
+<p>The drivers used in our test environments (vmxnet3) do not seem to support this feature
+(at least, we haven't managed to enable it using these PowerShell commandlets).
+If we try to use it anyway by setting appropriate NBL Info, the packet gets rejected.</p>
+<h3 id="only-nvgre">Only NVGRE?</h3>
+<p>The documentation on <a href="https://docs.microsoft.com/en-gb/windows-hardware/drivers/network/network-virtualization-using-generic-routing-encapsulation--nvgre--task-offload">Encapsulated Packet Offload</a> page suggests
+that this feature can only be used with NVGRE tunneling.
+It never explicitly states it cannot be used with other kinds of tunneling though.</p>
+<p>On the other hand, the fields of <a href="https://technet.microsoft.com/en-us/windows/jj991957(v=vs.100)">the union that describes the parameters for EPO</a>
+allow specifying arbitrary offsets between outer and inner headers,
+suggesting that this feature can be used with different tunneling protocols.</p>
+<p>In general, this feature is a little bit underdocumented,
+so it's hard to get a definite answer whether other tunnellings than NVGRE are supported.</p>
+<p><small>
+    Note: There's a small chance that the reason our experiments with Encapsulated
+    Packet Offload had failed was not the lack of support from the driver,
+    but rather the fact we were trying to use MPLSoGRE, not NVGRE.
+    This seems very unlikely though.
+</small></p>
+<h2 id="handling-net-buffer-list-info">Handling Net Buffer List Info</h2>
+<p>All the information about offloading requests/responses is stored
+in <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/ndis/ne-ndis-_ndis_net_buffer_list_info">various Net Buffer List Info unions</a>.
+There are a few important things to note about these:</p>
+<ol>
+<li>
+<p>Many of these unions have <code>Transmit</code> and <code>Receive</code> variants.
+    A care should be taken when reading these, as only
+    one variant is active at once — packets incoming from
+    vHost or containers' ports are using <code>Transmit</code> variants
+    and packets incoming from external interface are using <code>Receive</code>
+    variants. Reading from inactive variant will result in reading garbage.</p>
+</li>
+<li>
+<p>Net Buffer List Info is not copied when using <code>NdisAllocateCloneNetBufferList</code>.</p>
+</li>
+<li>
+<p>When performing offload tasks in software, it's important to
+    disable offloading requests by zeroing these fields.
+    Not doing that will result in unexpected results.</p>
+<p>It's also important to remember that some offload tasks
+require writing additional info on Complete,
+like number of transfered bytes in LSO.</p>
+</li>
+<li>
+<p>When the packet is wrapped in a tunnel, the fields
+    refer to the outer packet. A care should be taken
+    to check whether these fields are still correct.</p>
+</li>
+</ol>
+<h2 id="interaction-with-dp-core">Interaction with dp-core</h2>
+<p>The <strong>LSO</strong> (Large Send Offload) feature on Windows is really similar to
+GSO (Generic Send Offload) on Linux and dp-core.
+To support it, we only need to provide LSO-requested MSS in a getter.</p>
+<p><code>vr_packet</code> has some flags for GRO (Generic Receive Offload).
+Analogous Windows feature is <strong>LRO</strong> (Large Receive Offload).
+How to handle it in dp-core and whether it is necessary
+wasn't investigated yet.</p>
+<p>When the checksum offload was requested, packets will have
+the <a href="http://www.tcpipguide.com/free/t_TCPChecksumCalculationandtheTCPPseudoHeader-2.htm"><strong>partial checksum</strong></a> already computed
+and stored in the TCP/UDP checksum field. When dp-core tries to
+incrementally update checksums, it needs to know whether the checksum
+fields contains full or partial checksum, in order to correctly
+update the field. The <code>VR_FLAG_CSUM_PARTIAL</code> flag must be set accordingly.</p>
+<h2 id="possible-performance-improvements">Possible performance improvements</h2>
+<ol>
+<li>
+<p>The offloading request for TCP checksum contains the offset
+    of TCP header — that means it should be possible to leverage
+    the TCP checksum offload also on tunnelled packets (by providing
+    adjusted offset to inner TCP header, which includes the outer headers length).</p>
+</li>
+<li>
+<p>Checksums of outer headers could be offloaded unconditionally.</p>
+</li>
+<li>
+<p>Currently, we do TCP segmentation of tunnelled packets manually.
+    It should be possible to use <a href="#encapsulated-packet-offload">Encapsulated Packet Offload</a>
+    on a supported hardware.</p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/network/task-offload">TCP/IP Task Offload (docs.microsoft.com)</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/altr/2014/09/12/hyper-v-virtual-switch-performance-offloads/">Hyper-V Virtual Switch Performance — Offloads</a></li>
+<li><a href="https://docs.microsoft.com/en-gb/windows-hardware/drivers/network/network-virtualization-using-generic-routing-encapsulation--nvgre--task-offload">Network Virtualization using Generic Routing Encapsulation (NVGRE) Task Offload</a></li>
+<li><a href="http://www.tcpipguide.com/free/t_TCPChecksumCalculationandtheTCPPseudoHeader-2.htm">TCP Checksum Calculation and the TCP "Pseudo Header"</a></li>
+</ol>
                 
                   
                 
@@ -859,7 +1174,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../_Blueprint/" title=" Blueprint" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Network_creation_lifecycle/" title="Network creation lifecycle" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -868,11 +1183,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                 Blueprint
+                Network creation lifecycle
               </span>
             </div>
           </a>
         
+        
+          <a href="../Root_HNS_network/" title="Root HNS network" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Root HNS network
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
