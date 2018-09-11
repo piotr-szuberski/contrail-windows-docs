@@ -264,6 +264,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Reconnecting_Host/" title="Reconnecting Host to Contrail Windows CI cluster" class="md-nav__link">
+      Reconnecting Host to Contrail Windows CI cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Run_gerrit_pipeline_on_github_PR/" title="Run gerrit pipeline on github PR" class="md-nav__link">
       Run gerrit pipeline on github PR
     </a>
@@ -836,17 +848,11 @@
 <li>
 <p>VMware:</p>
 <ul>
-<li><code>ci-vc</code><ul>
-<li>vCenter Server on Windows</li>
-<li>Critical</li>
-<li><strong>REQUIRES BACKUP</strong></li>
+<li><code>ci-vc</code> - vCenter Server on Windows<ul>
+<li>CRITICAL</li>
 </ul>
 </li>
-<li><code>ci-vc-um</code><ul>
-<li>vCenter Update Manager</li>
-<li><strong>REQUIRES BACKUP</strong></li>
-</ul>
-</li>
+<li><code>ci-vc-um</code> - vCenter Update Manager</li>
 </ul>
 </li>
 <li>
@@ -902,6 +908,7 @@
 <li><code>builders</code> - Ansible, Jenkins job</li>
 <li><code>testers</code> - Ansible, Jenkins job</li>
 <li><code>mgmt-dhcp</code> - Created manually, DHCP server + configuration (172.17.0.0/24)<ul>
+<li>CRITICAL</li>
 <li>impact if down:<ul>
 <li>will cause failure in all production CI jobs due to lack of dhcp for testbed machines</li>
 <li>will not affect demo-env, dev-env and other machines in public network</li>
@@ -931,32 +938,8 @@
 </li>
 </ul>
 </li>
-<li><code>winci-graphite</code> - Created manually<ul>
-<li>impact if down:<ul>
-<li>no impact on production CI</li>
-<li>degrades CI monitoring</li>
-</ul>
-</li>
-<li>fix cost:<ul>
-<li>Automate VM provisioning</li>
-<li>Automate configuration and dashboard deployment</li>
-<li>Backup needed to preserve historical data</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>winci-monitoring</code> - Created manually<ul>
-<li>impact if down:<ul>
-<li>TODO: does this affect production job (namely - post stage will fail, right?)</li>
-</ul>
-</li>
-<li>fix cost:<ul>
-<li>TODO</li>
-</ul>
-</li>
-</ul>
-</li>
 <li><code>winci-jenkins</code> - Created manually, plugins + configuration<ul>
+<li>CRITICAL</li>
 <li>impact if down:<ul>
 <li>ABSOLUTELY CRITICAL</li>
 </ul>
@@ -977,6 +960,7 @@
 </ul>
 </li>
 <li><code>winci-mgmt</code> - Created manually, Python requirements.txt have to be installed<ul>
+<li>CRITICAL</li>
 <li>impact if down:<ul>
 <li>ABSOLUTELY CRITICAL (cannot create testenvs)</li>
 </ul>
@@ -1000,6 +984,7 @@
 </ul>
 </li>
 <li><code>winci-vyos-mgmt</code><ul>
+<li>CRITICAL</li>
 <li>impact if down:<ul>
 <li>ABSOLUTELY CRITICAL (cannot deploy contrail controllers)</li>
 </ul>
@@ -1013,6 +998,7 @@
 </ul>
 </li>
 <li><code>winci-zuulv2-production</code> - Created manually with Ansible script<ul>
+<li>CRITICAL</li>
 <li>impact if down:<ul>
 <li>ABSOLUTELY CRITICAL (cannot run jobs)</li>
 </ul>
@@ -1033,6 +1019,7 @@
 </ul>
 </li>
 <li><code>winci-purgatory</code> - Probably created manually? What is installed there?<ul>
+<li>CRITICAL</li>
 <li>impact if down:<ul>
 <li>ABSOLUTELY CRITICAL (cannot run jobs)</li>
 </ul>
@@ -1058,8 +1045,10 @@
 </li>
 <li>SSD/SATA drivers<ul>
 <li>fix cost:<ul>
-<li>TODO: Determine if servers can into RAID</li>
-<li>Maintenance to configure RAID</li>
+<li>RAID on physical servers:<ul>
+<li>Not possible due to lack of hardware support</li>
+</ul>
+</li>
 <li>If not RAID, then shared storage for critical VMs is needed<ul>
 <li>Preferrably some storage array with RAID configured</li>
 </ul>
@@ -1077,12 +1066,7 @@
 <li>
 <p>Backup:</p>
 <ul>
-<li>Additional storage space for backup, independent of VMware storage</li>
-<li>TODO: Backup method?</li>
-<li>TODO: Backup tool?</li>
-<li>TODO: Backup procedure?</li>
-<li>TODO: DR procedure for critical VMs?</li>
-<li>TODO: hardware monitoring?</li>
+<li>Refer to <a href="https://github.com/Juniper/contrail-windows-docs/blob/master/doc/ci_admin_guide/Infrastructure_backups.md">Infrastructure Backups</a></li>
 </ul>
 </li>
 </ol>

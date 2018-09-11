@@ -36,7 +36,7 @@
     
     
       
-        <title>Root HNS network - Tungsten Fabric for Windows Documentation</title>
+        <title>Reconnecting Host to Contrail Windows CI cluster - Tungsten Fabric for Windows Documentation</title>
       
     
     
@@ -77,6 +77,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#reconnecting-host-to-contrail-windows-ci-cluster" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -99,7 +103,7 @@
                 Tungsten Fabric for Windows Documentation
               </span>
               <span class="md-header-nav__topic">
-                Root HNS network
+                Reconnecting Host to Contrail Windows CI cluster
               </span>
             
           
@@ -180,10 +184,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Ci admin guide
@@ -201,7 +207,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Dependencies/" title="Dependencies" class="md-nav__link">
+    <a href="../Dependencies/" title="Dependencies" class="md-nav__link">
       Dependencies
     </a>
   </li>
@@ -213,7 +219,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Infrastructure_backups/" title="Infrastructure backups" class="md-nav__link">
+    <a href="../Infrastructure_backups/" title="Infrastructure backups" class="md-nav__link">
       Infrastructure backups
     </a>
   </li>
@@ -225,7 +231,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/List_of_VMs_in_Windows_CI/" title="List of all important VMs in Windows CI" class="md-nav__link">
+    <a href="../List_of_VMs_in_Windows_CI/" title="List of all important VMs in Windows CI" class="md-nav__link">
       List of all important VMs in Windows CI
     </a>
   </li>
@@ -237,7 +243,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Merge_development_to_production/" title="Merge development to production" class="md-nav__link">
+    <a href="../Merge_development_to_production/" title="Merge development to production" class="md-nav__link">
       Merge development to production
     </a>
   </li>
@@ -247,11 +253,76 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Reconnecting_Host/" title="Reconnecting Host to Contrail Windows CI cluster" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Reconnecting Host to Contrail Windows CI cluster
+      </label>
+    
+    <a href="./" title="Reconnecting Host to Contrail Windows CI cluster" class="md-nav__link md-nav__link--active">
       Reconnecting Host to Contrail Windows CI cluster
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" title="Steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendices" title="Appendices" class="md-nav__link">
+    Appendices
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reregistering-a-vm" title="Reregistering a VM" class="md-nav__link">
+    Reregistering a VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -261,7 +332,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Run_gerrit_pipeline_on_github_PR/" title="Run gerrit pipeline on github PR" class="md-nav__link">
+    <a href="../Run_gerrit_pipeline_on_github_PR/" title="Run gerrit pipeline on github PR" class="md-nav__link">
       Run gerrit pipeline on github PR
     </a>
   </li>
@@ -273,7 +344,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Update_Jenkins_slaves/" title="Updating Jenkins slaves" class="md-nav__link">
+    <a href="../Update_Jenkins_slaves/" title="Updating Jenkins slaves" class="md-nav__link">
       Updating Jenkins slaves
     </a>
   </li>
@@ -285,7 +356,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Update_Zuul/" title="Update Windows CI Zuulv2" class="md-nav__link">
+    <a href="../Update_Zuul/" title="Update Windows CI Zuulv2" class="md-nav__link">
       Update Windows CI Zuulv2
     </a>
   </li>
@@ -297,7 +368,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Update_private_docker_registry/" title="How to update private docker registry" class="md-nav__link">
+    <a href="../Update_private_docker_registry/" title="How to update private docker registry" class="md-nav__link">
       How to update private docker registry
     </a>
   </li>
@@ -309,7 +380,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Windows_CI_infrastructure/" title="Windows CI infrastructure diagram" class="md-nav__link">
+    <a href="../Windows_CI_infrastructure/" title="Windows CI infrastructure diagram" class="md-nav__link">
       Windows CI infrastructure diagram
     </a>
   </li>
@@ -321,7 +392,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ci_admin_guide/Windows_CI_logs_layout/" title="Windows CI logs layout" class="md-nav__link">
+    <a href="../Windows_CI_logs_layout/" title="Windows CI logs layout" class="md-nav__link">
       Windows CI logs layout
     </a>
   </li>
@@ -636,12 +707,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Windows compute
@@ -659,7 +728,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Communication_Agent_Extension/" title="Communication Agent Extension" class="md-nav__link">
+    <a href="../../windows_compute/Communication_Agent_Extension/" title="Communication Agent Extension" class="md-nav__link">
       Communication Agent Extension
     </a>
   </li>
@@ -671,7 +740,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Container_creation_lifecycle/" title="Container creation lifecycle" class="md-nav__link">
+    <a href="../../windows_compute/Container_creation_lifecycle/" title="Container creation lifecycle" class="md-nav__link">
       Container creation lifecycle
     </a>
   </li>
@@ -683,7 +752,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker_on_Windows/" title="Docker" class="md-nav__link">
+    <a href="../../windows_compute/Docker_on_Windows/" title="Docker" class="md-nav__link">
       Docker
     </a>
   </li>
@@ -695,7 +764,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Forwarding_extension/" title="Forwarding extension" class="md-nav__link">
+    <a href="../../windows_compute/Forwarding_extension/" title="Forwarding extension" class="md-nav__link">
       Forwarding extension
     </a>
   </li>
@@ -707,7 +776,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../HyperV_extensible_switch/" title="HyperV extensible switch" class="md-nav__link">
+    <a href="../../windows_compute/HyperV_extensible_switch/" title="HyperV extensible switch" class="md-nav__link">
       HyperV extensible switch
     </a>
   </li>
@@ -719,7 +788,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Linux_Overview/" title="Contrail Controller" class="md-nav__link">
+    <a href="../../windows_compute/Linux_Overview/" title="Contrail Controller" class="md-nav__link">
       Contrail Controller
     </a>
   </li>
@@ -731,7 +800,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../NBL_processing/" title="NET_BUFFER_LIST processing" class="md-nav__link">
+    <a href="../../windows_compute/NBL_processing/" title="NET_BUFFER_LIST processing" class="md-nav__link">
       NET_BUFFER_LIST processing
     </a>
   </li>
@@ -743,7 +812,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Network_creation_lifecycle/" title="Network creation lifecycle" class="md-nav__link">
+    <a href="../../windows_compute/Network_creation_lifecycle/" title="Network creation lifecycle" class="md-nav__link">
       Network creation lifecycle
     </a>
   </li>
@@ -753,18 +822,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Root HNS network" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../windows_compute/Root_HNS_network/" title="Root HNS network" class="md-nav__link">
       Root HNS network
     </a>
-    
   </li>
 
         
@@ -774,7 +836,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Utility_tools/" title="Utility tools" class="md-nav__link">
+    <a href="../../windows_compute/Utility_tools/" title="Utility tools" class="md-nav__link">
       Utility tools
     </a>
   </li>
@@ -786,7 +848,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../_Blueprint/" title=" Blueprint" class="md-nav__link">
+    <a href="../../windows_compute/_Blueprint/" title=" Blueprint" class="md-nav__link">
        Blueprint
     </a>
   </li>
@@ -798,7 +860,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../vRouter_Linux_implementation/" title="vRouter Linux implementation" class="md-nav__link">
+    <a href="../../windows_compute/vRouter_Linux_implementation/" title="vRouter Linux implementation" class="md-nav__link">
       vRouter Linux implementation
     </a>
   </li>
@@ -816,21 +878,193 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" title="Steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendices" title="Appendices" class="md-nav__link">
+    Appendices
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reregistering-a-vm" title="Reregistering a VM" class="md-nav__link">
+    Reregistering a VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Root HNS network</h1>
-                
-                <p>HNS operates by using two virtual switches:</p>
+                <h1 id="reconnecting-host-to-contrail-windows-ci-cluster">Reconnecting Host to Contrail Windows CI cluster</h1>
+<p>This document describes a procedure required to reconnected a VMware ESXi host to the Contrail Windows CI cluster.
+Reconnecting a host to CI cluster is understood as a set to steps leading to usage of this host in Contrail Windows CI.</p>
+<p>Described procedure must be performed only when:</p>
 <ul>
-<li>an external vswitch, which is connected directly to physical adapter. This adapter is called "vEthernet (HNSTransparent)", and the switch is called "Layered Etherenet0" depending on which physicial adapter it's connected to. If there is physical NIC teaming, then its name contains all the physical adapters separated by a coma, like "Layered Ethernet0,Ethernet1"</li>
-<li>an internal vswitch, for the purpose of NATing. The adapter that connects to the host is named "vEthernet (HNS Internal NIC)", and the switch is called "nat".</li>
+<li>a host with reinstalled ESXi must be reconnected to the cluster,</li>
+<li>a host with replaced hard drive must be reconnected to the cluster.</li>
 </ul>
-<p>Those virtual switches are not created unless there is at least one HNS network using corresponding Mode: "transparent" or "nat". If the last network of corresponding Mode is removed, the vswitch is also removed. Creation/deletion of vswitch takes a couple seconds and disrupts network connectivity.</p>
-<p>This dynamism of creating/deleting vswitches poses a problem, because we want vRouter Forwarding Extension to be persistent, no matter if there are many or no virtual networks. That's why, when Docker Driver initializes, it creates a "dummy" Root HNS Network, which makes HNS create an external vswitch "Layered Ethernet*". Forwarding Extension is then enabled for that vswitch.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Requirements for CI admin:</p>
+<ul>
+<li>Access to Contrail Windows CI infrastructure.</li>
+<li>Credentials to Contrail Windows CI VMware cluster.</li>
+<li>Browser with Flash support, preferably Chrome.</li>
+</ul>
+<p>Requirements for a reconnected host:</p>
+<ul>
+<li>Host must be connected to vCenter.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<ol>
+<li>Open the vSphere Web Client and login using credentials provided by Contrail Windows CI team.</li>
+<li>In <code>Navigator</code> pane select <code>Hosts and clusters</code> tab.</li>
+<li>Expand <code>CI-DC</code> datacenter entry.</li>
+<li>Expand <code>WinCI</code> cluster entry.</li>
+<li>Find a host entry representing a being reconnected.<ul>
+<li>If a host cannot be found, it is not connected to vCenter. In that case, please contact infrastructure team.</li>
+</ul>
+</li>
+<li>If a host is marked as being in <code>maintenance mode</code>:<ul>
+<li>Right click on a host entry and select <code>Maintenance mode &gt; Exit maintenance mode</code>.</li>
+</ul>
+</li>
+<li>In <code>Navigator</code> pane select <code>Storage</code> tab.<ul>
+<li>Right click on <code>NFS-Datastore</code> and select <code>Mount Datastore to Additional Hosts</code>.</li>
+<li>Mark a checkbox next to a host entry representing a being reconnected.</li>
+<li>Click <code>OK</code>.</li>
+<li>Right click on <code>winci_nfsbackup</code> and select <code>Mount Datastore to Additional Hosts</code>.</li>
+<li>Mark a checkbox next to a host entry representing a being reconnected.</li>
+<li>Click <code>OK</code>.</li>
+</ul>
+</li>
+<li>In <code>Navigator</code> pane select <code>Hosts and clusters</code> tab.</li>
+<li>Find a host entry representing a being reconnected and click on it.</li>
+<li>Cleanup of orphaned VMs must be performed.<ul>
+<li>In the middle pane select <code>VMs</code> tab.</li>
+<li>In the VM table, click <code>Name</code> header to sort VMs by name in ascending order.</li>
+<li>For each VM perform a following process:<ul>
+<li>Determine if the VM is critical.<ul>
+<li>Refer to <a href="https://github.com/Juniper/contrail-windows-docs/blob/master/doc/ci_admin_guide/List_of_VMs_in_Windows_CI.md">List of all important VMs in Windows CI</a> and check if this VM is on the list marked as <code>CRITICAL</code>.<ul>
+<li>In case of any doubts, please contact Contrail Windows CI team.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If the VM is marked as <code>Orphaned</code> and it is not critical to CI functioning:<ul>
+<li>Left click on the VM.</li>
+<li>In the middle pane, scroll down to <code>Related Objects</code> window and check if VM is still located on local datastore.</li>
+<li>If it is the VM must be reregistered and then removed.<ul>
+<li>Please follow steps in <a href="#reregistering-a-vm">Reregistering a VM</a> to reregister the VM.</li>
+<li>Right click on the VM and select <code>Delete from disk</code> option.</li>
+</ul>
+</li>
+<li>If it is not, the VM can be safely removed from inventory.<ul>
+<li>Right click on the VM.</li>
+<li>Select <code>All Virtual Infrastructure Actions &gt; Remove from Inventory</code> option.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If a VM is marked as <code>Orphaned</code> and it is critical to CI functioning:<ul>
+<li>Left click on the VM.</li>
+<li>In the middle pane, scroll down to <code>Related Objects</code> window and check if VM is still located on local datastore.</li>
+<li>If it is the VM must be reregistered.<ul>
+<li>Please follow steps in <a href="#reregistering-a-vm">Reregistering a VM</a> reregister the VM.</li>
+<li>Power on the VM.</li>
+</ul>
+</li>
+<li>If it is not, the VM must be restored from backups.<ul>
+<li>Please refer to <a href="https://github.com/Juniper/contrail-windows-docs/blob/master/doc/ci_admin_guide/Infrastructure_backups.md">Infrastructure backups</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Assign host's datastores to datastore clusters.<ul>
+<li>In the middle pane select <code>Datastores</code> tab.</li>
+<li>Please contact a Contrail Windows CI team regarding datastore - cluster association and perform the following steps:<ul>
+<li>Right click on a datastore.</li>
+<li>Select <code>Move to</code> option.</li>
+<li>In the <code>Move To...</code> window select a datastore cluster based on information from Contrail Windows CI team.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="appendices">Appendices</h2>
+<h3 id="reregistering-a-vm">Reregistering a VM</h3>
+<p>This guide assumes that the user is located in the VM window.</p>
+<ol>
+<li>Take note of a datastore names presented in <code>Related Objects</code> windows.</li>
+<li>Right click on the VM in the list on the left.</li>
+<li>Select <code>All Virtual Infrastructure Actions &gt; Remove from Inventory</code> option.</li>
+<li>In the <code>Navigation</code> pane, left click <code>Storage</code> tab.</li>
+<li>In the datastore list, click on the one of datastores listed previously in <code>Related Objects</code> window.</li>
+<li>Navigate to <code>Files</code> tab.</li>
+<li>Locate a folder named like a VM and enter it.<ul>
+<li>If it cannot be found on this datastore, try another one.</li>
+</ul>
+</li>
+<li>Right click on <code>[VM-NAME].vmx</code> file and select <code>Register VM</code> option.<ul>
+<li>The <code>Register Virtual Machine</code> wizard should show up.</li>
+<li>In the <code>Name and Location</code> step select a suitable folder to put a VM in.</li>
+<li>Click <code>Next</code>.</li>
+<li>In the <code>Host / Cluster</code> step select a <code>WinCI</code> cluster.</li>
+<li>Click <code>Next</code>.</li>
+<li>In the <code>Ready to Complete</code> step click <code>Finish</code> button.</li>
+</ul>
+</li>
+</ol>
                 
                   
                 
@@ -851,7 +1085,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Network_creation_lifecycle/" title="Network creation lifecycle" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Merge_development_to_production/" title="Merge development to production" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -860,19 +1094,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Network creation lifecycle
+                Merge development to production
               </span>
             </div>
           </a>
         
         
-          <a href="../Utility_tools/" title="Utility tools" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Run_gerrit_pipeline_on_github_PR/" title="Run gerrit pipeline on github PR" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Utility tools
+                Run gerrit pipeline on github PR
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
