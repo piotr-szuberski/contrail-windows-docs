@@ -10,12 +10,13 @@ This is a document describing initial support of deploying Windows compute nodes
   * Thus, these roles are divided into `*_Linux` and `*_Win32NT` for usage in c-a-d for Linux and c-a-d for Windows respectively.
 
 ## Orchestrators:
-  * OpenStack must be specified as an orchestrator, because Keystone is required by Windows Docker driver for authorization.
+  * OpenStack has to be specified as an orchestrator if Keystone is to be used as an authentication service in controller.
+  * No orchestrator must be specified if no authentication service should be used in controller.
 
 ## Playbooks:
   * `provision_instances.yml` - not supported at this moment.
   * `configure_instances.yml`
-  * `install_openstack.yml`
+  * `install_openstack.yml` - if needed (see install_openstack paragraph)
   * `install_contrail.yml`
 
 ## configure_instances:
@@ -39,8 +40,10 @@ This is a document describing initial support of deploying Windows compute nodes
     To do that, Windows Test-Signing Mode must be enabled and reboot is done to apply the change.
 
 ## install_openstack:
+  * Must be used only if Keystone is to serve as an authentication service.
+  * Controller might be deployed in "noauth" mode and in that case this playbook shouldn't be run.
+  * For now, whole OpenStack is deployed for single purpose of using Keystone. In the future, setting up Keystone should be extracted to separate role and only this role should be specified instead of whole install_openstack playbook.
   * There are no changes to this playbook.
-  * Whole OpenStack is installed for now, but in the future there should have to specify only the role in `config/instances.yaml` which is responsible for installing Keystone.
 
 ## install_contrail:
   * Specific dlls must be present in main Windows system directory (`C:/Windows/System32`) for the software to run.

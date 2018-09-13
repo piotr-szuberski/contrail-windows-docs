@@ -19,6 +19,7 @@
     * Refer to examples:
         * `config/instances.yaml.bms_win_example` if you have already deployed controller and you only want windows compute nodes
         * `config/instances.yaml.bms_win_full_example` if you want to deploy controller and windows compute nodes together
+        * `config/instances.yaml.bms_win_no_openstack_example` if you want to deploy controller without OpenStack and windows compute nodes together
     * More precise explanation of the required fields:
         * For Windows computes use `bms_win` dict instead of regular `bms`
         * Roles supported on Windows are `vrouter` and `win_docker_driver` - specify them
@@ -27,20 +28,21 @@
         * Set `WINDOWS_DEBUG_DLLS_PATH` to path on Ansible machine containing MSVC 2015 debug dlls, specifically: `msvcp140d.dll`, `ucrtbased.dll` and `vcruntime140d.dll`
     * To deploy a controller for windows compute nodes:
         * Configure as it would be a controller node for a linux ecosystem
-        * For now docker driver on windows needs keystone set up on controller:
+        * If you wish to use keystone as authentication service on controller:
             * Add openstack-* roles to the controller node and set `CLOUD_ORCHESTRATOR` to `openstack`
             * Fill keystone credentials and kolla config. Check `config/instances.yaml.openstack_example`
     * Proceed with running Ansible playbooks:
-        * If you have already deployed the controller:
+        * If you have already deployed the controller **or** if you want to deploy controller without OpenStack (noauth mode):
 
                 sudo -H ansible-playbook -i inventory/ playbooks/configure_instances.yml
                 sudo -H ansible-playbook -i inventory/ playbooks/install_contrail.yml
 
-        * If you don't have the controller:
+        * If you want to deploy controller with OpenStack:
 
                 sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
                 sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml
                 sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml
+
 
 ## Testing the new setup
 Refer to [this document](../user_guide/connection_scenarios.md)
