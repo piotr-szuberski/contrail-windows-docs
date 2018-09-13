@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.3">
     
     
       
@@ -48,8 +48,8 @@
       <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -858,6 +858,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../windows_compute/NDIS_driver_types_overview/" title="NDIS (Network Driver Interface Specification) driver types overview" class="md-nav__link">
+      NDIS (Network Driver Interface Specification) driver types overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../windows_compute/Network_creation_lifecycle/" title="Network creation lifecycle" class="md-nav__link">
       Network creation lifecycle
     </a>
@@ -1344,10 +1356,9 @@ git clone https://github.com/Juniper/contrail-windows-ci.git
 </code></pre>
 </li>
 <li>
-<p>Checkout <code>local-testenv</code> branch</p>
+<p>Checkout <code>development</code> branch</p>
 <pre><code>cd ./contrail-windows-ci
-git branch local-testenv origin/local-testenv
-git checkout local-testenv
+git checkout development
 </code></pre>
 </li>
 <li>
@@ -1441,7 +1452,6 @@ ping MGMT_IP_CTRL
 <h2 id="to-do">To do</h2>
 <ul>
 <li>Changes in <code>controller</code> role required to provision Linux compute node.</li>
-<li>Merge <code>local-testenv</code> to main branch in <code>contrail-windows-ci</code> repository</li>
 </ul>
                 
                   

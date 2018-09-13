@@ -36,7 +36,7 @@
     
     
       
-        <title>Root HNS network - Tungsten Fabric for Windows Documentation</title>
+        <title>NDIS (Network Driver Interface Specification) driver types overview - Tungsten Fabric for Windows Documentation</title>
       
     
     
@@ -77,6 +77,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#ndis-network-driver-interface-specification-driver-types-overview" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -99,7 +103,7 @@
                 Tungsten Fabric for Windows Documentation
               </span>
               <span class="md-header-nav__topic">
-                Root HNS network
+                NDIS (Network Driver Interface Specification) driver types overview
               </span>
             
           
@@ -753,11 +757,77 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../NDIS_driver_types_overview/" title="NDIS (Network Driver Interface Specification) driver types overview" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        NDIS (Network Driver Interface Specification) driver types overview
+      </label>
+    
+    <a href="./" title="NDIS (Network Driver Interface Specification) driver types overview" class="md-nav__link md-nav__link--active">
       NDIS (Network Driver Interface Specification) driver types overview
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#miniport-drivers" title="Miniport drivers" class="md-nav__link">
+    Miniport drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-drivers" title="Protocol drivers" class="md-nav__link">
+    Protocol drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-drivers" title="Filter drivers" class="md-nav__link">
+    Filter drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intermediate-drivers" title="Intermediate drivers" class="md-nav__link">
+    Intermediate drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wfp-windows-filtering-platform" title="WFP (Windows Filtering Platform)" class="md-nav__link">
+    WFP (Windows Filtering Platform)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -789,18 +859,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Root HNS network" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../Root_HNS_network/" title="Root HNS network" class="md-nav__link">
       Root HNS network
     </a>
-    
   </li>
 
         
@@ -852,21 +915,121 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#miniport-drivers" title="Miniport drivers" class="md-nav__link">
+    Miniport drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-drivers" title="Protocol drivers" class="md-nav__link">
+    Protocol drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-drivers" title="Filter drivers" class="md-nav__link">
+    Filter drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intermediate-drivers" title="Intermediate drivers" class="md-nav__link">
+    Intermediate drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wfp-windows-filtering-platform" title="WFP (Windows Filtering Platform)" class="md-nav__link">
+    WFP (Windows Filtering Platform)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Root HNS network</h1>
-                
-                <p>HNS operates by using two virtual switches:</p>
+                <h1 id="ndis-network-driver-interface-specification-driver-types-overview">NDIS (Network Driver Interface Specification) driver types overview</h1>
+<h2 id="miniport-drivers">Miniport drivers</h2>
 <ul>
-<li>an external vswitch, which is connected directly to physical adapter. This adapter is called "vEthernet (HNSTransparent)", and the switch is called "Layered Etherenet0" depending on which physicial adapter it's connected to. If there is physical NIC teaming, then its name contains all the physical adapters separated by a coma, like "Layered Ethernet0,Ethernet1"</li>
-<li>an internal vswitch, for the purpose of NATing. The adapter that connects to the host is named "vEthernet (HNS Internal NIC)", and the switch is called "nat".</li>
+<li>The lowest drivers in NDIS driver stack.</li>
+<li>They manage a network interface card, send and receive data through the NIC.</li>
 </ul>
-<p>Those virtual switches are not created unless there is at least one HNS network using corresponding Mode: "transparent" or "nat". If the last network of corresponding Mode is removed, the vswitch is also removed. Creation/deletion of vswitch takes a couple seconds and disrupts network connectivity.</p>
-<p>This dynamism of creating/deleting vswitches poses a problem, because we want vRouter Forwarding Extension to be persistent, no matter if there are many or no virtual networks. That's why, when Docker Driver initializes, it creates a "dummy" Root HNS Network, which makes HNS create an external vswitch "Layered Ethernet*". Forwarding Extension is then enabled for that vswitch.</p>
+<h2 id="protocol-drivers">Protocol drivers</h2>
+<ul>
+<li>The highest drivers in NDIS driver stack.</li>
+<li>The lowest drivers in transport driver stack.</li>
+<li>They allocate packets, copy data from sending application and pass the packets to lower level driver.</li>
+</ul>
+<h2 id="filter-drivers">Filter drivers</h2>
+<ul>
+<li>Filter drivers are placed between protocol and miniport drivers in the driver stack.</li>
+<li>Multiple filter drivers can be placed one above the other.</li>
+<li>They are transparent to overlaying protocol driver and underlying miniport driver.</li>
+<li>They can be dynamically inserted, removed and reconfigured without stopping the whole driver stack.</li>
+</ul>
+<p>Filter drivers can be divided into two categories:
+- Monitoring filter drivers - They receive all network request and indications and pass them to other drivers. They cannot modify or originate data. They also cannot modify behavior of the driver stack. May be used for monitoring network requests.</p>
+<ul>
+<li>
+<p>Modifying filter drivers - These drivers are allowed to modify the driver stack. The type of modification depends on the type of the driver:</p>
+<ul>
+<li>
+<p>Capturing extensions - They can monitor packets like Monitoring filter drivers. They also cannot modify or drop packets received from overlaying driver. However, they can originate their own packet traffic and intercept indications for this traffic. They may be used for example for monitoring and sending network statistics.</p>
+</li>
+<li>
+<p>Filtering extensions - In addition to capturing extensions, they can inspect, modify and drop packets.</p>
+</li>
+<li>
+<p>Forwarding extensions - In addition to filtering extensions, they can forward packets and change theirs destination (packets routing). Only one forwarding extension can be enabled for each extensible switch.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="intermediate-drivers">Intermediate drivers</h2>
+<ul>
+<li>Miniport drivers see them as a Protocol drivers.</li>
+<li>Protocol drivers see them as a Miniport drivers.</li>
+<li>They translate between different network media.</li>
+<li>May be used for balancing transmission across more than one NIC.</li>
+</ul>
+<h2 id="wfp-windows-filtering-platform">WFP (Windows Filtering Platform)</h2>
+<ul>
+<li>A framework used for creating network filtering applications.</li>
+<li>Allows writing functions that may interact with packet processing at several network layers.</li>
+<li>Mainly used for implementing firewalls, intrusion detection systems, antivirus programs, network monitoring tools, and parental controls.</li>
+</ul>
                 
                   
                 
@@ -887,7 +1050,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Offloading_IP_checksums_and_other_tasks/" title="Offloading IP Checksums and other tasks" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../NBL_processing/" title="NET_BUFFER_LIST processing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -896,19 +1059,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Offloading IP Checksums and other tasks
+                NET_BUFFER_LIST processing
               </span>
             </div>
           </a>
         
         
-          <a href="../Utility_tools/" title="Utility tools" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Network_creation_lifecycle/" title="Network creation lifecycle" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Utility tools
+                Network creation lifecycle
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
