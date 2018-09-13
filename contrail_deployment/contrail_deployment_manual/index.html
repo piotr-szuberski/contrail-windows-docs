@@ -977,6 +977,7 @@ vim config/instances.yaml
 <li>Refer to examples:<ul>
 <li><code>config/instances.yaml.bms_win_example</code> if you have already deployed controller and you only want windows compute nodes</li>
 <li><code>config/instances.yaml.bms_win_full_example</code> if you want to deploy controller and windows compute nodes together</li>
+<li><code>config/instances.yaml.bms_win_no_openstack_example</code> if you want to deploy controller without OpenStack and windows compute nodes together</li>
 </ul>
 </li>
 <li>More precise explanation of the required fields:<ul>
@@ -989,7 +990,7 @@ vim config/instances.yaml
 </li>
 <li>To deploy a controller for windows compute nodes:<ul>
 <li>Configure as it would be a controller node for a linux ecosystem</li>
-<li>For now docker driver on windows needs keystone set up on controller:<ul>
+<li>If you wish to use keystone as authentication service on controller:<ul>
 <li>Add openstack-* roles to the controller node and set <code>CLOUD_ORCHESTRATOR</code> to <code>openstack</code></li>
 <li>Fill keystone credentials and kolla config. Check <code>config/instances.yaml.openstack_example</code></li>
 </ul>
@@ -1000,13 +1001,13 @@ vim config/instances.yaml
 <p>Proceed with running Ansible playbooks:</p>
 <ul>
 <li>
-<p>If you have already deployed the controller:</p>
+<p>If you have already deployed the controller <strong>or</strong> if you want to deploy controller without OpenStack (noauth mode):</p>
 <pre><code>sudo -H ansible-playbook -i inventory/ playbooks/configure_instances.yml
 sudo -H ansible-playbook -i inventory/ playbooks/install_contrail.yml
 </code></pre>
 </li>
 <li>
-<p>If you don't have the controller:</p>
+<p>If you want to deploy controller with OpenStack:</p>
 <pre><code>sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/configure_instances.yml
 sudo -H ansible-playbook -i inventory playbooks/install_openstack.yml
 sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/install_contrail.yml

@@ -1025,13 +1025,14 @@
 </ul>
 <h2 id="orchestrators">Orchestrators:</h2>
 <ul>
-<li>OpenStack must be specified as an orchestrator, because Keystone is required by Windows Docker driver for authorization.</li>
+<li>OpenStack has to be specified as an orchestrator if Keystone is to be used as an authentication service in controller.</li>
+<li>No orchestrator must be specified if no authentication service should be used in controller.</li>
 </ul>
 <h2 id="playbooks">Playbooks:</h2>
 <ul>
 <li><code>provision_instances.yml</code> - not supported at this moment.</li>
 <li><code>configure_instances.yml</code></li>
-<li><code>install_openstack.yml</code></li>
+<li><code>install_openstack.yml</code> - if needed (see install_openstack paragraph)</li>
 <li><code>install_contrail.yml</code></li>
 </ul>
 <h2 id="configure_instances">configure_instances:</h2>
@@ -1063,8 +1064,10 @@
 </ul>
 <h2 id="install_openstack">install_openstack:</h2>
 <ul>
+<li>Must be used only if Keystone is to serve as an authentication service.</li>
+<li>Controller might be deployed in "noauth" mode and in that case this playbook shouldn't be run.</li>
+<li>For now, whole OpenStack is deployed for single purpose of using Keystone. In the future, setting up Keystone should be extracted to separate role and only this role should be specified instead of whole install_openstack playbook.</li>
 <li>There are no changes to this playbook.</li>
-<li>Whole OpenStack is installed for now, but in the future there should have to specify only the role in <code>config/instances.yaml</code> which is responsible for installing Keystone.</li>
 </ul>
 <h2 id="install_contrail">install_contrail:</h2>
 <ul>
