@@ -28,8 +28,27 @@ Requirements for a reconnected host:
 1. Expand `WinCI` cluster entry.
 1. Find a host entry representing a being reconnected.
     - If a host cannot be found, it is not connected to vCenter. In that case, please contact infrastructure team.
+    - if a host is connected to vCenter, but is not a part of `WinCI` cluster:
+        - Right click on the host and select `Move To...` option.
+        - In the `Move To...` window, expand `CI-DC` datacenter.
+        - Click on `WinCI` cluster.
+        - Click `OK` button.
+        - If a dialog `Move Host into This Cluster` comes up, select `Put all of this host's virtual machines in the cluster's root resource pool` option.
+        - Click `Ok`.
 1. If a host is marked as being in `maintenance mode`:
     - Right click on a host entry and select `Maintenance mode > Exit maintenance mode`.
+1. Click on the host entry.
+1. Host networking reconfiguration:
+    - In the middle pane select `Configure` tab.
+    - Select `Virtual switches` from the list on the left.
+    - Select `vSwitch0` from the virtual switches list.
+    - Click on `VM Network` port group in the bottom.
+    - Click `Edit settings` button.
+    - Type in `VM-Network` in the `Network label` input and click `Ok` button.
+    - Select `VMkernel adapters` from the list on the left.
+    - Select on `vmk0` adapter from the adapter list.
+    - Click `Edit settings` button.
+    - In `Port properties` wizard page, check `vMotion` checkbox. Click `Ok` button.
 1. In `Navigator` pane select `Storage` tab.
     - Right click on `NFS-Datastore` and select `Mount Datastore to Additional Hosts`.
     - Mark a checkbox next to a host entry representing a being reconnected.
@@ -39,6 +58,24 @@ Requirements for a reconnected host:
     - Click `OK`.
 1. In `Navigator` pane select `Hosts and clusters` tab.
 1. Find a host entry representing a being reconnected and click on it.
+1. Reconfiguring ESXi logs location to a remote location.
+    - In the middle pane select `Configure` tab.
+    - Select `Advanced System Settings` from the list on the left.
+    - Click `Edit` button in the upper right corner.
+    - Type in `logDir` in the `Filter` input box and press Enter.
+    - Change the value of `Syslog.global.logDir` to `[NFS-Datastore] logs`.
+    - Mark the `Enabled` checkbox in `Syslog.global.logDirUnique`.
+    - Click `Ok` button.
+    - Type in `logDir` in the `Filter` input box and press Enter.
+    - Look through the filtered list and verify that provided options are saved.
+    - To verify that logs are stored in remote location, perform the following steps:
+        - In the `Navigator` pane select `Storage` tab.
+        - Click on `NFS-Datastore`.
+        - In the main pane select `Files` tab.
+        - Navigate to `logs` directory.
+        - Navigate to a directory named with host's hostname.
+        - ESXi logs should be stored in this directory.
+        - Go back to host's entry in `Hosts and clusters` tab in `Navigator` pane.
 1. Cleanup of orphaned VMs must be performed.
     - In the middle pane select `VMs` tab.
     - In the VM table, click `Name` header to sort VMs by name in ascending order.
@@ -69,6 +106,14 @@ Requirements for a reconnected host:
         - Right click on a datastore.
         - Select `Move to` option.
         - In the `Move To...` window select a datastore cluster based on information from Contrail Windows CI team.
+
+
+## After reconnecting
+
+After host is reconnected to Contrail Windows CI cluster, please consider the following:
+
+- Migrate some of `ci-builder-*` nodes to this new host.
+    - TODO: document
 
 
 ## Appendices
