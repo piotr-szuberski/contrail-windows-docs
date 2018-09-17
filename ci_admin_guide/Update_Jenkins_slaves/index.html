@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.3">
     
     
       
@@ -48,8 +48,8 @@
       <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -257,6 +257,18 @@
   <li class="md-nav__item">
     <a href="../Merge_development_to_production/" title="Merge development to production" class="md-nav__link">
       Merge development to production
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prepare_Host_for_Maintenance/" title="Prepare an ESXi Host for Maintenance" class="md-nav__link">
+      Prepare an ESXi Host for Maintenance
     </a>
   </li>
 
@@ -686,8 +698,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user_guide/caveats/" title="Known issues" class="md-nav__link">
-      Known issues
+    <a href="../../user_guide/caveats/" title="Limitations and known issues" class="md-nav__link">
+      Limitations and known issues
     </a>
   </li>
 
@@ -1029,34 +1041,55 @@ the package first. See examples below.</p>
 <ol>
 <li>Checkout <code>github.com/Juniper/contrail-windows-ci</code> repository.</li>
 <li>Enter <code>ansible/</code> directory.</li>
-<li>Prepare your environment by going through steps described in <code>README.md</code>. </li>
-<li>Find the ansible role that is responsible for the upgrade.<ol>
-<li>Modify the role to suit your needs. </li>
-<li>Add a tag to every task that needs to be executed.</li>
+<li>Prepare your environment by going through steps described in <code>README.md</code>.</li>
+<li>
+<p>Find the ansible role that is responsible for the upgrade.</p>
+<ol>
+<li>Modify the role to suit your needs.</li>
+<li>
+<p>If modification could cause a slave restart, manually disable auto start of <code>jenkins_swarm_client</code>:</p>
+<p><code>powershell
+Stop-Service jenkins_swarm_client
+Set-Service jenkins_swarm_client -StartupType Manual</code></p>
+</li>
+<li>
+<p><strong>NOTE</strong>: <code>jenkins_swarm_client</code> must be disabled, since a reboot removes the <code>Mark this node as temporarily offline</code> status from the slave. After the update procedure completes, you should re-enable this service to reconnect the builder to Jenkins.</p>
+</li>
+<li>Add a tag to every task that needs to be executed.<ol>
+<li>Prepare inventory file.</li>
 </ol>
 </li>
-<li>Prepare inventory file.<ol>
 <li>Edit file <code>inventory.devel/groups</code>.</li>
-<li>Add IP of your selected slave under the correct group.</li>
+<li>Add IP of your selected slave under the correct group.<ol>
+<li>Create one-off playbook.</li>
 </ol>
 </li>
-<li>Create one-off playbook.<ol>
 <li>Create an yml file in the root of <code>ansible/</code> dir.</li>
-<li>Specify hosts and roles to be executed.</li>
+<li>Specify hosts and roles to be executed.<ol>
+<li>Run the playbook, specifying:</li>
 </ol>
 </li>
-<li>Run the playbook, specifying ansible vault, the inventory and prepared playbook.</li>
-<li>Test if the change worked.</li>
+<li>ansible vault key location,</li>
+<li>inventory,</li>
+<li>task tags to execute,</li>
+<li>prepared playbook.</li>
+<li>Test if the change worked.<ol>
 <li>Remote into the machine and verify if change was successful.</li>
-<li>Test if job passes.<ol>
+<li>Test if job passes.</li>
+</ol>
+</li>
 <li>In Jenkins, go into the selected node view. Remove all tags it has. Add some temporary tag (e.g. 'temp-upgrade').</li>
 <li>Open a test pull request to <code>github.com/Juniper/contrail-windows-ci</code><ol>
 <li>In its Jenksinfile, replace tags of nodes that you removed on t he node with the temporary tag.</li>
 <li>Open the pull request with "do not merge" in the title.</li>
 <li>Wait for CI to be triggered normally. Wait for it to pass.</li>
+<li>If autostart of <code>jenkins_swarm_client</code> was disabled:</li>
 </ol>
 </li>
 </ol>
+<p><code>powershell
+Set-Service jenkins_swarm_client -StartupType Automatic
+Start-Service jenkins_swarm_client</code></p>
 </li>
 </ol>
 <blockquote>
