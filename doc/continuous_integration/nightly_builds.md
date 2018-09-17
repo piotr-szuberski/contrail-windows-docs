@@ -3,7 +3,7 @@ This document describes how nightly builds are done in Contrail Windows CI.
 # Jenkins jobs: ci-contrail-windows-nightly-*
 * There are two jobs responsible for the builds in CI:
   * `ci-contrail-windows-nightly-release` - builds Contrail Windows components in `release`/`production` mode.
-  * `ci-contrail-windows-nightly-debug`- builds the in `debug` mode.
+  * `ci-contrail-windows-nightly-debug`- builds the components in `debug` mode.
   * Both of them have parameter `UPLOAD_ARTIFACTS` set to 1.
   * The difference between them is that `ci-contrail-windows-nightly-release` has an additional parameter `BUILD_IN_RELEASE_MODE` defined and set to _1_.
 * These jobs are proxy jobs. They execute `winci-server2016-devel` with additional parameters mentioned above.
