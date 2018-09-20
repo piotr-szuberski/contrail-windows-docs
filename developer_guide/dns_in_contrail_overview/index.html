@@ -1015,11 +1015,13 @@
                 <h1 id="few-words-about-dns-in-contrail">Few words about DNS in Contrail</h1>
 <p>This document describes DNS modes in Contrail and gives some hints about troubleshooting.</p>
 <h2 id="dns-modes-in-contrail">DNS Modes In Contrail</h2>
-<p>DNS queries from specific VM located on Contrail compute node can be handled differently depending on chosen DNS mode in configuration of IPAM in which the VM resides. There are 3 available DNS modes in Contrail:
-  * None - No DNS support for VMs
-  * Default - DNS requests from VMs are resolved via the fabric name servers
-  * Tenant - DNS requests from VMs are resolved via DNS servers deployed on tenant’s VMs
-  * Virtual - provides virtual DNS server which resolves DNS requests from VMs</p>
+<p>DNS queries from specific VM located on Contrail compute node can be handled differently depending on chosen DNS mode in configuration of IPAM in which the VM resides. There are 3 available DNS modes in Contrail:</p>
+<ul>
+<li>None - No DNS support for VMs</li>
+<li>Default - DNS requests from VMs are resolved via the fabric name servers</li>
+<li>Tenant - DNS requests from VMs are resolved via DNS servers deployed on tenant’s VMs</li>
+<li>Virtual - provides virtual DNS server which resolves DNS requests from VMs</li>
+</ul>
 <h2 id="how-to-specify-dns-mode-in-contrail">How to specify DNS mode in Contrail</h2>
 <p>First, modify agent's config. The config needs to have specified DNS server with IP of Contrail control node. Example of config:</p>
 <pre><code>...
