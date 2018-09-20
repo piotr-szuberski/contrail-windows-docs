@@ -2,14 +2,14 @@
 
 This document describes DNS modes in Contrail and gives some hints about troubleshooting.
 
-# DNS Modes In Contrail
+## DNS Modes In Contrail
 DNS queries from specific VM located on Contrail compute node can be handled differently depending on chosen DNS mode in configuration of IPAM in which the VM resides. There are 3 available DNS modes in Contrail:
   * None - No DNS support for VMs
   * Default - DNS requests from VMs are resolved via the fabric name servers
   * Tenant - DNS requests from VMs are resolved via DNS servers deployed on tenant’s VMs
   * Virtual - provides virtual DNS server which resolves DNS requests from VMs
 
-# How to specify DNS mode in Contrail
+## How to specify DNS mode in Contrail
 
 First, modify agent's config. The config needs to have specified DNS server with IP of Contrail control node. Example of config:
 
@@ -28,7 +28,7 @@ First, modify agent's config. The config needs to have specified DNS server with
 
 Next, follow the steps at: [DNS and IPAM configuration](https://github.com/Juniper/contrail-controller/wiki/DNS-and-IPAM#configuration)
 
-# Debugging
+## Debugging
 
 * Common troubleshooting:
     * Go to `http://<hypervisor's_ip>:8085/Snh_SandeshTraceRequest?x=DnsBind` for overall DNS information received/sent by agent
