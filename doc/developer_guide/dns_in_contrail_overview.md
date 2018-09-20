@@ -13,6 +13,7 @@ DNS queries from specific VM located on Contrail compute node can be handled dif
 
 First, modify agent's config. The config needs to have specified DNS server with IP of Contrail control node. Example of config:
 
+    ...
     [DNS]
     # Client port used by vrouter-agent while connecting to contrail-named
     dns_client_port=53
@@ -25,6 +26,7 @@ First, modify agent's config. The config needs to have specified DNS server with
 
     # Maximum retries for DNS server queries
     dns_max_retries=5
+    ...
 
 Next, follow the steps at: [DNS and IPAM configuration](https://github.com/Juniper/contrail-controller/wiki/DNS-and-IPAM#configuration)
 
