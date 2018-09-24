@@ -395,9 +395,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Nightly builds in Windows CI description
+      </label>
+    
     <a href="./" title="Nightly builds in Windows CI description" class="md-nav__link md-nav__link--active">
       Nightly builds in Windows CI description
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins-jobs-ci-contrail-windows-nightly-" title="Jenkins jobs: ci-contrail-windows-nightly-*" class="md-nav__link">
+    Jenkins jobs: ci-contrail-windows-nightly-*
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-nightly-builds-artifacts-location" title="Specific nightly builds artifacts location" class="md-nav__link">
+    Specific nightly builds artifacts location
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -928,6 +964,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins-jobs-ci-contrail-windows-nightly-" title="Jenkins jobs: ci-contrail-windows-nightly-*" class="md-nav__link">
+    Jenkins jobs: ci-contrail-windows-nightly-*
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-nightly-builds-artifacts-location" title="Specific nightly builds artifacts location" class="md-nav__link">
+    Specific nightly builds artifacts location
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -941,26 +1000,36 @@
                 
                 <h1 id="nightly-builds-in-windows-ci-description">Nightly builds in Windows CI description</h1>
 <p>This document describes how nightly builds are done in Contrail Windows CI.</p>
-<h1 id="jenkins-jobs-ci-contrail-windows-nightly-">Jenkins jobs: ci-contrail-windows-nightly-*</h1>
+<h2 id="jenkins-jobs-ci-contrail-windows-nightly-">Jenkins jobs: ci-contrail-windows-nightly-*</h2>
 <ul>
-<li>There are two jobs responsible for the builds in CI:</li>
+<li>There are two jobs responsible for the builds in CI:<ul>
 <li><code>ci-contrail-windows-nightly-release</code> - builds Contrail Windows components in <code>release</code>/<code>production</code> mode.</li>
 <li><code>ci-contrail-windows-nightly-debug</code>- builds the components in <code>debug</code> mode.</li>
 <li>Both of them have parameter <code>UPLOAD_ARTIFACTS</code> set to 1.</li>
 <li>The difference between them is that <code>ci-contrail-windows-nightly-release</code> has an additional parameter <code>BUILD_IN_RELEASE_MODE</code> defined and set to <em>1</em>.</li>
+</ul>
+</li>
 <li>These jobs are proxy jobs. They execute <code>winci-server2016-devel</code> with additional parameters mentioned above.</li>
 </ul>
-<h1 id="specific-nightly-builds-artifacts-location">Specific nightly builds artifacts location</h1>
-<p>To find artifacts from a specific nightly build do the following:
-  * Go to the console logs from the build.
-  * There is a line containing build ID of <code>winci-server2016-devel</code>:
-    * Initial part of the line looks like this:
-    <code>WinContrail » winci-server2016-devel &lt;BUILD_NUMBER&gt; completed</code>.
-    * Note the <code>BUILD_NUMBER</code>.
-  * Use <code>BUILD_NUMBER</code> to find desired nightly artifacts:
-    * Uploaded artifacts are located in <code>\\&lt;WINCI_DRIVE&gt;\SharedFiles\WindowsCI-UploadedArtifacts\WinContrail\&lt;winci-server2016-devel\&lt;BUILD_MODE&gt;\&lt;BUILD_NUMBER&gt;</code> for now
-      * <code>&lt;WINCI_DRIVE&gt;</code> is an IP to Contrail Windows CI drive
-      * <code>&lt;BUILD_MODE&gt;</code> is a folder named by either <code>production</code> or <code>debug</code> build mode</p>
+<h2 id="specific-nightly-builds-artifacts-location">Specific nightly builds artifacts location</h2>
+<p>To find artifacts from a specific nightly build do the following:</p>
+<ul>
+<li>Go to the console logs from the build.</li>
+<li>There is a line containing build ID of <code>winci-server2016-devel</code>:<ul>
+<li>Initial part of the line looks like this:
+<code>WinContrail » winci-server2016-devel &lt;BUILD_NUMBER&gt; completed</code>.</li>
+<li>Note the <code>BUILD_NUMBER</code>.</li>
+</ul>
+</li>
+<li>Use <code>BUILD_NUMBER</code> to find desired nightly artifacts:<ul>
+<li>Uploaded artifacts are located in <code>\\&lt;WINCI_DRIVE&gt;\SharedFiles\WindowsCI-UploadedArtifacts\WinContrail\&lt;winci-server2016-devel\&lt;BUILD_MODE&gt;\&lt;BUILD_NUMBER&gt;</code> for now<ul>
+<li><code>&lt;WINCI_DRIVE&gt;</code> is an IP to Contrail Windows CI drive</li>
+<li><code>&lt;BUILD_MODE&gt;</code> is a folder named by either <code>production</code> or <code>debug</code> build mode</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
                 
                   
                 
