@@ -1086,22 +1086,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-diagnostic-check" title="1. Diagnostic check" class="md-nav__link">
-    1. Diagnostic check
+  <a href="#1-use-contrail-status" title="1. Use contrail-status" class="md-nav__link">
+    1. Use contrail-status
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-known-issues" title="2. Known issues" class="md-nav__link">
-    2. Known issues
+  <a href="#2-diagnostic-check" title="2. Diagnostic check" class="md-nav__link">
+    2. Diagnostic check
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-total-cleanup" title="3. Total cleanup" class="md-nav__link">
-    3. Total cleanup
+  <a href="#3-check-the-logs" title="3. Check the logs" class="md-nav__link">
+    3. Check the logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-the-configuration" title="4. Verify the configuration" class="md-nav__link">
+    4. Verify the configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-known-issues" title="5. Known issues" class="md-nav__link">
+    5. Known issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-use-contrail-utility-tools" title="6. Use Contrail utility tools" class="md-nav__link">
+    6. Use Contrail utility tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-total-cleanup" title="7. Total cleanup" class="md-nav__link">
+    7. Total cleanup
   </a>
   
 </li>
@@ -1203,22 +1231,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-diagnostic-check" title="1. Diagnostic check" class="md-nav__link">
-    1. Diagnostic check
+  <a href="#1-use-contrail-status" title="1. Use contrail-status" class="md-nav__link">
+    1. Use contrail-status
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-known-issues" title="2. Known issues" class="md-nav__link">
-    2. Known issues
+  <a href="#2-diagnostic-check" title="2. Diagnostic check" class="md-nav__link">
+    2. Diagnostic check
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-total-cleanup" title="3. Total cleanup" class="md-nav__link">
-    3. Total cleanup
+  <a href="#3-check-the-logs" title="3. Check the logs" class="md-nav__link">
+    3. Check the logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-the-configuration" title="4. Verify the configuration" class="md-nav__link">
+    4. Verify the configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-known-issues" title="5. Known issues" class="md-nav__link">
+    5. Known issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-use-contrail-utility-tools" title="6. Use Contrail utility tools" class="md-nav__link">
+    6. Use Contrail utility tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-total-cleanup" title="7. Total cleanup" class="md-nav__link">
+    7. Total cleanup
   </a>
   
 </li>
@@ -1242,16 +1298,31 @@
                 
                 <h1 id="troubleshooting">Troubleshooting</h1>
 <p>Please follow steps below if you encounter issues when using Windows Contrail.</p>
-<h2 id="1-diagnostic-check">1. Diagnostic check</h2>
+<h2 id="1-use-contrail-status">1. Use <code>contrail-status</code></h2>
+<p><strong>TODO</strong></p>
+<p><code>contrail-status</code> is not implemented yet. Please move on to next troubleshooting steps.</p>
+<h2 id="2-diagnostic-check">2. Diagnostic check</h2>
 <p>Run <code>Invoke-DiagnosticCheck.ps1</code> script from <a href="https://github.com/Juniper/contrail-windows-tools">tools repository</a>
 on Windows Computes that cause problems. Refer to README in root of the repository
 for script configuration info.</p>
 <p><strong>Note</strong>: the script can be ran with or without Administrator privileges. However, some checks
 will not be performed without them.</p>
-<h2 id="2-known-issues">2. Known issues</h2>
+<h2 id="3-check-the-logs">3. Check the logs</h2>
+<p>Diagnostic check already looks for issues in logs of Contrail Components running on the node.
+However, you might want to check them manually.</p>
+<p>Logs are located in <code>$Env:ProgramData\contrail\var\logs\contrail\</code>.</p>
+<h2 id="4-verify-the-configuration">4. Verify the configuration</h2>
+<p>You might want to verify the configuration of all Contrail services running on the node.</p>
+<p>Config files are located in <code>$Env:ProgramData\contrail\etc\contrail\</code></p>
+<h2 id="5-known-issues">5. Known issues</h2>
 <p>Search <a href="../Known_issues/">known issues section</a> for symptoms of your issue.
 The section contains recovery procedures.</p>
-<h2 id="3-total-cleanup">3. Total cleanup</h2>
+<h2 id="6-use-contrail-utility-tools">6. Use Contrail utility tools</h2>
+<p><strong>Note</strong>: the following steps require experience using Contrail utils.</p>
+<p>Behaviour of Windows Contrail utility tools is similar to their Linux counterparts. They are: <code>vif</code>, <code>nh</code>, <code>rt</code>,
+<code>flow</code>, <code>mpls</code>, <code>vrfstats</code>, <code>dropstats</code>, <code>vxlan</code>, <code>vrouter</code>, <code>vrmemstats</code>.</p>
+<p>They should be in <code>$Path</code>. If not, they can be found under <code>$Env:ProgramFiles\Juniper Networks\vRouter utilities\</code>.</p>
+<h2 id="7-total-cleanup">7. Total cleanup</h2>
 <p>Run <code>Clear-ComputeNode.ps1</code> script from <a href="https://github.com/Juniper/contrail-windows-tools">tools repository</a>
 on Windows Computes that cause problems. Refer to README in root of the repository
 for script configuration info.</p>
