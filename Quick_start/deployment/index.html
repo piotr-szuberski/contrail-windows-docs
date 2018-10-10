@@ -1243,21 +1243,40 @@
                 <h1 id="deploying-contrail-with-windows-compute-nodes">Deploying Contrail with Windows compute nodes</h1>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Machine with CentOS 7.5 installed</li>
-<li>Machine(s) with Windows Server 2016 and updates installed</li>
-<li>Machine for running Ansible playbooks (Linux or Windows with WSL)</li>
+<li>Machine with CentOS 7.5 installed,</li>
+<li>Machine(s) with Windows Server 2016 (please see requirements below),</li>
+<li>Machine for running Ansible playbooks (Linux or Windows with WSL).</li>
+</ul>
+<p>Requirements for Windows Server 2016 machine:</p>
+<ul>
+<li>Minimum hardware requirements:<ul>
+<li>2 CPU,</li>
+<li>4 GB RAM,</li>
+<li>60 GB HDD.</li>
+</ul>
+</li>
+<li>Virtualization support must be enabled:<ul>
+<li>in case of a bare metal - enable VT-x in BIOS,</li>
+<li>in case of a virtual machine - enable nested virtualization.</li>
+</ul>
+</li>
+<li>Newest Windows updates should be installed.</li>
+<li>Windows machines should have different hostnames.</li>
+<li>Windows machines should be accessible using the same set of credentials.</li>
 </ul>
 <h2 id="steps">Steps</h2>
 <ul>
 <li>
-<p>On each of the Windows hosts:</p>
-<pre><code>Invoke-WebRequest https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -OutFile ConfigureRemotingForAnsible.ps1
+<p>On each of the Windows hosts enable Ansible remoting:</p>
+<pre><code># PowerShell
+Invoke-WebRequest https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -OutFile ConfigureRemotingForAnsible.ps1
 .\ConfigureRemotingForAnsible.ps1 -DisableBasicAuth -EnableCredSSP -ForceNewSSLCert -SkipNetworkProfileCheck
 </code></pre>
 </li>
 <li>
 <p>On the Ansible machine:</p>
-<pre><code>git clone git@github.com:Juniper/contrail-ansible-deployer.git
+<pre><code># bash
+git clone git@github.com:Juniper/contrail-ansible-deployer.git
 cd contrail-ansible-deployer
 vim config/instances.yaml
 </code></pre>
@@ -1271,9 +1290,9 @@ vim config/instances.yaml
 <li>More precise explanation of the required fields:<ul>
 <li>For Windows computes use <code>bms_win</code> dict instead of regular <code>bms</code></li>
 <li>Roles supported on Windows are <code>vrouter</code> and <code>win_docker_driver</code> - specify them</li>
-<li>Set <code>WINDOWS_PHYSICAL_INTERFACE</code> to dataplane interface alias</li>
-<li>Specify <code>WINDOWS_ENABLE_TEST_SIGNING</code> if you want to install untrusted artifacts (this is needed at this moment)</li>
-<li>Set <code>WINDOWS_DEBUG_DLLS_PATH</code> to path on Ansible machine containing MSVC 2015 debug dlls, specifically: <code>msvcp140d.dll</code>, <code>ucrtbased.dll</code> and <code>vcruntime140d.dll</code></li>
+<li>Set <code>WINDOWS_PHYSICAL_INTERFACE</code> to dataplane interface name (run <code>Get-NetAdapter</code> from PowerShell to list available interfaces on Windows compute node)</li>
+<li>Add <code>WINDOWS_ENABLE_TEST_SIGNING</code> option and leave it empty, if you want to install untrusted artifacts (this is needed at this moment)</li>
+<li>Set <code>WINDOWS_DEBUG_DLLS_PATH</code> to path on Ansible machine containing MSVC 2015 debug dlls, specifically: <code>msvcp140d.dll</code>, <code>ucrtbased.dll</code> and <code>vcruntime140d.dll</code>. DLLs can be obtained by installing Windows SDK on Windows and copying DLLs to Ansible machine.</li>
 </ul>
 </li>
 <li>To deploy a controller for windows compute nodes:<ul>
