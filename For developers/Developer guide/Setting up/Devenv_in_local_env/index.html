@@ -725,100 +725,22 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Devenv in CodiLime VMware lab
-      </label>
-    
     <a href="./" title="Devenv in CodiLime VMware lab" class="md-nav__link md-nav__link--active">
       Devenv in CodiLime VMware lab
     </a>
     
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+  </li>
+
         
-          <li class="md-nav__item">
-  <a href="#select-private-network-for-devenv" title="Select private network for devenv" class="md-nav__link">
-    Select private network for devenv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#virtual-machines-addressing" title="Virtual machines addressing" class="md-nav__link">
-    Virtual machines addressing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#devenv-setup" title="Devenv setup" class="md-nav__link">
-    Devenv setup
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#windows-testbed-setup" title="Windows Testbed setup" class="md-nav__link">
-    Windows Testbed setup
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#controller-setup" title="Controller setup" class="md-nav__link">
-    Controller setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-ansible-playbook" title="Run Ansible playbook" class="md-nav__link">
-    Run Ansible playbook
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-do" title="To do" class="md-nav__link">
-    To do
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Juni_lab/" title="Dev environment in Juniper lab" class="md-nav__link">
+      Dev environment in Juniper lab
+    </a>
   </li>
 
         
@@ -1250,83 +1172,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#select-private-network-for-devenv" title="Select private network for devenv" class="md-nav__link">
-    Select private network for devenv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#virtual-machines-addressing" title="Virtual machines addressing" class="md-nav__link">
-    Virtual machines addressing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#devenv-setup" title="Devenv setup" class="md-nav__link">
-    Devenv setup
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#windows-testbed-setup" title="Windows Testbed setup" class="md-nav__link">
-    Windows Testbed setup
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#controller-setup" title="Controller setup" class="md-nav__link">
-    Controller setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-ansible-playbook" title="Run Ansible playbook" class="md-nav__link">
-    Run Ansible playbook
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-do" title="To do" class="md-nav__link">
-    To do
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1344,7 +1189,7 @@ From high-level perspective steps are as follows:</p>
 <ol>
 <li>Provision Windows and Linux virtual machines with suitable configuration in CodiLime VMware lab.</li>
 <li>Configure Networking on Windows and Linux virtual machines using VMware console.</li>
-<li>Run Ansible playbook to deploy Windows Contrail compute and Contrail Controller nodes.</li>
+<li>Deploy Windows Compute and Controller nodes using an Ansible playbook</li>
 </ol>
 <p>Performing steps described below correctly should result in a configured devenv consiting of:</p>
 <ul>
@@ -1358,7 +1203,14 @@ From high-level perspective steps are as follows:</p>
 </ul>
 </li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h1 id="steps-1-and-2-provisioning-and-configuration">Steps 1 and 2: Provisioning and configuration</h1>
+<p>This can be achieved in two ways:
+1. Automated (uses internal script - <strong>TODO</strong> publish it)
+2. Manual</p>
+<h2 id="automated-setup">Automated setup</h2>
+<p>Refer to https://github.com/codilime/juniper-windows-internal/tree/master/dev-envs.
+Then, move straight to <code>Deployment</code> section.</p>
+<h2 id="manual-setup">Manual setup</h2>
 <h3 id="select-private-network-for-devenv">Select private network for devenv</h3>
 <p>Because of lacking infrastructure and licensing we simulate private networks based on PVLANs, using VMware's standard virtual switches.
 This limits a communication in this private network to a single ESXi host.
@@ -1630,7 +1482,7 @@ NETMASK=255.255.255.0
 </ul>
 </li>
 </ol>
-<h2 id="run-ansible-playbook">Run Ansible playbook</h2>
+<h1 id="step-3-deployment">Step 3. Deployment</h1>
 <p>This section assumes the reader has Windows Subsystem for Linux (WSL) installed and configured.
 If not, please refer to <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">this</a> document for install and configuration details.</p>
 <p>All steps below should be done from WSL.</p>
@@ -1780,13 +1632,13 @@ ping MGMT_IP_CTRL
           </a>
         
         
-          <a href="../../../Interpreting CI logs/Windows_CI_logs_layout/" title="Windows CI logs layout" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Juni_lab/" title="Dev environment in Juniper lab" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Windows CI logs layout
+                Dev environment in Juniper lab
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
