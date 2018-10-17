@@ -1146,6 +1146,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#troubleshooting" title="Troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
     Prerequisites
   </a>
@@ -1160,8 +1167,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-the-new-setup" title="Testing the new setup" class="md-nav__link">
-    Testing the new setup
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -1215,6 +1222,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#troubleshooting" title="Troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
     Prerequisites
   </a>
@@ -1229,8 +1243,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-the-new-setup" title="Testing the new setup" class="md-nav__link">
-    Testing the new setup
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -1253,6 +1267,9 @@
                 
                 
                 <h1 id="deploying-contrail-with-windows-compute-nodes">Deploying Contrail with Windows compute nodes</h1>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>Note</strong>: if you encounter any problems during or after deployment,
+see <a href="../../Known_issues/Troubleshooting/">troubleshooting section</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Machine with CentOS 7.5 installed,</li>
@@ -1302,9 +1319,24 @@ vim config/instances.yaml
 <li>More precise explanation of the required fields:<ul>
 <li>For Windows computes use <code>bms_win</code> dict instead of regular <code>bms</code></li>
 <li>Roles supported on Windows are <code>vrouter</code> and <code>win_docker_driver</code> - specify them</li>
-<li>Set <code>WINDOWS_PHYSICAL_INTERFACE</code> to dataplane interface name (run <code>Get-NetAdapter</code> from PowerShell to list available interfaces on Windows compute node)</li>
-<li>Add <code>WINDOWS_ENABLE_TEST_SIGNING</code> option and leave it empty, if you want to install untrusted artifacts (this is needed at this moment)</li>
-<li>Set <code>WINDOWS_DEBUG_DLLS_PATH</code> to path on Ansible machine containing MSVC 2015 debug dlls, specifically: <code>msvcp140d.dll</code>, <code>ucrtbased.dll</code> and <code>vcruntime140d.dll</code>. DLLs can be obtained by installing Windows SDK on Windows and copying DLLs to Ansible machine.</li>
+<li>Set <code>WINDOWS_PHYSICAL_INTERFACE</code> to dataplane interface name (run <code>Get-NetAdapter</code> from PowerShell to list available interfaces on Windows compute node).
+  If interface name contains spaces, enclose it between quotation marks.</li>
+</ul>
+</li>
+<li>As of October 2018, only unsigned and debug builds of Contrail components are available. As a result, the following configuration is also required:<ul>
+<li>Add <code>WINDOWS_ENABLE_TEST_SIGNING</code> option and leave it empty. This option configures Windows Server to allow installation of unsigned drivers.</li>
+<li>Set <code>WINDOWS_DEBUG_DLLS_PATH</code> to path on Ansible machine containing MSVC 2015 debug dlls. Since user space Contrail components are build in debug mode, to run them on Windows Server the following dlls are required:<ul>
+<li><code>msvcp140d.dll</code>,</li>
+<li><code>ucrtbased.dll</code>,</li>
+<li><code>vcruntime140d.dll</code></li>
+</ul>
+</li>
+<li>MSVC 2015 debug DLLs can be obtained by installing Visual Studio 2015. After installing Visual Studio they should be located in:<ul>
+<li><code>mscvp140d.dll</code> and <code>vcruntime140d.dll</code> - <code>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\redist\debug_nonredist\x64\Microsoft.VC140.DebugCRT</code>,</li>
+<li><code>ucrtbased.dll</code> - <code>C:\Program Files (x86)\Windows Kits\10\bin\x64\ucrt</code>.</li>
+</ul>
+</li>
+<li>You should copy them to the <code>~/dll</code> directory on your Ansible machine and point <code>WINDOWS_DEBUG_DLLS_PATH</code> variable to this directory.</li>
 </ul>
 </li>
 <li>To deploy a controller for windows compute nodes:<ul>
@@ -1337,8 +1369,22 @@ sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/insta
 </ul>
 </li>
 </ul>
-<h2 id="testing-the-new-setup">Testing the new setup</h2>
-<p>Refer to <a href="../connection_scenarios/">this document</a></p>
+<h2 id="next-steps">Next steps</h2>
+<ol>
+<li>
+<p>Run <code>Invoke-DiagnosticCheck.ps1</code> script from <a href="https://github.com/Juniper/contrail-windows-tools">tools repository</a>.
+    If deployment went correctly, all checks should pass.</p>
+<p><strong>Note</strong>: to quickly have the ability to run this script on your Windows machine, you can use the following snippet:</p>
+<pre><code>Invoke-WebRequest  https://raw.githubusercontent.com/Juniper/contrail-windows-tools/master/Invoke-DiagnosticCheck.ps1 -OutFile Invoke-DiagnosticCheck.ps1
+</code></pre>
+<p>Consult the README on how to configure the diagnostic script (it's safe to run, so don't worry about
+misconfiguration).</p>
+</li>
+<li>
+<p>Refer to <a href="../usage/">usage documentation</a> to learn how to create networks and containers.</p>
+</li>
+<li>You can run manual connection dev tests. Refer to <a href="../connection_scenarios/">this document</a>.</li>
+</ol>
                 
                   
                 
