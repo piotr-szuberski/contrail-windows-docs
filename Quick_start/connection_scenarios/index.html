@@ -36,7 +36,7 @@
     
     
       
-        <title>Supported connection scenarios - Windows Contrail documentation</title>
+        <title>Usage examples and scenarios - Windows Contrail documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#supported-connection-scenarios" tabindex="1" class="md-skip">
+      <a href="../../#usage-examples-and-scenarios" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
                 Windows Contrail documentation
               </span>
               <span class="md-header-nav__topic">
-                Supported connection scenarios
+                Usage examples and scenarios
               </span>
             
           
@@ -1104,11 +1104,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Supported connection scenarios
+        Usage examples and scenarios
       </label>
     
-    <a href="./" title="Supported connection scenarios" class="md-nav__link md-nav__link--active">
-      Supported connection scenarios
+    <a href="./" title="Usage examples and scenarios" class="md-nav__link md-nav__link--active">
+      Usage examples and scenarios
     </a>
     
       
@@ -1282,20 +1282,28 @@
               
                 
                 
-                <h1 id="supported-connection-scenarios">Supported connection scenarios</h1>
+                <h1 id="usage-examples-and-scenarios">Usage examples and scenarios</h1>
 <h2 id="creating-virtual-networks-containers-and-interactive-sessions">Creating virtual network(s), containers and interactive sessions</h2>
 <ul>
 <li>
-<p>Via Contrail WebUI:</p>
+<p>Via Contrail WebUI (<code>https://CONTROLLER_IP:8143</code>):</p>
 <ol>
 <li>
 <p>Create a networking policy (Configuration-&gt;Networking-&gt;Policies) with the following rule:</p>
 <p>pass protocol any network any ports any &lt;&gt; network any ports any</p>
+<p><img alt="policy" src="../policy.png" /></p>
 </li>
 <li>
-<p>Create virtual network called <code>testnet1</code> with single subnet: <code>10.0.1.0/24</code>. Leave every field as default except IP pool (set it to be from <code>10.0.1.10</code> to <code>10.0.1.100</code>) and network policy (set it to policy created in first step).</p>
+<p>Create virtual network called <code>testnet1</code> with single subnet: <code>10.0.1.0/24</code>. Leave every field as default except
+    IP pool (set it to be from <code>10.0.1.10</code> to <code>10.0.1.100</code>) and network policy (set it to policy created in
+    first step).</p>
+<p><img alt="netcreate" src="../netcreate.png" /></p>
 </li>
-<li>Create virtual network called <code>testnet2</code> with single subnet: <code>10.0.2.0/24</code>. Leave every field as default except IP pool (set it to be from <code>10.0.2.10</code> to <code>10.0.2.100</code>) and network policy (set it to policy created in first step).</li>
+<li>
+<p>Create virtual network called <code>testnet2</code> with single subnet: <code>10.0.2.0/24</code>. Leave every field as default except
+    IP pool (set it to be from <code>10.0.2.10</code> to <code>10.0.2.100</code>) and network policy (set it to policy created in
+    first step).</p>
+</li>
 </ol>
 </li>
 <li>
@@ -1327,9 +1335,12 @@ Both Enabled and Running fields should be True</p>
 <p>Run a docker container in the prepared network on the 1st Windows compute node:</p>
 <pre><code>docker run -id --network testnet1 --name container1 microsoft/windowsservercore powershell
 </code></pre>
+<p><strong>Note</strong>: docker will pull heavy images from dockerhub and it may take a while.
+You can start configuration of another Windows compute node in the meantime.</p>
 </li>
 <li>
-<p>Inspect container1 on the 1st Windows compute node. Find the part that describes endpoints and verify that it has a correct IP address assigned (from the previously configured IP pool).</p>
+<p>Inspect container1 on the 1st Windows compute node. Find the part that describes endpoints and verify that it
+has a correct IP address assigned (from the previously configured IP pool).</p>
 <pre><code>docker inspect container1
 </code></pre>
 </li>
@@ -1349,7 +1360,8 @@ Both Enabled and Running fields should be True</p>
 </code></pre>
 </li>
 <li>
-<p>Inspect container2 on 2nd Windows compute node. Find the part that describes endpoints and verify that it has a correct IP address assigned (from the previously configured IP pool).</p>
+<p>Inspect container2 on 2nd Windows compute node. Find the part that describes endpoints and verify that it
+has a correct IP address assigned (from the previously configured IP pool).</p>
 <pre><code>docker inspect container2
 </code></pre>
 </li>
@@ -1359,7 +1371,8 @@ Both Enabled and Running fields should be True</p>
 </code></pre>
 </li>
 <li>
-<p>Inspect container3 on the 2nd Windows compute node. Find the part that describes endpoints and verify that it has a correct IP address assigned (from the previously configured IP pool).</p>
+<p>Inspect container3 on the 2nd Windows compute node. Find the part that describes endpoints and verify that it
+has a correct IP address assigned (from the previously configured IP pool).</p>
 <pre><code>docker inspect container3
 </code></pre>
 </li>
@@ -1369,7 +1382,9 @@ Both Enabled and Running fields should be True</p>
 </code></pre>
 </li>
 <li>
-<p>Run interactive shell inside the container3 on the 2nd Windows compute node. Remember that Powershell console that has been used in previous step is now running a session in container2. To operate on a host system, open new Powershell console.</p>
+<p>Run interactive shell inside the container3 on the 2nd Windows compute node. Remember that Powershell console
+that has been used in previous step is now running a session in container2. To operate on a host system, open
+new Powershell console.</p>
 <pre><code>docker exec -it container3 powershell
 </code></pre>
 </li>
@@ -1380,13 +1395,15 @@ Both Enabled and Running fields should be True</p>
 <ol>
 <li>
 <p>Verify that ICMP protocol works within single virtual network.<br />
-    To do that invoke the following Powershell command in interactive session of container2 (on the 2nd Windows compute Node):</p>
+    To do that invoke the following Powershell command in interactive session of container2 (on the 2nd Windows
+    compute Node):</p>
 <pre><code>ping &lt;IP address of container3&gt;
 </code></pre>
 </li>
 <li>
 <p>Verify that ICMP protocol works across virtual network boundaries.<br />
-    To do that invoke the following Powershell command in interactive session of container1 (on the 1st Windows Compute Node):</p>
+    To do that invoke the following Powershell command in interactive session of container1 (on the 1st Windows
+    Compute Node):</p>
 <pre><code>ping &lt;IP address of container2&gt;
 </code></pre>
 </li>
@@ -1400,7 +1417,8 @@ echo "We come in peace." &gt;&gt; index.html
 </code></pre>
 </li>
 <li>
-<p>Invoke the following command in container1’s interactive session (on the 1st Windows Compute Node). Verify that you receive server response with webpage prepared in previous step.</p>
+<p>Invoke the following command in container1’s interactive session (on the 1st Windows Compute Node). Verify that you
+    receive server response with webpage prepared in previous step.</p>
 <pre><code>Invoke-WebRequest http://&lt;container3's IP address&gt; -UseBasicParsing
 </code></pre>
 </li>
@@ -1409,7 +1427,8 @@ echo "We come in peace." &gt;&gt; index.html
 <ol>
 <li>
 <p>Set up UDP listener on container3 (on the 2nd Windows Compute Node).<br />
-    To do that invoke the following commands in container3’s interactive console. Last instruction is a blocking call waiting for incoming packet.</p>
+    To do that invoke the following commands in container3’s interactive console. Last instruction is a blocking call
+    waiting for incoming packet.</p>
 <pre><code>$RemoteIPEndpoint = New-Object System.Net.IPEndPoint([IPAddress]::Any, 0)
 $UDPRcvSocket = New-Object System.Net.Sockets.UdpClient 3000
 $Payload = $UDPRcvSocket.Receive([ref]$RemoteIPEndpoint)
@@ -1425,16 +1444,21 @@ $UDPSenderSocket.Send($Payload, $Payload.Length, $ListenerAddress)
 </code></pre>
 </li>
 <li>
-<p>When packet is received by container3, blocking call to <code>System.Net.Sockets.UdpClient.Receive</code> (in container3 on the 2nd Windows Compute Node) is going to return. If that doesn’t happen immediately, repeat invocation of <code>$UDPSenderSocket.Send</code> (in container1 on the 1st Windows Compute Node).</p>
+<p>When packet is received by container3, blocking call to <code>System.Net.Sockets.UdpClient.Receive</code> (in container3 on
+    the 2nd Windows Compute Node) is going to return. If that doesn’t happen immediately, repeat invocation of
+    <code>$UDPSenderSocket.Send</code> (in container1 on the 1st Windows Compute Node).</p>
 </li>
 <li>
-<p>Invoke the following command in container1’s interactive session to display payload of received UDP packet to verify that it’s consisted with sent message:</p>
+<p>Invoke the following command in container1’s interactive session to display payload of received UDP packet to
+    verify that it’s consisted with sent message:</p>
 <p>[Text.Encoding]::UTF8.GetString($Payload)</p>
 </li>
 </ol>
 <h2 id="network-policies-and-security-groups">Network policies and security groups</h2>
 <ol>
-<li>Create additional policies and security groups (through WebUI) with various settings and demonstrate that they affect communication between networks. One may follow ICMP/TCP/UDP test procedures with various policies and security groups.</li>
+<li>Create additional policies and security groups (through WebUI) with various settings and demonstrate that they
+    affect communication between networks. One may follow ICMP/TCP/UDP test procedures with various policies and
+    security groups.</li>
 <li>Revert network configuration (policies and security groups) to its original state not to affect other experiments.</li>
 </ol>
 <h2 id="ecmp">ECMP</h2>
@@ -1444,7 +1468,8 @@ $UDPSenderSocket.Send($Payload, $Payload.Length, $ListenerAddress)
 <li>Assign Floating IP created in second step to port (<code>Ports</code> tab) that belongs to container2.</li>
 <li>Assign Floating IP created in second step to port (<code>Ports</code> tab) that belongs to container3.</li>
 <li>
-<p>Set up an UDP listener on container2. Enter the following Powershell instructions in interactive console of container2 on the 2nd Windows Compute Node:</p>
+<p>Set up an UDP listener on container2. Enter the following Powershell instructions in interactive console of
+    container2 on the 2nd Windows Compute Node:</p>
 <pre><code>$Sock = [System.Net.Sockets.UdpClient]::new(5000)
 $Endpoint = [System.Net.IPEndPoint]::new([IPAddress]::Any, 5000)
 while ($True) {
@@ -1454,7 +1479,8 @@ while ($True) {
 </code></pre>
 </li>
 <li>
-<p>Set up an UDP listener on container3. Enter the following Powershell instructions in interactive console of container3 on the 2nd Windows Compute Node:</p>
+<p>Set up an UDP listener on container3. Enter the following Powershell instructions in interactive console of
+    container3 on the 2nd Windows Compute Node:</p>
 <pre><code>$Sock = [System.Net.Sockets.UdpClient]::new(5000)
 $Endpoint = [System.Net.IPEndPoint]::new([IPAddress]::Any, 5000)
 while ($True) {
@@ -1464,8 +1490,10 @@ while ($True) {
 </code></pre>
 </li>
 <li>
-<p>Send multiple UDP packets from container1 on the 1st Windows Compute Node. Use different source ports. Set the floating IP (created in step 2) as destination address. Use 5000 (as used in step 6) as destination port.<br />
-    Then verify that some packets were received by container2 while some other packets were received by container3. Receiving container is going to display a message: <code>Received packet from &lt;sender address&gt;</code>.<br />
+<p>Send multiple UDP packets from container1 on the 1st Windows Compute Node. Use different source ports. Set the
+    floating IP (created in step 2) as destination address. Use 5000 (as used in step 6) as destination port.<br />
+    Then verify that some packets were received by container2 while some other packets were received by container3.
+    Receiving container is going to display a message: <code>Received packet from &lt;sender address&gt;</code>.<br />
     Use the following Powershell command to send 10 UDP packets from various source ports:</p>
 <pre><code>1..100 | % {
     $s = [System.Net.Sockets.UdpClient]::new(10000+$_)
