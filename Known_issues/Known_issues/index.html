@@ -1062,29 +1062,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ip-fragmentation-doesnt-work" title="IP fragmentation doesn't work" class="md-nav__link">
-    IP fragmentation doesn't work
+  <a href="#dns-doesnt-work-in-my-networks" title="DNS doesn't work in my networks" class="md-nav__link">
+    DNS doesn't work in my networks
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-net-commands-ran-inside-containers-hang" title="Get-Net* commands ran inside containers hang" class="md-nav__link">
-    Get-Net* commands ran inside containers hang
+  <a href="#i-cant-get-ip-fragmentation-to-work" title="I can't get IP fragmentation to work" class="md-nav__link">
+    I can't get IP fragmentation to work
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vrouter-is-enabled-but-not-running" title="vRouter is enabled, but not running" class="md-nav__link">
-    vRouter is enabled, but not running
+  <a href="#when-i-run-get-net-command-inside-a-container-it-hangs" title="When I run Get-Net* command inside a container, it hangs" class="md-nav__link">
+    When I run Get-Net* command inside a container, it hangs
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#various-cryptic-hns-errors" title="Various cryptic HNS errors" class="md-nav__link">
-    Various cryptic HNS errors
+  <a href="#i-see-that-vrouter-is-enabled-but-not-running" title="I see that vRouter is enabled, but not running" class="md-nav__link">
+    I see that vRouter is enabled, but not running
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-have-received-a-cryptic-hns-error" title="I have received a cryptic HNS error" class="md-nav__link">
+    I have received a cryptic HNS error
   </a>
   
 </li>
@@ -1210,29 +1217,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ip-fragmentation-doesnt-work" title="IP fragmentation doesn't work" class="md-nav__link">
-    IP fragmentation doesn't work
+  <a href="#dns-doesnt-work-in-my-networks" title="DNS doesn't work in my networks" class="md-nav__link">
+    DNS doesn't work in my networks
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-net-commands-ran-inside-containers-hang" title="Get-Net* commands ran inside containers hang" class="md-nav__link">
-    Get-Net* commands ran inside containers hang
+  <a href="#i-cant-get-ip-fragmentation-to-work" title="I can't get IP fragmentation to work" class="md-nav__link">
+    I can't get IP fragmentation to work
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vrouter-is-enabled-but-not-running" title="vRouter is enabled, but not running" class="md-nav__link">
-    vRouter is enabled, but not running
+  <a href="#when-i-run-get-net-command-inside-a-container-it-hangs" title="When I run Get-Net* command inside a container, it hangs" class="md-nav__link">
+    When I run Get-Net* command inside a container, it hangs
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#various-cryptic-hns-errors" title="Various cryptic HNS errors" class="md-nav__link">
-    Various cryptic HNS errors
+  <a href="#i-see-that-vrouter-is-enabled-but-not-running" title="I see that vRouter is enabled, but not running" class="md-nav__link">
+    I see that vRouter is enabled, but not running
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-have-received-a-cryptic-hns-error" title="I have received a cryptic HNS error" class="md-nav__link">
+    I have received a cryptic HNS error
   </a>
   
 </li>
@@ -1257,23 +1271,51 @@
                 <h1 id="workarounds-for-known-issues">Workarounds for known issues</h1>
 <p>Below is a list of known issues with workarounds.</p>
 <hr />
-<h3 id="ip-fragmentation-doesnt-work">IP fragmentation doesn't work</h3>
-<p>On Windows Server 2016, NAT network on compute node must be disabled in order for IP packet fragmentation to work.</p>
+<h3 id="dns-doesnt-work-in-my-networks">DNS doesn't work in my networks</h3>
+<p>For DNS to work in containers, DHCP has to be turned on in Contrail network via WebUI.
+Please refer to this bug: https://bugs.launchpad.net/opencontrail/+bug/1535856</p>
 <hr />
-<h3 id="get-net-commands-ran-inside-containers-hang">Get-Net* commands ran inside containers hang</h3>
-<p>Running <code>Get-NetAdapter</code>, <code>Get-NetIpInterface</code> or other <code>Get-Net*</code> commands inside containers hangs.</p>
+<h3 id="i-cant-get-ip-fragmentation-to-work">I can't get IP fragmentation to work</h3>
+<p>On Windows Server 2016, NAT network on compute node must be disabled in order for IP packet fragmentation to work.</p>
+<p>To do that, use the following commands:</p>
+<pre><code>Get-NetNat | Remove-NetNat                      # Remove existing NAT networks
+Stop-Service winnat                             # Stop WinNAT service
+Set-Service -StartupType Disabled -Name winnat  # Disable autostart of WinNAT upon reboot
+</code></pre>
+
+<p>If you alread have some HNS networks, you will probably need to remove them as well (<strong>Warning</strong> this will remove all
+container networks present on the Compute node):</p>
+<pre><code># Remove all container networks twice for good measure, because HNS sometimes fails
+Get-ContainerNetwork | Remove-ContainerNetwork -ErrorAction SilentlyContinue -Force
+Get-ContainerNetwork | Remove-ContainerNetwork -Force   
+</code></pre>
+
+<p>You also need to edit Docker config file located at <code>C:\ProgramData\Docker\config\daemon.json</code> to contain
+<code>"bridge": "none"</code> entry, like so:</p>
+<pre><code>{
+    &quot;bridge&quot; : &quot;none&quot;
+}
+</code></pre>
+
+<p>Otherwise, Docker will try to reenable WinNAT upon restart.</p>
+<hr />
+<h3 id="when-i-run-get-net-command-inside-a-container-it-hangs">When I run Get-Net* command inside a container, it hangs</h3>
+<p>Symptom: running <code>Get-NetAdapter</code>, <code>Get-NetIpInterface</code> or other <code>Get-Net*</code> commands inside containers hangs.</p>
 <p>The workaround consists of restarting the container.</p>
 <hr />
-<h3 id="vrouter-is-enabled-but-not-running">vRouter is enabled, but not running</h3>
-<p>After finished deployment vRouter extension sometimes enters a state when it is enabled but not running. To check run:</p>
-<pre><code>get-vmswitch | get-vmswitchextension -name "vRouter forwarding extension" | select enabled,running
+<h3 id="i-see-that-vrouter-is-enabled-but-not-running">I see that vRouter is enabled, but not running</h3>
+<p>After finished deployment of Windows Contrail compute nodes, sometimes vRouter enters a state when it is enabled
+but not running. To check run:</p>
+<pre><code>Get-VMSwitch | Get-VMSwitchExtension -Name &quot;vRouter forwarding extension&quot; | Select Enabled, Running
 </code></pre>
+
 <p>Workaround requires uninstalling and installing vRouter (possibly few times).</p>
 <pre><code>msiexec /x vRouter.msi
 msiexec /i vRouter.msi
 </code></pre>
+
 <hr />
-<h3 id="various-cryptic-hns-errors">Various cryptic HNS errors</h3>
+<h3 id="i-have-received-a-cryptic-hns-error">I have received a cryptic HNS error</h3>
 <p>Please refer to <a href="../HNS_error_bestiary/">HNS error bestiary</a>.</p>
                 
                   
