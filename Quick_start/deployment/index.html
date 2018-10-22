@@ -36,7 +36,7 @@
     
     
       
-        <title>Deploying Contrail with Windows compute nodes - Windows Contrail documentation</title>
+        <title>Heterogenous Contrail Deployment: Linux + Windows - Windows Contrail documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#deploying-contrail-with-windows-compute-nodes" tabindex="1" class="md-skip">
+      <a href="../../#heterogenous-contrail-deployment-linux-windows" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
                 Windows Contrail documentation
               </span>
               <span class="md-header-nav__topic">
-                Deploying Contrail with Windows compute nodes
+                Heterogenous Contrail Deployment: Linux + Windows
               </span>
             
           
@@ -1095,8 +1095,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../connection_scenarios/" title="Usage examples and scenarios" class="md-nav__link">
-      Usage examples and scenarios
+    <a href="../connection_scenarios/" title="Examples and scenarios" class="md-nav__link">
+      Examples and scenarios
     </a>
   </li>
 
@@ -1116,11 +1116,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Deploying Contrail with Windows compute nodes
+        Heterogenous Contrail Deployment: Linux + Windows
       </label>
     
-    <a href="./" title="Deploying Contrail with Windows compute nodes" class="md-nav__link md-nav__link--active">
-      Deploying Contrail with Windows compute nodes
+    <a href="./" title="Heterogenous Contrail Deployment: Linux + Windows" class="md-nav__link md-nav__link--active">
+      Heterogenous Contrail Deployment: Linux + Windows
     </a>
     
       
@@ -1132,13 +1132,6 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#0-troubleshooting" title="0. Troubleshooting" class="md-nav__link">
-    0. Troubleshooting
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#1-prerequisites" title="1. Prerequisites" class="md-nav__link">
@@ -1209,6 +1202,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#6-maintain" title="6. Maintain" class="md-nav__link">
+    6. Maintain
+  </a>
+  
+</li>
+      
       
       
       
@@ -1217,6 +1217,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../upgrading/" title="Upgrading existing deployment" class="md-nav__link">
+      Upgrading existing deployment
+    </a>
   </li>
 
         
@@ -1258,13 +1270,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0-troubleshooting" title="0. Troubleshooting" class="md-nav__link">
-    0. Troubleshooting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-prerequisites" title="1. Prerequisites" class="md-nav__link">
     1. Prerequisites
   </a>
@@ -1333,6 +1338,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#6-maintain" title="6. Maintain" class="md-nav__link">
+    6. Maintain
+  </a>
+  
+</li>
+      
       
       
       
@@ -1350,8 +1362,9 @@
               
                 
                 
-                <h1 id="deploying-contrail-with-windows-compute-nodes">Deploying Contrail with Windows compute nodes</h1>
-<h2 id="0-troubleshooting">0. Troubleshooting</h2>
+                <h1 id="heterogenous-contrail-deployment-linux-windows">Heterogenous Contrail Deployment: Linux + Windows</h1>
+<p>The following procedure allows the operator to bring up heterogenous Contrail deployment. It will consist of at least
+one Contrail Controller (CentOS machine) and at least one Windows Compute node.</p>
 <p><strong>Note</strong>: if you encounter any problems during or after deployment,
 see <a href="../../Known_issues/Troubleshooting/">troubleshooting section</a>.</p>
 <h2 id="1-prerequisites">1. Prerequisites</h2>
@@ -1493,6 +1506,10 @@ misconfiguration).</p>
 </li>
 <li>(Optional) Refer to usage examples and run manual tests. Refer to <a href="../connection_scenarios/">this document</a>.</li>
 </ol>
+<h2 id="6-maintain">6. Maintain</h2>
+<ol>
+<li>(Optional) Upgrade Windows Contrail to newest version. See <a href="../upgrading/">upgrading section</a>.</li>
+</ol>
                 
                   
                 
@@ -1513,7 +1530,7 @@ misconfiguration).</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../connection_scenarios/" title="Usage examples and scenarios" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../connection_scenarios/" title="Examples and scenarios" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1522,19 +1539,19 @@ misconfiguration).</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Usage examples and scenarios
+                Examples and scenarios
               </span>
             </div>
           </a>
         
         
-          <a href="../usage/" title="Usage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../upgrading/" title="Upgrading existing deployment" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Usage
+                Upgrading existing deployment
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
