@@ -1472,6 +1472,10 @@ variable to this directory. Make sure they are 64-bit.</p>
 <li>Add <code>openstack-*</code> roles to the controller node and set <code>CLOUD_ORCHESTRATOR</code> to <code>openstack</code></li>
 <li>Fill Keystone credentials and Kolla config. Refer to <code>config/instances.yaml.bms_win_full_example</code>.</li>
 </ul>
+<p>Otherwise:</p>
+<ul>
+<li>Set <code>CLOUD_ORCHESTRATOR</code> to <code>none</code>.</li>
+</ul>
 <h2 id="4-run-contrail-ansible-deployer">4. Run Contrail-Ansible-Deployer</h2>
 <p>Proceed with running Ansible playbooks:</p>
 <ul>
