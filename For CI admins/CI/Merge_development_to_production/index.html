@@ -303,13 +303,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pre-merge-check" title="Pre-merge check" class="md-nav__link">
-    Pre-merge check
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#merge-development-to-production_1" title="Merge development to production" class="md-nav__link">
     Merge development to production
   </a>
@@ -1237,13 +1230,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pre-merge-check" title="Pre-merge check" class="md-nav__link">
-    Pre-merge check
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#merge-development-to-production_1" title="Merge development to production" class="md-nav__link">
     Merge development to production
   </a>
@@ -1296,30 +1282,6 @@
                 
                 <h1 id="merge-development-to-production">Merge development to production</h1>
 <p>This document describes the steps required to perform a merge from <code>development</code> to <code>production</code> in Contrail Windows CI.</p>
-<h2 id="pre-merge-check">Pre-merge check</h2>
-<p>Run production pipeline on <code>development</code> branch</p>
-<ol>
-<li>Preferably freeze <code>$commitId</code> of <code>development</code> branch</li>
-<li>Clone <code>winci-server2016-prod</code> to <code>winci-prod-test</code></li>
-<li>Change <code>winci-prod-test</code> configuration<ul>
-<li>Properties content: <code>BRANCH_NAME=$commitId</code></li>
-<li>Branches to build: <code>$commitId</code></li>
-</ul>
-</li>
-<li>Run <code>winci-prod-test</code><ul>
-<li>Parameters:<ul>
-<li><code>ZUUL_PROJECT=Juniper/contrail-controller</code></li>
-<li><code>ZUUL_BRANCH=master</code></li>
-<li><code>ZUUL_REF=None</code> (it should literally be <code>None</code>)</li>
-<li><code>ZUUL_URL=http://10.84.12.30/merge-warrior</code></li>
-<li><code>ZUUL_UUID=$someRandomUUID</code> (e.g. $commitId with the first 8 characters replaced by <code>deadbeef</code>)</li>
-<li><code>ZUUL_CHANGE=</code> (can be left empty)</li>
-<li><code>ZUUL_PATCHSET=</code> (can be left empty)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
 <h2 id="merge-development-to-production_1">Merge development to production</h2>
 <ol>
 <li>
@@ -1335,7 +1297,7 @@ git push
 <li>
 <p>Update Zuul configuration</p>
 <ul>
-<li>Refer to <a href="https://github.com/Juniper/contrail-windows-docs/blob/master/doc/ci_admin_guide/Update_Zuul.md">Update Windows CI Zuulv2</a> documentation</li>
+<li>Refer to <a href="https://juniper.github.io/contrail-windows-docs/For%20CI%20admins/CI/Update_Zuul/">Update Windows CI Zuulv2</a> documentation</li>
 </ul>
 </li>
 </ol>
