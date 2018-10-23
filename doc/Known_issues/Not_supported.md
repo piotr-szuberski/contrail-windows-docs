@@ -22,3 +22,7 @@ due to differences in network handling with Hyper-V Containers.
 * Multiple config nodes not supported in CNM plugin.
 * `docker network inspect` on Contrail network does not show correct IPAM subnet, if subnet was not specified on creation.
     * Please refer to this bug: https://bugs.launchpad.net/opencontrail/+bug/1789237
+
+## Authentication
+
+* Only Keystone v2 API is supported.
