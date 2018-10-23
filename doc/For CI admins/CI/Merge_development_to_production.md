@@ -2,25 +2,6 @@
 
 This document describes the steps required to perform a merge from `development` to `production` in Contrail Windows CI.
 
-## Pre-merge check
-
-Run production pipeline on `development` branch
-
-1. Preferably freeze `$commitId` of `development` branch
-2. Clone `winci-server2016-prod` to `winci-prod-test`
-3. Change `winci-prod-test` configuration
-    - Properties content: `BRANCH_NAME=$commitId`
-    - Branches to build: `$commitId`
-4. Run `winci-prod-test`
-    - Parameters:
-        - `ZUUL_PROJECT=Juniper/contrail-controller`
-        - `ZUUL_BRANCH=master`
-        - `ZUUL_REF=None` (it should literally be `None`)
-        - `ZUUL_URL=http://10.84.12.30/merge-warrior`
-        - `ZUUL_UUID=$someRandomUUID` (e.g. $commitId with the first 8 characters replaced by `deadbeef`)
-        - `ZUUL_CHANGE=` (can be left empty)
-        - `ZUUL_PATCHSET=` (can be left empty)
-
 ## Merge development to production
 
 1. Update production branch (following git operations require administrative privileges on GitHub)
@@ -64,4 +45,4 @@ Run production pipeline on `development` branch
 - Slave VM templates creation and promotion
 - Builder/tester deployment
 
-[update-zuulv2]: https://github.com/Juniper/contrail-windows-docs/blob/master/doc/ci_admin_guide/Update_Zuul.md
+[update-zuulv2]: https://juniper.github.io/contrail-windows-docs/For%20CI%20admins/CI/Update_Zuul/
