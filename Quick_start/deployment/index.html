@@ -1134,13 +1134,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#important" title="IMPORTANT" class="md-nav__link">
-    IMPORTANT
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-prerequisites" title="1. Prerequisites" class="md-nav__link">
     1. Prerequisites
   </a>
@@ -1277,13 +1270,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#important" title="IMPORTANT" class="md-nav__link">
-    IMPORTANT
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-prerequisites" title="1. Prerequisites" class="md-nav__link">
     1. Prerequisites
   </a>
@@ -1377,12 +1363,6 @@
                 
                 
                 <h1 id="heterogenous-contrail-deployment-linux-windows">Heterogenous Contrail Deployment: Linux + Windows</h1>
-<h2 id="important"><strong> IMPORTANT </strong></h2>
-<p><strong>[FIXME]</strong> As of Oct 23, deployment without Keystone does not fully work! Cluster is brought up, however users can't
-login to Contrail WebUI. This may be enough for development purposes, if developers don't interact in WebUI.
-This section of documentation will be updated once the issue is resolved.
-Meanwhile, there is a known workaround, described below.</p>
-<hr />
 <p>The following procedure allows the operator to bring up heterogenous Contrail deployment. It will consist of at least
 one Contrail Controller (CentOS machine) and at least one Windows Compute node.</p>
 <p><strong>Note</strong>: if you encounter any problems during or after deployment,
@@ -1502,9 +1482,6 @@ variable to this directory. Make sure they are 64-bit.</p>
 <li>
 <p>If you have already deployed the Controller <strong>or</strong> if you want to deploy Controller without OpenStack (noauth mode):</p>
 <pre><code>sudo -H ansible-playbook -i inventory/ playbooks/configure_instances.yml
-# !!! WORKAROUND !!! (see top of this page for explanation)
-# remove the `CLOUD_ORCHESTRATOR` entry from `config/instances.yaml`
-vi config/instances.yaml
 sudo -H ansible-playbook -i inventory/ playbooks/install_contrail.yml
 </code></pre>
 </li>
