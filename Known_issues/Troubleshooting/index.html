@@ -1128,8 +1128,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-total-cleanup" title="7. Total cleanup" class="md-nav__link">
-    7. Total cleanup
+  <a href="#7-crashdumps" title="7. Crashdumps" class="md-nav__link">
+    7. Crashdumps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-total-cleanup" title="8. Total cleanup" class="md-nav__link">
+    8. Total cleanup
   </a>
   
 </li>
@@ -1285,8 +1292,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-total-cleanup" title="7. Total cleanup" class="md-nav__link">
-    7. Total cleanup
+  <a href="#7-crashdumps" title="7. Crashdumps" class="md-nav__link">
+    7. Crashdumps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-total-cleanup" title="8. Total cleanup" class="md-nav__link">
+    8. Total cleanup
   </a>
   
 </li>
@@ -1334,7 +1348,13 @@ The section contains recovery procedures.</p>
 <p>Behaviour of Windows Contrail utility tools is similar to their Linux counterparts. They are: <code>vif</code>, <code>nh</code>, <code>rt</code>,
 <code>flow</code>, <code>mpls</code>, <code>vrfstats</code>, <code>dropstats</code>, <code>vxlan</code>, <code>vrouter</code>, <code>vrmemstats</code>.</p>
 <p>They should be in <code>$Path</code>. If not, they can be found under <code>$Env:ProgramFiles\Juniper Networks\vRouter utilities\</code>.</p>
-<h2 id="7-total-cleanup">7. Total cleanup</h2>
+<h2 id="7-crashdumps">7. Crashdumps</h2>
+<p>If you encounter any kernel panics or service crashes, debugging dump files may prove useful:</p>
+<ul>
+<li>Kernel crashdumps: <code>$Env:SystemRoot\MEMORY.DMP</code> and <code>$Env:SystemRoot\Minidump\*dmp</code></li>
+<li>Usermode crashdumps: <code>$Env:LocalAppData\CrashDumps</code></li>
+</ul>
+<h2 id="8-total-cleanup">8. Total cleanup</h2>
 <p>Run <code>Clear-ComputeNode.ps1</code> script from <a href="https://github.com/Juniper/contrail-windows-tools">tools repository</a>
 on Windows Computes that cause problems. Refer to README in root of the repository
 for script configuration info.</p>
