@@ -53,7 +53,7 @@ If you encounter any kernel panics or service crashes, debugging dump files may 
 
 ## 8. PDB files
 
-Debugging symbols for Contrail Components can be found in Artifacts folder, next to msi files. Artifacts folder is unpacked from docker containers on test beds and can be found directly on C: drive.
+Debugging symbols for Contrail Components can be found in PDB files in Artifacts folder, next to MSI files. Artifacts folder is unpacked from docker containers on test beds and can be found directly on C: drive.
 
 ## 9. Total cleanup
 
