@@ -1494,10 +1494,12 @@ sudo -H ansible-playbook -e orchestrator=openstack -i inventory/ playbooks/insta
 <h2 id="5-verify-deployment">5. Verify deployment</h2>
 <ol>
 <li>
-<p>Run <code>Invoke-DiagnosticCheck.ps1</code> script from <a href="https://github.com/Juniper/contrail-windows-tools">tools repository</a>.
-    If deployment went correctly, all checks should pass.</p>
-<p><strong>Note</strong>: to quickly have the ability to run this script on your Windows machine, you can use the following snippet:</p>
-<pre><code>Invoke-WebRequest  https://raw.githubusercontent.com/Juniper/contrail-windows-tools/master/Invoke-DiagnosticCheck.ps1 -OutFile Invoke-DiagnosticCheck.ps1
+<p>Run <code>Invoke-DiagnosticCheck.ps1</code> script from <a href="https://github.com/Juniper/contrail-windows-tools">tools repository</a>
+    on Windows compute nodes. If deployment went correctly, all checks should pass.</p>
+<p><strong>Note</strong>: to quickly have the ability to run this script on your Windows nodes, you can use the following snippet:</p>
+<pre><code>Invoke-WebRequest  https://raw.githubusercontent.com/Juniper/contrail-windows-tools/master/Invoke-ScriptInRemoteSessions.ps1 -OutFile Invoke-ScriptInRemoteSessions.ps1
+Invoke-WebRequest  https://raw.githubusercontent.com/Juniper/contrail-windows-tools/master/Invoke-DiagnosticCheck.ps1 -OutFile Invoke-DiagnosticCheck.ps1
+.\Invoke-ScriptInRemoteSessions.ps1 -ScriptFileName ".\Invoke-DiagnosticCheck.ps1" -Addresses "&lt;IP1&gt;,&lt;IP2&gt;" -Credential (Get-Credential) -OtherParams...
 </code></pre>
 <p>Consult the README on how to configure the diagnostic script (it's safe to run, so don't worry about
 misconfiguration).</p>

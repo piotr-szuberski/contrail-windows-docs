@@ -1361,7 +1361,10 @@ for script configuration info.</p>
 <p><strong>Warning</strong>: The script tries to clear all traces of Windows Contrail along with
 any leftover state. This includes any workload instances (containers).</p>
 <p><strong>Note</strong>: For ease of use, you can use <code>Invoke-ScriptInRemoteSessions.ps1</code> script that will run
-the cleanup on a remote machine.</p>
+the cleanup on a remote machine:</p>
+<pre><code>\Invoke-ScriptInRemoteSessions.ps1 -ScriptFileName &quot;.\Clear-ComputeNode.ps1&quot; -Addresses &quot;&lt;IP1&gt;,&lt;IP2&gt;&quot; -Credential (Get-Credential)
+</code></pre>
+
 <p>Redeployment of Windows Compute node is required after runnig this script. Please
 refer to <a href="../../Quick_start/deployment/">deployment instructions</a>.</p>
                 
