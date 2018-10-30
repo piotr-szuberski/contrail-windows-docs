@@ -51,7 +51,15 @@ If you encounter any kernel panics or service crashes, debugging dump files may 
 * Kernel crashdumps: `$Env:SystemRoot\MEMORY.DMP` and `$Env:SystemRoot\Minidump\*dmp`
 * Usermode crashdumps: `$Env:LocalAppData\CrashDumps`
 
-## 8. Total cleanup
+## 8. PDB files
+
+Debugging symbols for Contrail Components can be found in PDB files in Artifacts folder, next to MSI files.
+Artifacts folder is unpacked from docker containers on test beds and can be found directly on C: drive.
+For debugging you can use WinDbg or DbgShell (if you know PowerShell).
+
+**Warning**: Remember, that every PDB file is bound to executable which was built with it
+(verified by checksum).
+## 9. Total cleanup
 
 Run `Clear-ComputeNode.ps1` script from [tools repository](https://github.com/Juniper/contrail-windows-tools)
 on Windows Computes that cause problems. Refer to README in root of the repository
