@@ -1350,14 +1350,54 @@
 <p>This document describes assumptions, utilized tools and conclusions drawn from performance tests of Contrail on Windows Server 2016.</p>
 <h2 id="introduction">Introduction</h2>
 <p>TCP throughput was measured in the following scenarios:</p>
-<ol>
-<li>Raw Windows Server network stack (abbreviated <code>Raw</code> in <em>Results</em> section).</li>
-<li>Windows Server containers (WinSrv containers) on 2 compute nodes (abbreviated <code>Containers</code> in <em>Results</em> section).</li>
-<li>WinSrv containers on 1 compute node (abbreviated <code>Colocated Containers</code> in <em>Results</em> section).</li>
-<li>WinSrv containers on 2 compute nodes, with Contrail Windows (abbreviated <code>Containers w/ Contrail</code> in <em>Results</em> section).</li>
-<li>WinSrv containers on 2 compute nodes, traffic tuned to eliminate TCP segmentation (abbreviated <code>Containers (no seg)</code> in <em>Results</em> section).</li>
-<li>WinSrv containers on 2 compute nodes, with Contrail Windows, traffic tuned to eliminate TCP segmentation (abbreviated <code>Containers w/ Contrail (no seg)</code> in <em>Results</em> section).</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test name</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Raw</td>
+<td>Raw Windows Server network stack</td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>Containers</td>
+<td>Windows Server containers (WinSrv containers) on 2 compute nodes</td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td>Colocated Containers</td>
+<td>WinSrv containers on 1 compute node</td>
+<td></td>
+</tr>
+<tr>
+<td>D</td>
+<td>Containers w/ Contrail</td>
+<td>WinSrv containers on 2 compute nodes, with Contrail Windows</td>
+<td>WIP PR https://review.opencontrail.org/#/c/47292/</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Containers (no seg)</td>
+<td>WinSrv containers on 2 compute nodes, traffic tuned to eliminate TCP segmentation</td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>Containers w/ Contrail (no seg)</td>
+<td>WinSrv containers on 2 compute nodes, with Contrail Windows, traffic tuned to eliminate TCP segmentation</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>Test results and scenarios are described in the following sections.</p>
 <h2 id="results">Results</h2>
 <p>On <code>sender</code> nodes:</p>
@@ -1365,12 +1405,12 @@
 <thead>
 <tr>
 <th>Metric</th>
-<th>Raw</th>
-<th>Containers</th>
-<th>Colocated Containers</th>
-<th>Containers w/ Contrail</th>
-<th>Containers (no seg)</th>
-<th>Containers w/ Contrail (no seg)</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
 </tr>
 </thead>
 <tbody>
@@ -1379,34 +1419,16 @@
 <td>7375.159</td>
 <td>1592.691</td>
 <td>1956.786</td>
-<td>TBD</td>
+<td>658.291</td>
 <td>235.852</td>
 <td>98.734</td>
-</tr>
-<tr>
-<td>Retransmits</td>
-<td>257</td>
-<td>335</td>
-<td>2333</td>
-<td>TBD</td>
-<td>1</td>
-<td>1034</td>
-</tr>
-<tr>
-<td>Errors</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>TBD</td>
-<td>0</td>
-<td>0</td>
 </tr>
 <tr>
 <td>Avg. CPU %</td>
 <td>14.799</td>
 <td>15.843</td>
 <td>57.098</td>
-<td>TBD</td>
+<td>40.992</td>
 <td>29.373</td>
 <td>34.544</td>
 </tr>
@@ -1417,12 +1439,12 @@
 <thead>
 <tr>
 <th>Metric</th>
-<th>Raw</th>
-<th>Containers</th>
-<th>Colocated Containers</th>
-<th>Containers w/ Contrail</th>
-<th>Containers (no seg)</th>
-<th>Containers w/ Contrail (no seg)</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
 </tr>
 </thead>
 <tbody>
@@ -1431,34 +1453,16 @@
 <td>7375.198</td>
 <td>1592.698</td>
 <td>1948.824</td>
-<td>TBD</td>
+<td>657.520</td>
 <td>235.784</td>
 <td>98.732</td>
-</tr>
-<tr>
-<td>Retransmits</td>
-<td>0</td>
-<td>0</td>
-<td>2353</td>
-<td>TBD</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Errors</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>TBD</td>
-<td>0</td>
-<td>0</td>
 </tr>
 <tr>
 <td>Avg. CPU %</td>
 <td>21.161</td>
 <td>42.278</td>
 <td>57.086</td>
-<td>TBD</td>
+<td>48.184</td>
 <td>25.064</td>
 <td>25.763</td>
 </tr>
@@ -1468,13 +1472,15 @@
 <p>Conclusions:</p>
 <ul>
 <li>Enabling Hyper-V on Windows Server 2016 reduces TCP throughput by a factor of 3-4.<ul>
-<li>Reduced throughput can be explained by lack of support for VMQ in vmxnet3 adapters.</li>
+<li>Observed reduced throghput is expected. As per Microsoft Networking blog (here: <a href="https://blogs.technet.microsoft.com/networking/2013/09/10/vmq-deep-dive-1-of-3/">VMQ Deep Dive</a>) this is by design.
+  Before creating VMSwitch packets are directed to separate CPU cores based on flow hash.
+  After VMSwitch is created, packets are directed to separate CPU cores based on destination MAC address, thus each virtual adapter is assigned to a single CPU core.</li>
 </ul>
 </li>
 <li>Difference between TCP throughput scenario where containers are colocated and scenario where containers are on separate nodes, suggests that VMSwitch is a bottleneck.</li>
 <li>Comparing <code>Containers (no seg)</code> test with <code>Containers w/ Contrail (no seg)</code> shows that vRouter code paths could account for 50-60% drop in TCP throughput.</li>
 </ul>
-<p>Performance baseline for Contrail Windows should be based on network performance of containers running on Hyper-V.</p>
+<p>Performance baseline for Contrail Windows should be based on network performance of containers running on Hyper-V, which is <code>~1600 MBit/s</code> of TCP throughput between containers on different compute nodes.</p>
 <h2 id="test-environment-assumptions">Test environment assumptions</h2>
 <p>Performance is evaluated on 2 VMware virtual machines.
 Virtual machines should have the following specs:</p>
@@ -1496,7 +1502,7 @@ This vSS should not have any physical NICs attached.</p>
 <p>Description:</p>
 <ul>
 <li>2 Windows Server compute nodes (node A and node B);</li>
-<li>compute nodes are configured without Hyper-V and Containers;</li>
+<li>compute nodes without Hyper-V and Containers Windows features installed;</li>
 <li>node A and node B exchange TCP segments using <code>NTttcp</code> tool;</li>
 <li>
 <p>used <code>NTttcp</code> options:</p>
@@ -1720,7 +1726,7 @@ Install-Module DockerMsftProvider -Force
 Install-Package Docker -ProviderName DockerMsftProvider -Force -RequiredVersion 17.06.2-ee-16
 Restart-Computer
 
-# Docker setup (on both VMs)
+# Docker setup (on both Windows hosts)
 Start-Service Docker
 docker image pull microsoft/windowsservercore:ltsc2016
 docker network create -d transparent --subnet=172.16.0.0/24 --gateway=172.16.0.254 -o com.docker.network.windowsshim.interface=&quot;Ethernet1&quot; mynetwork
