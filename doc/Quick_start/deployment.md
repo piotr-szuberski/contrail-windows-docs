@@ -23,7 +23,7 @@ Requirements for Windows Server 2016 machine:
     * 60 GB HDD.
 * Virtualization support must be enabled:
     * in case of a bare metal - enable VT-x in BIOS,
-    * in case of a virtual machine - enable nested virtualization.
+    * in case of a virtual machine - please see [Hypervisors](./hypervisors_configuration.md) for configuration details.
 * Newest Windows updates should be installed.
 * Windows machines should have different hostnames.
 * Windows machines should be accessible using the same set of credentials.
