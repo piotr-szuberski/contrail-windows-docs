@@ -1052,6 +1052,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../Known_issues/CredSSP_error_bestiary/" title="CredSSP errors bestiary" class="md-nav__link">
+      CredSSP errors bestiary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../Known_issues/HNS_error_bestiary/" title="HNS errors bestiary" class="md-nav__link">
       HNS errors bestiary
     </a>
@@ -1203,11 +1215,11 @@
 <p>Furthermore, Docker's "network" is actually equivalent to Contrail's "subnet". This means, that during docker network creation, specific Contrail subnet (using CIDR notation) must be specified as a parameter.</p>
 <ol>
 <li>Docker client tells docker daemon to create a docker network that will represent a chunk of a Contrail subnet. Tenant name, network name and subnet's CIDR are passed as parameters.</li>
-<li>Docker daemon creates a network resource in its own, local database, and then delegates handling of network configuration to the docker driver.</li>
-<li>Docker driver queries Contrail Controller whether specified tenant, network and subnet combination exists. It also asks for their details.</li>
+<li>Docker daemon creates a network resource in its own, local database, and then delegates handling of network configuration to the CNM plugin.</li>
+<li>CNM plugin queries Contrail Controller whether specified tenant, network and subnet combination exists. It also asks for their details.</li>
 <li>Contrail Controller returns subnet's default gateway address as well as subnet's UUID</li>
-<li>Docker driver calls HNS function to create a HNS network with subnet's CIDR and default gateway address. It also sets the HNS network's name as a concatenation of "Contrail" with tenant name, network name and subnet ID.</li>
-<li>Docker driver tells docker daemon to store tenant and network names in docker network's metadata. Docker daemon stores this information in its own, local database.</li>
+<li>CNM plugin calls HNS function to create a HNS network with subnet's CIDR and default gateway address. It also sets the HNS network's name as a concatenation of "Contrail" with tenant name, network name and subnet ID.</li>
+<li>CNM plugin tells docker daemon to store tenant and network names in docker network's metadata. Docker daemon stores this information in its own, local database.</li>
 </ol>
                 
                   

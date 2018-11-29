@@ -1045,6 +1045,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Known_issues/CredSSP_error_bestiary/" title="CredSSP errors bestiary" class="md-nav__link">
+      CredSSP errors bestiary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Known_issues/HNS_error_bestiary/" title="HNS errors bestiary" class="md-nav__link">
       HNS errors bestiary
     </a>
@@ -1463,7 +1475,7 @@ vim config/instances.yaml
 <p>You will need to know the IP addresses of CentOS and Windows hosts.</p>
 <ul>
 <li>For Windows computes use <code>bms_win</code> dict instead of regular <code>bms</code>.</li>
-<li>You need to add <code>vrouter</code> and <code>win_docker_driver</code> roles for Windows compute nodes.</li>
+<li>You need to add <code>vrouter</code> and <code>win_cnm_plugin</code> roles for Windows compute nodes.</li>
 <li>Set <code>WINDOWS_PHYSICAL_INTERFACE</code> to dataplane interface name (run <code>Get-NetAdapter</code> from PowerShell to list available
     interfaces on Windows compute node). If your Compute nodes have only one interface, specify it. Otherwise, you
     can split data and control planes between two interfaces - you can choose. Refer to Contrail documentation
@@ -1475,8 +1487,7 @@ vim config/instances.yaml
 configuration is also required:</p>
 <ul>
 <li>In BIOS of every Windows node you need to disable secure boot.</li>
-<li>Add <code>WINDOWS_ENABLE_TEST_SIGNING</code> option and leave it empty. This option configures Windows Server to allow
-    installation of unsigned drivers.</li>
+<li>Add <code>WINDOWS_ENABLE_TEST_SIGNING</code> option and leave it empty. This option configures Windows Server to allow installation of unsigned drivers.</li>
 <li>
 <p>Set <code>WINDOWS_DEBUG_DLLS_PATH</code> to path on Ansible machine containing MSVC 2015 debug dll libraries.Since user space
     Contrail components are build in debug mode, to run them on Windows Server the following dlls are required:</p>

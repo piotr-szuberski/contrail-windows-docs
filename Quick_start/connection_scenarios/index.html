@@ -1045,6 +1045,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Known_issues/CredSSP_error_bestiary/" title="CredSSP errors bestiary" class="md-nav__link">
+      CredSSP errors bestiary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Known_issues/HNS_error_bestiary/" title="HNS errors bestiary" class="md-nav__link">
       HNS errors bestiary
     </a>
@@ -1371,8 +1383,8 @@
 Both Enabled and Running fields should be True</p>
 </li>
 <li>
-<p>Verify if Docker Driver service is running:</p>
-<pre><code>Get-Service contrail-docker-driver
+<p>Verify if CNM plugin service is running:</p>
+<pre><code>Get-Service contrail-cnm-plugin
 </code></pre>
 <p>State should be Running
     1. Create docker network <code>testnet1</code> on the 1st Windows compute code:</p>

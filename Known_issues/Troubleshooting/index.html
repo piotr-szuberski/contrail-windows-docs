@@ -1047,6 +1047,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../CredSSP_error_bestiary/" title="CredSSP errors bestiary" class="md-nav__link">
+      CredSSP errors bestiary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../HNS_error_bestiary/" title="HNS errors bestiary" class="md-nav__link">
       HNS errors bestiary
     </a>
@@ -1124,50 +1136,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-check-the-logs" title="3. Check the logs" class="md-nav__link">
-    3. Check the logs
+  <a href="#3-microsofts-diagnostic-check" title="3. Microsoft's diagnostic check" class="md-nav__link">
+    3. Microsoft's diagnostic check
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-verify-the-configuration" title="4. Verify the configuration" class="md-nav__link">
-    4. Verify the configuration
+  <a href="#4-check-the-logs" title="4. Check the logs" class="md-nav__link">
+    4. Check the logs
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-known-issues" title="5. Known issues" class="md-nav__link">
-    5. Known issues
+  <a href="#5-verify-the-configuration" title="5. Verify the configuration" class="md-nav__link">
+    5. Verify the configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-use-contrail-utility-tools" title="6. Use Contrail utility tools" class="md-nav__link">
-    6. Use Contrail utility tools
+  <a href="#6-known-issues" title="6. Known issues" class="md-nav__link">
+    6. Known issues
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-crashdumps" title="7. Crashdumps" class="md-nav__link">
-    7. Crashdumps
+  <a href="#7-use-contrail-utility-tools" title="7. Use Contrail utility tools" class="md-nav__link">
+    7. Use Contrail utility tools
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-pdb-files" title="8. PDB files" class="md-nav__link">
-    8. PDB files
+  <a href="#8-crashdumps" title="8. Crashdumps" class="md-nav__link">
+    8. Crashdumps
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-total-cleanup" title="9. Total cleanup" class="md-nav__link">
-    9. Total cleanup
+  <a href="#9-pdb-files" title="9. PDB files" class="md-nav__link">
+    9. PDB files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-total-cleanup" title="10. Total cleanup" class="md-nav__link">
+    10. Total cleanup
   </a>
   
 </li>
@@ -1307,50 +1326,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-check-the-logs" title="3. Check the logs" class="md-nav__link">
-    3. Check the logs
+  <a href="#3-microsofts-diagnostic-check" title="3. Microsoft's diagnostic check" class="md-nav__link">
+    3. Microsoft's diagnostic check
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-verify-the-configuration" title="4. Verify the configuration" class="md-nav__link">
-    4. Verify the configuration
+  <a href="#4-check-the-logs" title="4. Check the logs" class="md-nav__link">
+    4. Check the logs
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-known-issues" title="5. Known issues" class="md-nav__link">
-    5. Known issues
+  <a href="#5-verify-the-configuration" title="5. Verify the configuration" class="md-nav__link">
+    5. Verify the configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-use-contrail-utility-tools" title="6. Use Contrail utility tools" class="md-nav__link">
-    6. Use Contrail utility tools
+  <a href="#6-known-issues" title="6. Known issues" class="md-nav__link">
+    6. Known issues
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-crashdumps" title="7. Crashdumps" class="md-nav__link">
-    7. Crashdumps
+  <a href="#7-use-contrail-utility-tools" title="7. Use Contrail utility tools" class="md-nav__link">
+    7. Use Contrail utility tools
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-pdb-files" title="8. PDB files" class="md-nav__link">
-    8. PDB files
+  <a href="#8-crashdumps" title="8. Crashdumps" class="md-nav__link">
+    8. Crashdumps
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-total-cleanup" title="9. Total cleanup" class="md-nav__link">
-    9. Total cleanup
+  <a href="#9-pdb-files" title="9. PDB files" class="md-nav__link">
+    9. PDB files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-total-cleanup" title="10. Total cleanup" class="md-nav__link">
+    10. Total cleanup
   </a>
   
 </li>
@@ -1386,34 +1412,40 @@ on Windows Computes that cause problems. Refer to README in root of the reposito
 for script configuration info.</p>
 <p><strong>Note</strong>: the script can be ran with or without Administrator privileges. However, some checks
 will not be performed without them.</p>
-<h2 id="3-check-the-logs">3. Check the logs</h2>
+<h2 id="3-microsofts-diagnostic-check">3. Microsoft's diagnostic check</h2>
+<p>Run Microsoft's <code>Debug-ContainerHost.ps1</code> script:</p>
+<pre><code>Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
+</code></pre>
+
+<p>For other problems with Windows Containers, consult the <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/troubleshooting">official troubleshooting docs</a>.</p>
+<h2 id="4-check-the-logs">4. Check the logs</h2>
 <p>Diagnostic check already looks for issues in logs of Contrail Components running on the node.
 However, you might want to check them manually.</p>
 <p>Logs are located in <code>$Env:ProgramData\contrail\var\logs\contrail\</code>.</p>
-<h2 id="4-verify-the-configuration">4. Verify the configuration</h2>
+<h2 id="5-verify-the-configuration">5. Verify the configuration</h2>
 <p>You might want to verify the configuration of all Contrail services running on the node.</p>
 <p>Config files are located in <code>$Env:ProgramData\contrail\etc\contrail\</code></p>
-<h2 id="5-known-issues">5. Known issues</h2>
+<h2 id="6-known-issues">6. Known issues</h2>
 <p>Search <a href="../Known_issues/">known issues section</a> for symptoms of your issue.
 The section contains recovery procedures.</p>
-<h2 id="6-use-contrail-utility-tools">6. Use Contrail utility tools</h2>
+<h2 id="7-use-contrail-utility-tools">7. Use Contrail utility tools</h2>
 <p><strong>Note</strong>: the following steps require experience using Contrail utils.</p>
 <p>Behaviour of Windows Contrail utility tools is similar to their Linux counterparts. They are: <code>vif</code>, <code>nh</code>, <code>rt</code>,
 <code>flow</code>, <code>mpls</code>, <code>vrfstats</code>, <code>dropstats</code>, <code>vxlan</code>, <code>vrouter</code>, <code>vrmemstats</code>.</p>
 <p>They should be in <code>$Path</code>. If not, they can be found under <code>$Env:ProgramFiles\Juniper Networks\vRouter utilities\</code>.</p>
-<h2 id="7-crashdumps">7. Crashdumps</h2>
+<h2 id="8-crashdumps">8. Crashdumps</h2>
 <p>If you encounter any kernel panics or service crashes, debugging dump files may prove useful:</p>
 <ul>
 <li>Kernel crashdumps: <code>$Env:SystemRoot\MEMORY.DMP</code> and <code>$Env:SystemRoot\Minidump\*dmp</code></li>
 <li>Usermode crashdumps: <code>$Env:LocalAppData\CrashDumps</code></li>
 </ul>
-<h2 id="8-pdb-files">8. PDB files</h2>
+<h2 id="9-pdb-files">9. PDB files</h2>
 <p>Debugging symbols for Contrail Components can be found in PDB files in Artifacts folder, next to MSI files.
 Artifacts folder is unpacked from docker containers on test beds and can be found directly on C: drive.
 For debugging you can use WinDbg or DbgShell (if you know PowerShell).</p>
 <p><strong>Warning</strong>: Remember, that every PDB file is bound to executable which was built with it
 (verified by checksum).</p>
-<h2 id="9-total-cleanup">9. Total cleanup</h2>
+<h2 id="10-total-cleanup">10. Total cleanup</h2>
 <p>Run <code>Clear-ComputeNode.ps1</code> script from <a href="https://github.com/Juniper/contrail-windows-tools">tools repository</a>
 on Windows Computes that cause problems. Refer to README in root of the repository
 for script configuration info.</p>

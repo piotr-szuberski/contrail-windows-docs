@@ -1052,6 +1052,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../Known_issues/CredSSP_error_bestiary/" title="CredSSP errors bestiary" class="md-nav__link">
+      CredSSP errors bestiary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../Known_issues/HNS_error_bestiary/" title="HNS errors bestiary" class="md-nav__link">
       HNS errors bestiary
     </a>
@@ -1198,18 +1210,19 @@
                 
                   <h1>Container creation lifecycle</h1>
                 
-                <ol>
+                <p>TODO(mc): from step 11. it's not exactly true, we've removed the hashmap, also agent can injects vifs before interface is attached to vswitch.</p>
+<ol>
 <li>Docker client tells docker daemon to run a container and attach it to a Docker network (that corresponds to a chunk of a Contrail subnet).</li>
-<li>Docker deamon delegates the network configuration of the container that is being created to the remote docker driver.</li>
-<li>Docker driver queries docker daemon about metadata associated with docker's network resource and receives Contrail tenant name and subnet CIDR.</li>
-<li>Docker driver performs a series of queries against Contrail Controller that create various Contrail resources, most notably: virtual-machine, virtual-machine-interface, instance-ip.</li>
-<li>Docker driver receives Instance IP, MAC and default gateway to configure the newly created container's interface with. It also receives UUID of virtual-machine-interface resource</li>
-<li>Docker driver knows all the information necessary to recreate HNS Network's name. It uses this name to identify which HNS network to attach the container to. Docker driver sends requests to HNS to configure endpoint with newly received IP, MAC and Default gateway.</li>
+<li>Docker deamon delegates the network configuration of the container that is being created to the CNM plugin.</li>
+<li>CNM plugin queries docker daemon about metadata associated with docker's network resource and receives Contrail tenant name and subnet CIDR.</li>
+<li>CNM plugin performs a series of queries against Contrail Controller that create various Contrail resources, most notably: virtual-machine, virtual-machine-interface, instance-ip.</li>
+<li>CNM plugin receives Instance IP, MAC and default gateway to configure the newly created container's interface with. It also receives UUID of virtual-machine-interface resource</li>
+<li>CNM plugin knows all the information necessary to recreate HNS Network's name. It uses this name to identify which HNS network to attach the container to. CNM plugin sends requests to HNS to configure endpoint with newly received IP, MAC and Default gateway.</li>
 <li>In the background, HNS creates the network compartment for the container and configures its interface.</li>
 <li>The moment the interface is created, the Forwarding Extension receives an event about new adapter being connected. </li>
 <li>Forwarding Extension doesn't know what to do with it yet, so it stores it in a hash map, where the key is adapters FriendlyName. Then it waits, dropping all packets except the ones sent from native Hyper-V driver.</li>
-<li>Meanwhile, if container creation was successful, HNS returns ID of the endpoint to docker driver.</li>
-<li>Docker driver sends "add port" request to vRouter Agent, with all the necessary information to identify the port both in Contrail terms (UUID of virtual-machine-interface) as well as in Windows terms (using Endpoint ID, which is a part of FriendlyName).</li>
+<li>Meanwhile, if container creation was successful, HNS returns ID of the endpoint to CNM plugin.</li>
+<li>CNM plugin sends "add port" request to vRouter Agent, with all the necessary information to identify the port both in Contrail terms (UUID of virtual-machine-interface) as well as in Windows terms (using Endpoint ID, which is a part of FriendlyName).</li>
 <li>vRouter Agent communicates with Contrail Controller to let it know about newly added port.</li>
 <li>vRouter Agent inserts basic rules and flows into the Forwarding Extension. </li>
 <li>Forwarding Extension uses the FriendlyName to determine which port seen in userspace corresponds to port waiting in Forwarding Extension's hash map.</li>

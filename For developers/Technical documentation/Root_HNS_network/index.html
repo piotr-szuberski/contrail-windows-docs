@@ -1052,6 +1052,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../Known_issues/CredSSP_error_bestiary/" title="CredSSP errors bestiary" class="md-nav__link">
+      CredSSP errors bestiary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../Known_issues/HNS_error_bestiary/" title="HNS errors bestiary" class="md-nav__link">
       HNS errors bestiary
     </a>
@@ -1204,7 +1216,7 @@
 <li>an internal vswitch, for the purpose of NATing. The adapter that connects to the host is named "vEthernet (HNS Internal NIC)", and the switch is called "nat".</li>
 </ul>
 <p>Those virtual switches are not created unless there is at least one HNS network using corresponding Mode: "transparent" or "nat". If the last network of corresponding Mode is removed, the vswitch is also removed. Creation/deletion of vswitch takes a couple seconds and disrupts network connectivity.</p>
-<p>This dynamism of creating/deleting vswitches poses a problem, because we want vRouter Forwarding Extension to be persistent, no matter if there are many or no virtual networks. That's why, when Docker Driver initializes, it creates a "dummy" Root HNS Network, which makes HNS create an external vswitch "Layered Ethernet*". Forwarding Extension is then enabled for that vswitch.</p>
+<p>This dynamism of creating/deleting vswitches poses a problem, because we want vRouter Forwarding Extension to be persistent, no matter if there are many or no virtual networks. That's why, when CNM plugin initializes, it creates a "dummy" Root HNS Network, which makes HNS create an external vswitch "Layered?Ethernet*". Forwarding Extension is then enabled for that vswitch.</p>
                 
                   
                 

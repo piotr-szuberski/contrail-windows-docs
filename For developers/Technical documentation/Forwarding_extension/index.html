@@ -1052,6 +1052,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../Known_issues/CredSSP_error_bestiary/" title="CredSSP errors bestiary" class="md-nav__link">
+      CredSSP errors bestiary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../Known_issues/HNS_error_bestiary/" title="HNS errors bestiary" class="md-nav__link">
       HNS errors bestiary
     </a>
@@ -1210,7 +1222,7 @@
 </ul>
 <p>Note: In other words, there are two "kinds" of callbacks: "NDIS callbacks" and "DP-core callbacks". NDIS callbacks are a consequence of event-driven architecture of Hyper-V Extensions, while DP-core callbacks are actually just platform specific "dependency injections" or "C interfaces". 
 The team usually refers to those "DP-core callbacks" as just callbacks. NDIS callbacks are usually referred to as "Extension/NDIS API implementation".</p>
-<p>Note: There is a convenience library provided by Microsoft around the raw NDIS API. The library is referred to as SxBase, but it's just 4 source files. They can be found here: https://github.com/Microsoft/Windows-driver-samples/tree/master/network/ndis/extension/base. SxBase is used in the current implementation, but it will HAVE TO be replaced in the future, due to licensing issues.</p>
+<p>Note: There is a convenience library provided by Microsoft around the raw NDIS API. The library is referred to as SxBase, but it's just 4 source files. They can be found here: https://github.com/Microsoft/Windows-driver-samples/tree/master/network/ndis/extension/base. SxBase was used in the project but due to licensing issues it was removed.</p>
 <p>The Forwarding Extension does not directly communicate with Contrail Controller. Instead, vRouter Agent is responsible for creating all the objects and flows inside the Extension. </p>
                 
                   
