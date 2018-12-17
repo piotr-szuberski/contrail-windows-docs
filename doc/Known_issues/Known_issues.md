@@ -28,7 +28,7 @@ container networks present on the Compute node):
 ```
 # Remove all container networks twice for good measure, because HNS sometimes fails
 Get-ContainerNetwork | Remove-ContainerNetwork -ErrorAction SilentlyContinue -Force
-Get-ContainerNetwork | Remove-ContainerNetwork -Force   
+Get-ContainerNetwork | Remove-ContainerNetwork -Force
 ```
 
 You also need to edit Docker config file located at `C:\ProgramData\Docker\config\daemon.json` to contain
@@ -92,3 +92,26 @@ Assuming `ens224` is the data plane interface, please run the following as root 
     ethtool -K ens224 tx off
 
 You can track progress on that issue on Launchpad: [https://bugs.launchpad.net/opencontrail/+bug/1806680](https://bugs.launchpad.net/opencontrail/+bug/1806680)
+
+### Container reports an autoconfiguration IP address
+
+This bug happens when container is filled with autoconfiguration address instead of one provided by CNM Plugin to Docker.
+Genesis of this bug is unknown.
+
+For recovery do the following:
+
+- Check if compute node was deployed properly (Refer to 1-5 steps from [Troubleshooting](./Troubleshooting.md))
+- Recreate the container
+
+If it does not work, just reinstall vRouter extension or reinstall all Tungsten Fabric components.
+
+[Launchpad link related to the issue](https://bugs.launchpad.net/opencontrail/+bug/1794263)
+
+### Waiting for IP on interface Ethernet1 failed
+
+This bug happens when there is no return of assigned IP from vhost (vEthernet) to physical interface (Ethernet1) after deleting vRouter extension.
+This is a long occuring hard to catch and hard to fix bug.
+
+Workaround is to reinstall vRouter extension.
+
+[Launchpad link related to the issue](https://bugs.launchpad.net/opencontrail/+bug/1794262)
