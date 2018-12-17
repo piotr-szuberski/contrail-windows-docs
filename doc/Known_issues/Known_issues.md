@@ -95,7 +95,7 @@ You can track progress on that issue on Launchpad: [https://bugs.launchpad.net/o
 
 ### Container reports an autoconfiguration IP address
 
-This bug happens when container is filled with autoconfiguration address instead of one provided by CNM Plugin to Docker.
+This bug happens when container is filled with autoconfiguration address instead of one provided by Docker.
 Genesis of this bug is unknown.
 
 For recovery do the following:
