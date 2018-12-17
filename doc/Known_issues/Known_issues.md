@@ -109,9 +109,9 @@ If it does not work, just reinstall vRouter extension or reinstall all Tungsten 
 
 ### Waiting for IP on interface Ethernet1 failed
 
-This bug happens when there is no return of assigned IP from vhost (vEthernet) to physical interface (Ethernet1) after deleting vRouter extension.
+This bug happens when there is no reassignment of IP address from vhost (`vEthernet`) to physical interface (e.g. `Ethernet1`) after deleting vRouter extension.
 This is a long occuring hard to catch and hard to fix bug.
 
-Workaround is to reinstall vRouter extension.
+Workaround is to reinstall vRouter extension (possibly multiple times).
 
 [Launchpad link related to the issue](https://bugs.launchpad.net/opencontrail/+bug/1794262)
