@@ -103,7 +103,7 @@ For recovery do the following:
 - Check if compute node was deployed properly (Refer to 1-5 steps from [Troubleshooting](./Troubleshooting.md))
 - Recreate the container
 
-If it does not work, just reinstall vRouter extension or reinstall all Tungsten Fabric components.
+If it does not work, refer to workarounds for `Waiting for IP on interface Ethernet1 failed` bug.
 
 [Launchpad link related to the issue](https://bugs.launchpad.net/opencontrail/+bug/1794263)
 
@@ -112,6 +112,37 @@ If it does not work, just reinstall vRouter extension or reinstall all Tungsten 
 This bug happens when there is no reassignment of IP address from vhost (`vEthernet`) to physical interface (e.g. `Ethernet1`) after deleting vRouter extension.
 This is a long occuring hard to catch and hard to fix bug.
 
-Workaround is to reinstall vRouter extension (possibly multiple times).
+There are two workarounds:
+- Invasive but easier:
+    - Use cleanup script (Step 10 in [Troubleshooting](./Troubleshooting.md)).
+    - Redeploy compute node with e.g. contrail-ansible-deployer.
+- Less invasive but harder (this method sometimes needs to be repeated multiple times):
+    - Delete containers and docker networks
+    - Stop Docker and Contrail services
+
+    ```
+    Stop-Service contrail*
+    Stop-Service docker
+    ```
+
+    - Reinstall vRouter extension
+
+    ```
+    # Enter folder where vRouter's msi is located
+    # Uninstall vRouter extension
+    msiexec /x vRouter.msi
+    # Remove container networks
+    Get-ContainerNetwork | Remove-ContainerNetwork -ErrorAction SilentlyContinue -Force
+    Get-ContainerNetwork | Remove-ContainerNetwork -Force
+    # Install vRouter extension
+    msiexec /i vRouter.msi
+    ```
+
+    - Start Docker and Contrail services
+
+    ```
+    Start-Service docker
+    Start-Service contrail*
+    ```
 
 [Launchpad link related to the issue](https://bugs.launchpad.net/opencontrail/+bug/1794262)
