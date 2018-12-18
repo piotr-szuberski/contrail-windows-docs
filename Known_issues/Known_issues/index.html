@@ -1147,6 +1147,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#container-reports-an-autoconfiguration-ip-address" title="Container reports an autoconfiguration IP address" class="md-nav__link">
+    Container reports an autoconfiguration IP address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waiting-for-ip-on-interface-ethernet1-failed" title="Waiting for IP on interface Ethernet1 failed" class="md-nav__link">
+    Waiting for IP on interface Ethernet1 failed
+  </a>
+  
+</li>
+      
       
       
       
@@ -1352,6 +1366,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#container-reports-an-autoconfiguration-ip-address" title="Container reports an autoconfiguration IP address" class="md-nav__link">
+    Container reports an autoconfiguration IP address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waiting-for-ip-on-interface-ethernet1-failed" title="Waiting for IP on interface Ethernet1 failed" class="md-nav__link">
+    Waiting for IP on interface Ethernet1 failed
+  </a>
+  
+</li>
+      
       
       
       
@@ -1388,7 +1416,7 @@ Set-Service -StartupType Disabled -Name winnat  # Disable autostart of WinNAT up
 container networks present on the Compute node):</p>
 <pre><code># Remove all container networks twice for good measure, because HNS sometimes fails
 Get-ContainerNetwork | Remove-ContainerNetwork -ErrorAction SilentlyContinue -Force
-Get-ContainerNetwork | Remove-ContainerNetwork -Force   
+Get-ContainerNetwork | Remove-ContainerNetwork -Force
 </code></pre>
 
 <p>You also need to edit Docker config file located at <code>C:\ProgramData\Docker\config\daemon.json</code> to contain
@@ -1431,6 +1459,58 @@ Assuming <code>ens224</code> is the data plane interface, please run the followi
 ethtool -K ens224 tx off
 </code></pre>
 <p>You can track progress on that issue on Launchpad: <a href="https://bugs.launchpad.net/opencontrail/+bug/1806680">https://bugs.launchpad.net/opencontrail/+bug/1806680</a></p>
+<h3 id="container-reports-an-autoconfiguration-ip-address">Container reports an autoconfiguration IP address</h3>
+<p>This bug happens when container is configured with autoconfiguration address instead of one provided by Docker.
+Genesis of this bug is unknown.</p>
+<p>For recovery do the following:</p>
+<ul>
+<li>Check if compute node was deployed properly (Refer to 1-5 steps from <a href="../Troubleshooting/">Troubleshooting</a>)</li>
+<li>Recreate the container</li>
+</ul>
+<p>If it does not work, refer to workarounds for <code>Waiting for IP on interface Ethernet1 failed</code> bug.</p>
+<p><a href="https://bugs.launchpad.net/opencontrail/+bug/1794263">Launchpad link related to the issue</a></p>
+<h3 id="waiting-for-ip-on-interface-ethernet1-failed">Waiting for IP on interface Ethernet1 failed</h3>
+<p>This bug happens when there is no reassignment of IP address from vhost (<code>vEthernet</code>) to physical interface (e.g. <code>Ethernet1</code>) after deleting vRouter extension.
+This is a long occuring hard to catch and hard to fix bug.</p>
+<p>There are two workarounds:</p>
+<ul>
+<li>Invasive but easier:<ul>
+<li>Use cleanup script (Step 10 in <a href="../Troubleshooting/">Troubleshooting</a>).</li>
+<li>Redeploy compute node with e.g. contrail-ansible-deployer.</li>
+</ul>
+</li>
+<li>
+<p>Less invasive but harder (this method sometimes needs to be repeated multiple times):</p>
+<ul>
+<li>Delete containers and docker networks</li>
+<li>
+<p>Stop Docker and Contrail services</p>
+<pre><code>Stop-Service contrail*
+Stop-Service docker
+</code></pre>
+</li>
+<li>
+<p>Reinstall vRouter extension</p>
+<pre><code># Enter folder where vRouter's msi is located
+# Uninstall vRouter extension
+msiexec /x vRouter.msi
+# Remove container networks
+Get-ContainerNetwork | Remove-ContainerNetwork -ErrorAction SilentlyContinue -Force
+Get-ContainerNetwork | Remove-ContainerNetwork -Force
+# Install vRouter extension
+msiexec /i vRouter.msi
+</code></pre>
+</li>
+<li>
+<p>Start Docker and Contrail services</p>
+<pre><code>Start-Service docker
+Start-Service contrail*
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://bugs.launchpad.net/opencontrail/+bug/1794262">Launchpad link related to the issue</a></p>
                 
                   
                 
