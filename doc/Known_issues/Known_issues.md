@@ -113,6 +113,7 @@ This bug happens when there is no reassignment of IP address from vhost (`vEther
 This is a long occuring hard to catch and hard to fix bug.
 
 There are two workarounds:
+
 - Invasive but easier:
     - Use cleanup script (Step 10 in [Troubleshooting](./Troubleshooting.md)).
     - Redeploy compute node with e.g. contrail-ansible-deployer.
@@ -120,29 +121,24 @@ There are two workarounds:
     - Delete containers and docker networks
     - Stop Docker and Contrail services
 
-    ```
-    Stop-Service contrail*
-    Stop-Service docker
-    ```
+            Stop-Service contrail*
+            Stop-Service docker
 
     - Reinstall vRouter extension
 
-    ```
-    # Enter folder where vRouter's msi is located
-    # Uninstall vRouter extension
-    msiexec /x vRouter.msi
-    # Remove container networks
-    Get-ContainerNetwork | Remove-ContainerNetwork -ErrorAction SilentlyContinue -Force
-    Get-ContainerNetwork | Remove-ContainerNetwork -Force
-    # Install vRouter extension
-    msiexec /i vRouter.msi
-    ```
+            # Enter folder where vRouter's msi is located
+            # Uninstall vRouter extension
+            msiexec /x vRouter.msi
+            # Remove container networks
+            Get-ContainerNetwork | Remove-ContainerNetwork -ErrorAction SilentlyContinue -Force
+            Get-ContainerNetwork | Remove-ContainerNetwork -Force
+            # Install vRouter extension
+            msiexec /i vRouter.msi
 
     - Start Docker and Contrail services
 
-    ```
-    Start-Service docker
-    Start-Service contrail*
-    ```
+            Start-Service docker
+            Start-Service contrail*
+
 
 [Launchpad link related to the issue](https://bugs.launchpad.net/opencontrail/+bug/1794262)
