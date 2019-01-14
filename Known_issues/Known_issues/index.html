@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.3">
     
     
       
@@ -48,8 +48,8 @@
       <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -1172,6 +1172,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#creating-container-failed-because-of-timeout" title="Creating container failed because of timeout" class="md-nav__link">
+    Creating container failed because of timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-i-run-get-net-command-inside-a-container-it-hangs" title="When I run Get-Net* command inside a container, it hangs" class="md-nav__link">
     When I run Get-Net* command inside a container, it hangs
   </a>
@@ -1391,6 +1398,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#creating-container-failed-because-of-timeout" title="Creating container failed because of timeout" class="md-nav__link">
+    Creating container failed because of timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-i-run-get-net-command-inside-a-container-it-hangs" title="When I run Get-Net* command inside a container, it hangs" class="md-nav__link">
     When I run Get-Net* command inside a container, it hangs
   </a>
@@ -1486,6 +1500,14 @@ Get-ContainerNetwork | Remove-ContainerNetwork -Force
 </code></pre>
 
 <p>Otherwise, Docker will try to reenable WinNAT upon restart.</p>
+<hr />
+<h3 id="creating-container-failed-because-of-timeout">Creating container failed because of timeout</h3>
+<p>Symptom: running <code>docker run ...</code> results in this error:</p>
+<pre><code>hcsshim::PrepareLayer failed in Win32: This operation returned because the timeout period expired. (0x5b4)
+</code></pre>
+
+<p>It happens when mounted layer take too much time to appear in system. Workaround requires repeating failed action.</p>
+<p>Please refer to <a href="https://github.com/moby/moby/issues/27588">this issue on github</a>.</p>
 <hr />
 <h3 id="when-i-run-get-net-command-inside-a-container-it-hangs">When I run Get-Net* command inside a container, it hangs</h3>
 <p>Symptom: running <code>Get-NetAdapter</code>, <code>Get-NetIpInterface</code> or other <code>Get-Net*</code> commands inside containers hangs.</p>
@@ -1643,7 +1665,7 @@ Start-Service contrail*
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.3",url:{base:"../.."}})</script>
       
     
     
