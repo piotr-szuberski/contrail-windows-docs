@@ -20,11 +20,11 @@
         first step).
 
 * On both Windows VMs:
-    1. Verify if Agent service is running:
+    1. Verify if services are running:
 
-            Get-Service ContrailAgent
+            Get-Service Contrail*
 
-        State should be Running
+        State of each should be Running
 
     1. Verify if VMSwitch Extension is running and enabled:
 
@@ -33,11 +33,6 @@
         Find block of data describing to `vRouter`  
         Both Enabled and Running fields should be True
 
-    1. Verify if CNM plugin service is running:
-
-            Get-Service contrail-cnm-plugin
-
-        State should be Running
     1. Create docker network `testnet1` on the 1st Windows compute code:
 
             docker network create --ipam-driver windows -d Contrail --opt tenant=admin --opt network=testnet1 testnet1
